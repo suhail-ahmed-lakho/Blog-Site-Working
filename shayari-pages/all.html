@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Shayaris - BlogSpace</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Enhanced Header Styles */
+        .header-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #e74c3c 100%);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 4rem;
+        }
+
+        .floating-element {
+            position: absolute;
+            color: rgba(255,255,255,0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .element-1 { top: 20%; left: 10%; font-size: 2rem; animation-delay: 0s; }
+        .element-2 { top: 60%; left: 20%; font-size: 1.5rem; animation-delay: 1s; }
+        .element-3 { top: 30%; right: 15%; font-size: 2.5rem; animation-delay: 2s; }
+        .element-4 { top: 70%; right: 25%; font-size: 1.8rem; animation-delay: 3s; }
+
+        /* Enhanced Filter Section */
+        .filter-section {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .filter-badge {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            margin: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-badge:hover,
+        .filter-badge.active {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.05);
+        }
+
+        /* Enhanced Card Styles */
+        .shayari-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: none;
+            overflow: hidden;
+            height: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardFadeIn 0.8s ease forwards;
+        }
+
+        .shayari-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Language Toggle Button */
+        .language-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .language-toggle:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Sort Options */
+        .sort-options {
+            margin-bottom: 2rem;
+        }
+
+        .sort-btn {
+            background: transparent;
+            border: 1px solid #3498db;
+            color: #3498db;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .sort-btn:hover,
+        .sort-btn.active {
+            background: #3498db;
+            color: white;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        @keyframes cardFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Loading Animation */
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-section {
+                padding: 4rem 0;
+            }
+
+            .header-title {
+                font-size: 2.5rem;
+            }
+
+            .filter-section {
+                padding: 1rem;
+            }
+
+            .sort-options {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .sort-btn {
+                margin: 0.5rem;
+            }
+        }
+
+        /* Add these styles */
+        .custom-shape-divider-bottom-1709477460 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .custom-shape-divider-bottom-1709477460 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+
+        .custom-shape-divider-bottom-1709477460 .shape-fill {
+            fill: #FFFFFF;
+        }
+
+        /* Add these styles in the <style> section */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        /* Add these styles */
+        .header-title {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .header-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Shayari Text Styles */
+        .shayari-text {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 1.4rem;
+            line-height: 2.5;
+            color: #2c3e50;
+            text-align: center;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .shayari-text::before,
+        .shayari-text::after {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #ffc107;
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .shayari-text::before {
+            top: -10px;
+            left: 10px;
+        }
+
+        .shayari-text::after {
+            bottom: -30px;
+            right: 10px;
+        }
+
+        /* Header Title Styles */
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        .header-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
+        }
+
+        /* Category Badge Styles */
+        .category-badge {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #ffc107 0%, #ffdb4d 100%);
+            color: #000;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+        }
+
+        /* Author Info Styles */
+        .author-info {
+            font-family: 'Poppins', sans-serif;
+            color: #6c757d;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Search Input Styles */
+        .search-input {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 50px;
+            padding: 1rem 1.5rem;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Results Count Styles */
+        #resultsCount {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 1rem;
+        }
+
+        /* Add these styles */
+        .search-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .search-input {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px 0 0 10px !important;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-input:focus {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            color: white;
+            box-shadow: none;
+        }
+
+        .form-select {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            border-radius: 0 10px 10px 0 !important;
+            cursor: pointer;
+        }
+
+        .form-select:focus {
+            background-color: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            color: white;
+            box-shadow: none;
+        }
+
+        .form-select option {
+            background-color: #fff;
+            color: #333;
+        }
+
+        .english-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            text-align: center;
+            padding: 1rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            color: #666;
+        }
+
+        /* Add these styles for enhanced buttons */
+        .interaction-buttons {
+            padding: 1rem 0;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .like-btn, .share-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            background: transparent;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .like-btn {
+            color: #dc3545;
+        }
+
+        .like-btn:hover {
+            background: rgba(220, 53, 69, 0.1);
+            transform: scale(1.05);
+        }
+
+        .like-btn.liked {
+            background: #dc3545;
+            color: white;
+        }
+
+        .like-btn i {
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .like-btn:hover i {
+            transform: scale(1.2);
+        }
+
+        .share-btn {
+            color: #0d6efd;
+        }
+
+        .share-btn:hover {
+            background: rgba(13, 110, 253, 0.1);
+            transform: scale(1.05);
+        }
+
+        .share-btn i {
+            font-size: 1.1rem;
+        }
+
+        /* Animation for like action */
+        @keyframes likeAnimation {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+
+        .like-animation {
+            animation: likeAnimation 0.5s ease;
+        }
+
+        /* Toast notification styles */
+        .toast-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .toast {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-pencil-square text-warning me-2"></i>
+                <span>Blog<span class="text-warning">Space</span></span>
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Nav Content -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto">
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../home.html">
+                            <i class="bi bi-house-door me-1"></i>Home
+                        </a>
+                    </li>
+
+                    <!-- Shayaris -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-heart me-1"></i>Shayaris
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./love.html">
+                                <i class="bi bi-heart-fill me-2 text-danger"></i>Love Shayari
+                            </a></li>
+                            <li><a class="dropdown-item" href="./friendship.html">
+                                <i class="bi bi-people-fill me-2 text-info"></i>Friendship Shayari
+                            </a></li>
+                            <li><a class="dropdown-item" href="./sad.html">
+                                <i class="bi bi-cloud-rain-fill me-2 text-primary"></i>Sad Shayari
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="./all-shayaris.html">
+                                <i class="bi bi-collection-fill me-2 text-warning"></i>View All
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Cartoons -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-emoji-smile me-1"></i>Cartoons
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./cartoon-pages/anime.html">
+                                <i class="bi bi-star-fill me-2 text-warning"></i>Anime
+                            </a></li>
+                            <li><a class="dropdown-item" href="./cartoon-pages/comics.html">
+                                <i class="bi bi-book-fill me-2 text-success"></i>Comics
+                            </a></li>
+                            <li><a class="dropdown-item" href="./cartoon-pages/kids.html">
+                                <i class="bi bi-balloon-fill me-2 text-danger"></i>Kids Cartoons
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="./cartoon-pages/all-cartoons.html">
+                                <i class="bi bi-collection-fill me-2 text-warning"></i>View All
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Stories -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-book me-1"></i>Stories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./story-pages/short.html">
+                                <i class="bi bi-bookmark-fill me-2 text-primary"></i>Short Stories
+                            </a></li>
+                            <li><a class="dropdown-item" href="./story-pages/moral.html">
+                                <i class="bi bi-lightbulb-fill me-2 text-warning"></i>Moral Stories
+                            </a></li>
+                            <li><a class="dropdown-item" href="./story-pages/bedtime.html">
+                                <i class="bi bi-moon-stars-fill me-2 text-info"></i>Bedtime Stories
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="./story-pages/all-stories.html">
+                                <i class="bi bi-collection-fill me-2 text-warning"></i>View All
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Weather -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/weather.html">
+                            <i class="bi bi-cloud-sun me-1"></i>Weather
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Search -->
+                <form class="d-flex mx-lg-2">
+                    <div class="input-group">
+                        <input type="search" class="form-control form-control-sm custom-search" 
+                               placeholder="Search..." aria-label="Search">
+                        <button class="btn btn-warning btn-sm" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Account -->
+                <div class="nav-item dropdown">
+                    <a class="nav-link user-dropdown" href="#" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-circle fs-5 text-warning"></i>
+                        <span class="d-none d-lg-inline">Account</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="./auth/login.html">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                        </a></li>
+                        <li><a class="dropdown-item" href="./auth/register.html">
+                            <i class="bi bi-person-plus me-2"></i>Register
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="./auth/profile.html">
+                            <i class="bi bi-person-circle me-2"></i>Profile
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner-border text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    
+
+    <!-- Header Section -->
+    <section class="header-section">
+        <div class="header-decoration">
+            <!-- Your decorative elements -->
+        </div>
+        
+        <div class="container">
+            <div class="text-center">
+                <h1 class="header-title">All Shayaris</h1>
+                <p class="header-subtitle">Explore our collection of beautiful shayaris</p>
+            </div>
+
+            <!-- Search Box -->
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="search-box">
+                        <div class="input-group">
+                            <input type="text" 
+                                   class="form-control search-input" 
+                                   id="searchInput" 
+                                   placeholder="Search shayaris by text or author...">
+                            <select class="form-select" id="categoryFilter">
+                                <option value="">All Categories</option>
+                                <option value="Love">Love</option>
+                                <option value="Sad">Sad</option>
+                                <option value="Classic">Classic</option>
+                                <option value="Life">Life</option>
+                                <option value="Romantic">Romantic</option>
+                                <option value="Friendship">Friendship</option>
+                            </select>
+                        </div>
+                        <div id="resultsCount" class="text-white mt-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wave Shape -->
+        <div class="custom-shape-divider-bottom-1709477460">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="content-section py-5">
+        <div class="container">
+            <div class="row" id="shayariContainer">
+                <!-- Shayaris will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+        <!-- Enhanced Footer with Dark Theme -->
+        <footer class="bg-dark text-white pt-5 pb-3">
+            <div class="container">
+                <!-- Main Footer Content -->
+                <div class="row g-4">
+                    <!-- About Section -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="mb-4">
+                            <a class="navbar-brand" href="#">
+                                <i class="bi bi-pencil-square text-warning fs-4 me-2"></i>
+                                <span class="fw-bold">Blog<span class="text-warning">Space</span></span>
+                            </a>
+                        </div>
+                        <p class="text-light">Your daily source for stories, shayaris, cartoons, and news. Join our community of writers and readers.</p>
+                        <div class="social-links">
+                            <a href="#" class="text-light me-3"><i class="bi bi-facebook fs-5"></i></a>
+                            <a href="#" class="text-light me-3"><i class="bi bi-twitter-x fs-5"></i></a>
+                            <a href="#" class="text-light me-3"><i class="bi bi-instagram fs-5"></i></a>
+                            <a href="#" class="text-light me-3"><i class="bi bi-linkedin fs-5"></i></a>
+                            <a href="#" class="text-light"><i class="bi bi-youtube fs-5"></i></a>
+                        </div>
+                    </div>
+    
+                    <!-- Quick Links -->
+                    <div class="col-lg-2 col-md-6">
+                        <h5 class="text-white mb-4">Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none">Home</a></li>
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none">About Us</a></li>
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none">Contact</a></li>
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none">Write for Us</a></li>
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none">Advertise</a></li>
+                        </ul>
+                    </div>
+    
+                    <!-- Categories -->
+                    <div class="col-lg-2 col-md-6">
+                        <h5 class="text-white mb-4">Categories</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none">Technology</a></li>
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none">Lifestyle</a></li>
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none">Travel</a></li>
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none">Food</a></li>
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none">Health</a></li>
+                        </ul>
+                    </div>
+    
+                    <!-- Newsletter -->
+                    <div class="col-lg-4 col-md-6">
+                        <h5 class="text-white mb-4">Newsletter</h5>
+                        <p class="text-light">Subscribe to our newsletter for the latest updates and exclusive content.</p>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control bg-dark text-light border-secondary" placeholder="Enter your email" aria-label="Email" aria-describedby="subscribe-btn">
+                            <button class="btn btn-warning" type="button" id="subscribe-btn">Subscribe</button>
+                        </div>
+                        <small class="text-light">By subscribing, you agree to our Privacy Policy</small>
+                    </div>
+                </div>
+    
+                <!-- Horizontal Line -->
+                <hr class="my-4 border-secondary">
+    
+                <!-- Bottom Footer -->
+                <div class="row align-items-center">
+                    <!-- Copyright -->
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <small class="text-light">
+                            &copy; 2024 BlogSpace. All rights reserved.
+                        </small>
+                    </div>
+    
+                    <!-- Legal Links -->
+                    <div class="col-md-6">
+                        <ul class="list-inline text-center text-md-end mb-0">
+                            <li class="list-inline-item">
+                                <a href="#" class="text-light text-decoration-none small">Privacy Policy</a>
+                            </li>
+                            <li class="list-inline-item ms-3">
+                                <a href="#" class="text-light text-decoration-none small">Terms of Use</a>
+                            </li>
+                            <li class="list-inline-item ms-3">
+                                <a href="#" class="text-light text-decoration-none small">Cookie Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Shayaris Array
+        const shayaris = [
+            // Friendship Shayaris
+            {
+                text: "دوستی ایک ایسا رشتہ ہے\nجو دل سے دل کو جوڑتا ہے",
+                englishText: "Friendship is a relationship\nThat connects heart to heart",
+                author: "Unknown",
+                date: "2024-03-15",
+                likes: 198,
+                category: "Friendship"
+            },
+            {
+                text: "یاروں کی محفل میں\nہر غم بھلا دیا کرتے ہیں",
+                englishText: "In the gathering of friends\nWe forget all our sorrows",
+                author: "Bashir Badr",
+                date: "2024-03-14",
+                likes: 167,
+                category: "Friendship"
+            },
+
+            // Love Shayaris
+            {
+                text: "دل کی کتاب میں تیرا نام ہے\nہر سانس میں تیرا پیغام ہے",
+                englishText: "Your name is in the book of my heart\nYour message is in every breath",
+                author: "Unknown",
+                date: "2024-03-15",
+                likes: 156,
+                category: "Love"
+            },
+            {
+                text: "تیری یادوں کے دیے\nہر شام جلتے ہیں",
+                englishText: "The lamps of your memories\nBurn every evening",
+                author: "Gulzar",
+                date: "2024-03-14",
+                likes: 245,
+                category: "Love"
+            },
+
+            // Sad Shayaris
+            {
+                text: "تنہئیوں میں یاد تیری آتی ہے\nہر شام غم کی چھاؤں بن جاتی ہے",
+                englishText: "In solitude, your memory comes\nEvery evening becomes a shadow of sorrow",
+                author: "Faiz Ahmad Faiz",
+                date: "2024-03-15",
+                likes: 178,
+                category: "Sad"
+            },
+            {
+                text: "درد اتنا ہے کہ بیاں ہو نہیں سکتا\nآنکھوں میں آنسو ہیں جو رواں ہو نہیں سکتا",
+                englishText: "The pain is so much that it cannot be expressed\nThere are tears in eyes that cannot flow",
+                author: "Mirza Ghalib",
+                date: "2024-03-14",
+                likes: 234,
+                category: "Sad"
+            },
+
+            // Classic Shayaris
+            {
+                text: "ہر عشق نے مجھے تنہا کر دیا\nپھر بھی مجھے عشق پہ اعتبار ہے",
+                englishText: "Every love has left me alone\nStill I believe in love",
+                author: "Nasir Kazmi",
+                date: "2024-03-13",
+                likes: 534,
+                category: "Classic"
+            },
+            {
+                text: "یہ تنہائی بھی کیا چیز ہے\nکوئی ساتھ نہیں پھر بھی قدم چلتے ہیں",
+                englishText: "What is this solitude\nNo one is with me yet my steps move forward",
+                author: "Ahmad Faraz",
+                date: "2024-03-12",
+                likes: 423,
+                category: "Classic"
+            }
+        ];
+
+        // Initialize when document is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize isLiked property for all shayaris
+            shayaris.forEach(shayari => {
+                shayari.isLiked = false;
+            });
+            
+            // Display initial shayaris
+            displayShayaris();
+
+            // Add event listeners for search and filter
+            const searchInput = document.getElementById('searchInput');
+            const categoryFilter = document.getElementById('categoryFilter');
+
+            searchInput.addEventListener('input', filterAndDisplayShayaris);
+            categoryFilter.addEventListener('change', filterAndDisplayShayaris);
+
+            // Hide loading overlay
+            setTimeout(() => {
+                const overlay = document.getElementById('loadingOverlay');
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
+        function filterAndDisplayShayaris() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            const selectedCategory = document.getElementById('categoryFilter').value;
+            
+            const filteredShayaris = shayaris.filter(shayari => {
+                const matchesSearch = 
+                    shayari.text.toLowerCase().includes(searchTerm) ||
+                    shayari.author.toLowerCase().includes(searchTerm) ||
+                    searchTerm === '';
+                    
+                const matchesCategory = 
+                    selectedCategory === '' || 
+                    shayari.category === selectedCategory;
+                
+                return matchesSearch && matchesCategory;
+            });
+
+            displayFilteredResults(filteredShayaris);
+        }
+
+        function displayFilteredResults(filteredShayaris) {
+            const container = document.getElementById('shayariContainer');
+            
+            if (filteredShayaris.length === 0) {
+                container.innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <div class="no-results">
+                            <i class="bi bi-search text-muted display-1"></i>
+                            <h3 class="mt-3 text-muted">No shayaris found</h3>
+                            <p class="text-muted">Try different search terms or category</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = filteredShayaris.map((shayari, index) => `
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card shayari-card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <div class="text-center mb-3">
+                                    <span class="category-badge">
+                                        ${shayari.category}
+                                    </span>
+                                </div>
+                                <div class="shayari-text flex-grow-1" dir="rtl" lang="ur">
+                                    ${shayari.text.split('\n').join('<br>')}
+                                </div>
+                                <div class="english-text text-muted mb-3">
+                                    ${shayari.englishText.split('\n').join('<br>')}
+                                </div>
+                                <div class="author-info text-center mb-3">
+                                    <i class="bi bi-person-circle me-1"></i>
+                                    ${shayari.author}
+                                </div>
+                                <div class="interaction-buttons d-flex justify-content-around">
+                                    <button class="like-btn border-0 ${shayari.isLiked ? 'liked' : ''}" 
+                                            onclick="likeShayari(${index})" 
+                                            id="likeBtn-${index}">
+                                        <i class="bi ${shayari.isLiked ? 'bi-heart-fill' : 'bi-heart'}"></i>
+                                        <span class="likes-count">${shayari.likes}</span>
+                                    </button>
+                                    <button class="share-btn border-0" onclick="shareShayari(${index})">
+                                        <i class="bi bi-share-fill"></i>
+                                        Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Update results count
+            const resultsCount = document.getElementById('resultsCount');
+            resultsCount.textContent = `Found ${filteredShayaris.length} shayari${filteredShayaris.length !== 1 ? 's' : ''}`;
+            resultsCount.style.display = 'block';
+        }
+
+        function displayShayaris() {
+            displayFilteredResults(shayaris);
+        }
+
+        function likeShayari(index) {
+            const shayari = shayaris[index];
+            const likeBtn = document.getElementById(`likeBtn-${index}`);
+            
+            if (!shayari.isLiked) {
+                shayari.likes++;
+                shayari.isLiked = true;
+                
+                // Add animation class
+                likeBtn.classList.add('like-animation');
+                setTimeout(() => likeBtn.classList.remove('like-animation'), 500);
+                
+                // Show toast notification
+                showToast('❤️ Added to your favorites!');
+                
+                // Update display
+                displayFilteredResults(shayaris);
+            }
+        }
+
+        function shareShayari(index) {
+            const shayari = shayaris[index];
+            const shareText = `${shayari.text}\n\n${shayari.englishText}\n\n- ${shayari.author}`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Beautiful Shayari',
+                    text: shareText,
+                    url: window.location.href
+                })
+                .then(() => showToast('✨ Successfully shared!'))
+                .catch(error => {
+                    if (error.name !== 'AbortError') {
+                        showToast('❌ Error sharing. Copied to clipboard instead!');
+                        copyToClipboard(shareText);
+                    }
+                });
+            } else {
+                copyToClipboard(shareText);
+                showToast('📋 Copied to clipboard!');
+            }
+        }
+
+        // Helper function for clipboard
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+        }
+
+        // Toast notification function
+        function showToast(message) {
+            let toastContainer = document.querySelector('.toast-container');
+            
+            if (!toastContainer) {
+                toastContainer = document.createElement('div');
+                toastContainer.className = 'toast-container';
+                document.body.appendChild(toastContainer);
+            }
+            
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = message;
+            
+            toastContainer.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html> 

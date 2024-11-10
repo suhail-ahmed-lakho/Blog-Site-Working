@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - BlogSpace</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body class="bg-light">
+    <!-- Navbar - Same as home page -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <!-- Brand/logo -->
+          <a class="navbar-brand" href="#">
+            <i class="bi bi-pencil-square text-warning fs-4 me-2"></i>
+            <span class="fw-bold">Blog<span class="text-warning">Space</span></span>
+          </a>
+      
+          <!-- Hamburger menu button for mobile -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <!-- Navbar content -->
+          <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <!-- Home -->
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../home.html">Home</a>
+              </li>
+      
+              <!-- Shayaris Dropdown -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Shayaris
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Love Shayari</a></li>
+                  <li><a class="dropdown-item" href="#">Friendship Shayari</a></li>
+                  <li><a class="dropdown-item" href="#">Sad Shayari</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">View All Shayaris</a></li>
+                </ul>
+              </li>
+      
+              <!-- Cartoons Dropdown -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Cartoons
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Anime</a></li>
+                  <li><a class="dropdown-item" href="#">Comics</a></li>
+                  <li><a class="dropdown-item" href="#">Kids Cartoons</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">View All Cartoons</a></li>
+                </ul>
+              </li>
+      
+              <!-- Stories Dropdown -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Stories
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Short Stories</a></li>
+                  <li><a class="dropdown-item" href="#">Moral Stories</a></li>
+                  <li><a class="dropdown-item" href="#">Bedtime Stories</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">View All Stories</a></li>
+                </ul>
+              </li>
+      
+              <!-- Daily News Dropdown -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Daily News
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Politics</a></li>
+                  <li><a class="dropdown-item" href="#">Sports</a></li>
+                  <li><a class="dropdown-item" href="#">Entertainment</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">View All News</a></li>
+                </ul>
+              </li>
+      
+              <!-- Weather -->
+              <li class="nav-item">
+                <a class="nav-link" href="#">Weather</a>
+              </li>
+            </ul>
+      
+            <!-- Search Form -->
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search posts..." aria-label="Search">
+              <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
+      
+            <!-- User Account -->
+            <ul class="navbar-nav ms-3">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-person-circle"></i> Account
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="./login.html">Login</a></li>
+                  <li><a class="dropdown-item" href="./register.html">Register</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="./pages/profile.html">My Profile</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <!-- Login Form -->
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card shadow">
+                    <div class="card-body p-5">
+                        <!-- Login Header -->
+                        <h2 class="text-center mb-4">
+                            <i class="bi bi-person-circle text-warning me-2"></i>
+                            Welcome Back
+                        </h2>
+                        
+                        <form>
+                            <!-- Username/Email -->
+                            <div class="mb-3">
+                                <label class="form-label">Username or Email</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-person"></i>
+                                    </span>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-lock"></i>
+                                    </span>
+                                    <input type="password" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <!-- Remember Me & Forgot Password -->
+                            <div class="d-flex justify-content-between mb-4">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="remember">
+                                    <label class="form-check-label" for="remember">Remember me</label>
+                                </div>
+                                <a href="forgot-password.html" class="text-warning text-decoration-none">
+                                    Forgot Password?
+                                </a>
+                            </div>
+
+                            <!-- Login Button -->
+                            <button type="submit" class="btn btn-warning w-100 mb-3">
+                                <i class="bi bi-box-arrow-in-right me-2"></i>
+                                Login
+                            </button>
+
+                            <!-- Social Login Divider -->
+                            <div class="text-center mb-3">
+                                <span class="bg-light px-2 text-muted">or login with</span>
+                            </div>
+
+                            <!-- Social Login Buttons -->
+                            <div class="d-flex gap-2 mb-4">
+                                <button type="button" class="btn btn-outline-dark flex-grow-1">
+                                    <i class="bi bi-google me-2"></i>Google
+                                </button>
+                                <button type="button" class="btn btn-outline-dark flex-grow-1">
+                                    <i class="bi bi-facebook me-2"></i>Facebook
+                                </button>
+                            </div>
+
+                            <!-- Register Link -->
+                            <div class="text-center">
+                                Don't have an account? 
+                                <a href="register.html" class="text-warning text-decoration-none">
+                                    Register here
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

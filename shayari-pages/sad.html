@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sad Shayaris - BlogSpace</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+       
+
+        .shayari-card {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: none;
+            overflow: hidden;
+            height: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardFadeIn 0.8s ease forwards;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .shayari-text {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 1.3rem;
+            line-height: 2.2;
+            color: #2c3e50;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            flex-grow: 1;
+            margin: 1rem 0;
+        }
+
+        .author-info {
+            color: #6c757d;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 1rem 0;
+            padding: 0.5rem 0;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .interaction-buttons {
+            display: flex;
+            justify-content: space-around;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .like-btn, .share-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .like-btn {
+            color: #3498db;
+        }
+
+        .like-btn:hover {
+            background: rgba(52, 152, 219, 0.1);
+            transform: scale(1.05);
+        }
+
+        .share-btn {
+            color: #6c757d;
+        }
+
+        .share-btn:hover {
+            color: #3498db;
+            background: rgba(52, 152, 219, 0.1);
+            transform: scale(1.05);
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #3498db 0%, #2c3e50 100%);
+            color: #fff;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+            margin-bottom: 1rem;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);  /* Changed gradient colors */
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 4rem;
+        }
+
+      
+        
+        /* Animated background elements */
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 30l15-15l15 15l-15 15l-15-15zm0 0l-15 15l-15-15l15-15l15 15zm0 0l15 15l15-15l-15-15l-15 15zm0 0l-15-15l-15 15l15 15l15-15z' fill='%23ffffff' fill-opacity='0.05'/%3E%3C/svg%3E");
+            animation: backgroundMove 30s linear infinite;
+        }
+
+        @keyframes backgroundMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-title {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .header-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 0.3s;
+        }
+
+        /* Replace floating hearts with rain drops */
+        .floating-raindrop {
+            position: absolute;
+            color: rgba(255,255,255,0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .raindrop-1 { top: 20%; left: 10%; font-size: 2rem; animation-delay: 0s; }
+        .raindrop-2 { top: 60%; left: 20%; font-size: 1.5rem; animation-delay: 1s; }
+        .raindrop-3 { top: 30%; right: 15%; font-size: 2.5rem; animation-delay: 2s; }
+        .raindrop-4 { top: 70%; right: 25%; font-size: 1.8rem; animation-delay: 3s; }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Search bar styling */
+        .header-search {
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 0.6s;
+        }
+
+        .search-input {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+            padding: 15px 30px;
+            color: white;
+            width: 100%;
+            max-width: 500px;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+            box-shadow: 0 0 20px rgba(255,255,255,0.1);
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .results-count {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            opacity: 0;
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .no-results {
+            padding: 3rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .likes-count {
+            font-weight: 600;
+            margin-left: 5px;
+        }
+
+        .header-decoration {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .header-decoration svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 70px;
+            transform: rotateY(180deg);
+        }
+
+        .custom-shape-divider-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .custom-shape-divider-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+
+        .custom-shape-divider-bottom .shape-fill {
+            fill: #f8f9fa;
+        }
+
+        /* Loading Animation Styles */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader {
+            font-size: 3rem;
+            animation: rainDrop 1.5s infinite;
+        }
+
+        @keyframes rainDrop {
+            0% { transform: translateY(-20px); opacity: 0; }
+            50% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(20px); opacity: 0; }
+        }
+
+        /* Header Content Animations */
+        .header-title {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInDown 1s ease forwards 0.5s;
+        }
+
+        .header-subtitle {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 0.7s;
+        }
+
+        .search-input {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 0.9s;
+        }
+
+        /* Raindrop animations */
+        .floating-raindrop {
+            opacity: 0;
+            animation: rainFall 3s infinite linear;
+        }
+
+        .raindrop-1 { animation-delay: 0s; }
+        .raindrop-2 { animation-delay: 0.5s; }
+        .raindrop-3 { animation-delay: 1s; }
+        .raindrop-4 { animation-delay: 1.5s; }
+
+        @keyframes rainFall {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Card animations */
+        .shayari-card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardFadeIn 0.8s ease forwards;
+        }
+
+        @keyframes cardFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Card hover effect */
+        .shayari-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(52, 152, 219, 0.15);
+        }
+
+        /* Button hover animations */
+        .like-btn, .share-btn {
+            transition: all 0.3s ease;
+        }
+
+        .like-btn:hover {
+            transform: scale(1.1);
+            background: rgba(52, 152, 219, 0.2);
+        }
+
+        .share-btn:hover {
+            transform: scale(1.1);
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        /* Category badge animation */
+        .category-badge {
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .shayari-text {
+                font-size: 1.1rem;
+                padding: 1rem 0.5rem;
+            }
+            
+            .category-badge {
+                padding: 0.4rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <!-- Navbar (Same as login.html) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-pencil-square text-warning me-2"></i>
+                <span>Blog<span class="text-warning">Space</span></span>
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Nav Content -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto">
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../home.html">
+                            <i class="bi bi-house-door me-1"></i>Home
+                        </a>
+                    </li>
+
+                    <!-- Shayaris -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-heart me-1"></i>Shayaris
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./love.html">
+                                <i class="bi bi-heart-fill me-2 text-danger"></i>Love Shayari
+                            </a></li>
+                            <li><a class="dropdown-item" href="./friendship.html">
+                                <i class="bi bi-people-fill me-2 text-info"></i>Friendship Shayari
+                            </a></li>
+                            <li><a class="dropdown-item" href="./sad.html">
+                                <i class="bi bi-cloud-rain-fill me-2 text-primary"></i>Sad Shayari
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="./all.html">
+                                <i class="bi bi-collection-fill me-2 text-warning"></i>View All
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Cartoons -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-emoji-smile me-1"></i>Cartoons
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./cartoon-pages/anime.html">
+                                <i class="bi bi-star-fill me-2 text-warning"></i>Anime
+                            </a></li>
+                            <li><a class="dropdown-item" href="./cartoon-pages/comics.html">
+                                <i class="bi bi-book-fill me-2 text-success"></i>Comics
+                            </a></li>
+                            <li><a class="dropdown-item" href="./cartoon-pages/kids.html">
+                                <i class="bi bi-balloon-fill me-2 text-danger"></i>Kids Cartoons
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="./cartoon-pages/all-cartoons.html">
+                                <i class="bi bi-collection-fill me-2 text-warning"></i>View All
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Stories -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-book me-1"></i>Stories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./story-pages/short.html">
+                                <i class="bi bi-bookmark-fill me-2 text-primary"></i>Short Stories
+                            </a></li>
+                            <li><a class="dropdown-item" href="./story-pages/moral.html">
+                                <i class="bi bi-lightbulb-fill me-2 text-warning"></i>Moral Stories
+                            </a></li>
+                            <li><a class="dropdown-item" href="./story-pages/bedtime.html">
+                                <i class="bi bi-moon-stars-fill me-2 text-info"></i>Bedtime Stories
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="./story-pages/all-stories.html">
+                                <i class="bi bi-collection-fill me-2 text-warning"></i>View All
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Weather -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/weather.html">
+                            <i class="bi bi-cloud-sun me-1"></i>Weather
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Search -->
+                <form class="d-flex mx-lg-2">
+                    <div class="input-group">
+                        <input type="search" class="form-control form-control-sm custom-search" 
+                               placeholder="Search..." aria-label="Search">
+                        <button class="btn btn-warning btn-sm" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Account -->
+                <div class="nav-item dropdown">
+                    <a class="nav-link user-dropdown" href="#" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-circle fs-5 text-warning"></i>
+                        <span class="d-none d-lg-inline">Account</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="./auth/login.html">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                        </a></li>
+                        <li><a class="dropdown-item" href="./auth/register.html">
+                            <i class="bi bi-person-plus me-2"></i>Register
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="./auth/profile.html">
+                            <i class="bi bi-person-circle me-2"></i>Profile
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="header-section">
+        <!-- Floating raindrops -->
+        <i class="bi bi-cloud-rain-fill floating-raindrop raindrop-1"></i>
+        <i class="bi bi-cloud-rain-fill floating-raindrop raindrop-2"></i>
+        <i class="bi bi-cloud-rain-fill floating-raindrop raindrop-3"></i>
+        <i class="bi bi-cloud-rain-fill floating-raindrop raindrop-4"></i>
+
+        <div class="container text-center header-content">
+            <h1 class="header-title">
+                Sad Shayaris
+                <i class="bi bi-cloud-rain-fill text-warning ms-2"></i>
+            </h1>
+            <p class="header-subtitle">
+                Experience the depth of emotions through heartfelt melancholic poetry
+            </p>
+            
+            <!-- Search bar -->
+            <div class="header-search">
+                <input type="text" 
+                       class="search-input" 
+                       id="searchInput"
+                       placeholder="Search sad shayaris by poet, theme, or content..."
+                       aria-label="Search shayaris">
+                <div id="resultsCount" class="results-count text-center mt-2"></div>
+            </div>
+        </div>
+
+        <!-- Wave decoration -->
+        <div class="custom-shape-divider-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Shayari Content -->
+    <div class="container mb-5">
+        <div class="row g-4" id="shayariContainer">
+            <!-- Shayaris will be loaded here -->
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="text-center my-4" id="loadingSpinner">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="row g-4">
+                <!-- About Section -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="mb-4">
+                        <a class="navbar-brand" href="#">
+                            <i class="bi bi-pencil-square text-warning fs-4 me-2"></i>
+                            <span class="fw-bold">Blog<span class="text-warning">Space</span></span>
+                        </a>
+                    </div>
+                    <p class="text-light">Your daily source for stories, shayaris, cartoons, and news. Join our community of writers and readers.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-twitter-x fs-5"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-instagram fs-5"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-linkedin fs-5"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-youtube fs-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Contact</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Write for Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Advertise</a></li>
+                    </ul>
+                </div>
+
+                <!-- Categories -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-4">Categories</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Technology</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Lifestyle</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Travel</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Food</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Health</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-4">Newsletter</h5>
+                    <p class="text-light">Subscribe to our newsletter for the latest updates and exclusive content.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control bg-dark text-light border-secondary" placeholder="Enter your email" aria-label="Email" aria-describedby="subscribe-btn">
+                        <button class="btn btn-warning" type="button" id="subscribe-btn">Subscribe</button>
+                    </div>
+                    <small class="text-light">By subscribing, you agree to our Privacy Policy</small>
+                </div>
+            </div>
+
+            <!-- Horizontal Line -->
+            <hr class="my-4 border-secondary">
+
+            <!-- Bottom Footer -->
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <small class="text-light">
+                        &copy; 2024 BlogSpace. All rights reserved.
+                    </small>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-inline text-center text-md-end mb-0">
+                        <li class="list-inline-item">
+                            <a href="#" class="text-light text-decoration-none small">Privacy Policy</a>
+                        </li>
+                        <li class="list-inline-item ms-3">
+                            <a href="#" class="text-light text-decoration-none small">Terms of Use</a>
+                        </li>
+                        <li class="list-inline-item ms-3">
+                            <a href="#" class="text-light text-decoration-none small">Cookie Policy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sad-themed shayari data
+        const shayaris = [
+            {
+                text: "ہر درد کی دوا ہے زمانے کے پاس پر\nمیرے درد کی دوا کا زمانہ خود ہے",
+                author: "Faiz Ahmad Faiz",
+                likes: 856,
+                category: "Melancholic"
+            },
+            {
+                text: "یہ تنہائی بھی کیا تنہائی ہے\nہر طرف تیری یاد کا سایہ ہے",
+                author: "Ahmad Faraz",
+                likes: 723,
+                category: "Loneliness"
+            },
+            {
+                text: "ہم تو ٹوٹ کے بکھر بھی گئے\nوہ سنبھل کے بکھر گئے",
+                author: "Parveen Shakir",
+                likes: 912,
+                category: "Heartbreak"
+            },
+            {
+                text: "کوئی تو ہے جو نظام ہستی\nتوڑ رہا ہے، بنا رہا ہے",
+                author: "Nasir Kazmi",
+                likes: 845,
+                category: "Life"
+            },
+            {
+                text: "یہ غم کی رات بھی ڈھل جائے گی\nیہ درد کی آگ بھی بجھ جائے گی",
+                author: "Qateel Shifai",
+                likes: 756,
+                category: "Hope"
+            },
+            // Adding more sad shayaris
+            {
+                text: "ہر آنسو میں تیری یاد ہے\nہر سانس میں تیری آہ ہے",
+                author: "Mirza Ghalib",
+                likes: 934,
+                category: "Pain"
+            },
+            {
+                text: "یوں تو ہر شام اداس ہے\nآج کی شام کچھ خاص ہے",
+                author: "Jaun Elia",
+                likes: 867,
+                category: "Evening"
+            },
+            {
+                text: "کیا کہوں میں کہ کیوں روتا ہوں\nتم چلے گئے اور میں سوچتا ہوں",
+                author: "Bashir Badr",
+                likes: 789,
+                category: "Separation"
+            },
+            {
+                text: "ہر خوشی اب غم سی لگتی ہے\nہر ملاقات کم سی لگتی ہے",
+                author: "Ahmad Faraz",
+                likes: 845,
+                category: "Depression"
+            },
+            {
+                text: "تنہائی تو ہمیشہ ساتھ رہی\nپر آج کل اس کی آواز بھی آنے لگی",
+                author: "Jon Elia",
+                likes: 678,
+                category: "Solitude"
+            },
+            {
+                text: "وہ جو دل میں تھے بسے\nاب وہ یادوں میں ہیں رسے",
+                author: "Parveen Shakir",
+                likes: 923,
+                category: "Memories"
+            },
+            {
+                text: "کوئی تو ہے جو مجھے یاد کرتا ہے\nمیری تنہائی کو آباد کرتا ہے",
+                author: "Nasir Kazmi",
+                likes: 834,
+                category: "Longing"
+            },
+            {
+                text: "یہ دنیا، یہ مہنگی خاموشی\nہر لمحہ ہے غم کی آغوشی",
+                author: "Faiz Ahmad Faiz",
+                likes: 756,
+                category: "World"
+            },
+            {
+                text: "ہر شام غزل ہے تیرے بغیر\nہر صبح کہانی ہے تیری",
+                author: "Gulzar",
+                likes: 891,
+                category: "Missing"
+            },
+            {
+                text: "کیا کہوں میں اپنے درد کی داستان\nلفظ خاموش ہیں، آنھیں ہیں رواں",
+                author: "Waseem Barelvi",
+                likes: 767,
+                category: "Tears"
+            },
+            {
+                text: "تم چلے گئے، غم چھوڑ گئے\nہر سانس میں درد بوئے گئے",
+                author: "Bashir Badr",
+                likes: 845,
+                category: "Departure"
+            },
+            {
+                text: "یہ تنہائی، یہ خاموشی\nکوئی تو ہے جو سمجھے یہ بے ہشی",
+                author: "Jaun Elia",
+                likes: 912,
+                category: "Silence"
+            },
+            {
+                text: "ہر شام کی طرح آج بی\nتیری یاد نے دل کو چھوا ہے",
+                author: "Ahmad Faraz",
+                likes: 878,
+                category: "Evening"
+            },
+            {
+                text: "کیا کہوں میں اپنے درد کی کہانی\nر لفظ ہے آنسوؤں کی زبانی",
+                author: "Parveen Shakir",
+                likes: 934,
+                category: "Story"
+            },
+            {
+                text: "یہ زندگی بھی کیا زندگی ہے\nہر سانس میں تیری کمی ہے",
+                author: "Nasir Kazmi",
+                likes: 845,
+                category: "Life"
+            }
+        ];
+
+        function displayShayaris() {
+            const container = document.getElementById('shayariContainer');
+            container.innerHTML = shayaris.map((shayari, index) => `
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="shayari-card h-100" style="animation-delay: ${index * 0.1}s">
+                        <div class="card-body d-flex flex-column">
+                            <div class="text-center mb-3">
+                                <span class="category-badge">
+                                    ${shayari.category}
+                                </span>
+                            </div>
+                            <div class="shayari-text flex-grow-1" dir="rtl" lang="ur">
+                                ${shayari.text.split('\n').join('<br>')}
+                            </div>
+                            <div class="author-info text-center mb-3">
+                                <i class="bi bi-person-circle me-1"></i>
+                                ${shayari.author}
+                            </div>
+                            <div class="interaction-buttons d-flex justify-content-around">
+                                <button class="like-btn border-0" onclick="likeShayari(${index})">
+                                    <i class="bi bi-heart-fill"></i>
+                                    <span class="likes-count">${shayari.likes}</span>
+                                </button>
+                                <button class="share-btn border-0" onclick="shareShayari(${index})">
+                                    <i class="bi bi-share-fill"></i>
+                                    Share
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Like functionality
+        function likeShayari(index) {
+            shayaris[index].likes++;
+            document.querySelectorAll('.likes-count')[index].textContent = shayaris[index].likes;
+        }
+
+        // Share functionality
+        function shareShayari(index) {
+            const shayari = shayaris[index];
+            const shareText = `${shayari.text}\n\n- ${shayari.author}\n\nShared via BlogSpace`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Beautiful Sad Shayari',
+                    text: shareText,
+                    url: window.location.href
+                }).catch(err => {
+                    console.log('Error sharing:', err);
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                const textarea = document.createElement('textarea');
+                textarea.value = shareText;
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    alert('Shayari copied to clipboard!');
+                } catch (err) {
+                    console.error('Failed to copy:', err);
+                }
+                document.body.removeChild(textarea);
+            }
+        }
+
+        // Search functionality
+        function searchShayaris(query) {
+            const searchTerm = query.toLowerCase();
+            const filteredShayaris = shayaris.filter(shayari => 
+                shayari.text.toLowerCase().includes(searchTerm) ||
+                shayari.author.toLowerCase().includes(searchTerm) ||
+                shayari.category.toLowerCase().includes(searchTerm)
+            );
+
+            // Show no results message if no matches found
+            if (filteredShayaris.length === 0) {
+                document.getElementById('shayariContainer').innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <div class="no-results">
+                            <i class="bi bi-search text-muted display-1"></i>
+                            <h3 class="mt-3 text-muted">No shayaris found</h3>
+                            <p class="text-muted">Try searching with different keywords</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Display filtered results
+                displayFilteredShayaris(filteredShayaris);
+            }
+
+            // Update results count
+            updateResultsCount(filteredShayaris.length);
+        }
+
+        function displayFilteredShayaris(filteredShayaris) {
+            const container = document.getElementById('shayariContainer');
+            container.innerHTML = filteredShayaris.map((shayari, index) => `
+                <div class="col-md-6 col-lg-4 mb-4 fade-in">
+                    <div class="card shayari-card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="text-center mb-3">
+                                <span class="category-badge">
+                                    ${shayari.category}
+                                </span>
+                            </div>
+                            <div class="shayari-text flex-grow-1" dir="rtl" lang="ur">
+                                ${shayari.text.split('\n').join('<br>')}
+                            </div>
+                            <div class="author-info text-center mb-3">
+                                <i class="bi bi-person-circle me-1"></i>
+                                ${shayari.author}
+                            </div>
+                            <div class="interaction-buttons d-flex justify-content-around">
+                                <button class="like-btn border-0" onclick="likeShayari(${index})">
+                                    <i class="bi bi-heart-fill"></i>
+                                    <span class="likes-count">${shayari.likes}</span>
+                                </button>
+                                <button class="share-btn border-0" onclick="shareShayari(${index})">
+                                    <i class="bi bi-share-fill"></i>
+                                    Share
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateResultsCount(count) {
+            const resultsCount = document.getElementById('resultsCount');
+            resultsCount.textContent = `${count} ${count === 1 ? 'shayari' : 'shayaris'} found`;
+            resultsCount.style.display = count > 0 ? 'block' : 'none';
+        }
+
+        // Add event listener for search input with debounce
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Use debounced search
+        const debouncedSearch = debounce((query) => {
+            searchShayaris(query);
+        }, 300);
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value;
+            if (query.length >= 2) {
+                debouncedSearch(query);
+            } else if (query.length === 0) {
+                displayShayaris();
+                document.getElementById('resultsCount').style.display = 'none';
+            }
+        });
+
+        // Load shayaris when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Display shayaris first
+            displayShayaris();
+
+            // Then hide loading overlay after a delay
+            setTimeout(() => {
+                const overlay = document.getElementById('loadingOverlay');
+                if (overlay) {
+                    overlay.style.opacity = '0';
+                    setTimeout(() => {
+                        overlay.style.display = 'none';
+                    }, 500);
+                }
+            }, 1500);
+
+            // Hide loading spinner
+            const spinner = document.getElementById('loadingSpinner');
+            if (spinner) {
+                spinner.style.display = 'none';
+            }
+        });
+
+        // Add Urdu font styling
+        const styleSheet = document.createElement("style");
+        styleSheet.textContent = `
+            @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+            
+            .shayari-text {
+                font-family: 'Noto Nastaliq Urdu', serif;
+                font-size: 1.4rem;
+                line-height: 2.5;
+                color: #2c3e50;
+                text-align: center;
+                padding: 1.5rem;
+            }
+        `;
+        document.head.appendChild(styleSheet);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

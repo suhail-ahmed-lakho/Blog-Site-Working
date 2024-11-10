@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogSpace - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="./style.css" rel="stylesheet">
+    <style>
+      
+
+        /* Headings */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Blog cards */
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .card-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Featured post */
+        .featured-post h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        footer p {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Additional font styles */
+        .display-4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .lead {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+        }
+
+        /* Font sizes and weights */
+        .fw-light { font-weight: 300 !important; }
+        .fw-normal { font-weight: 400 !important; }
+        .fw-medium { font-weight: 500 !important; }
+        .fw-semibold { font-weight: 600 !important; }
+        .fw-bold { font-weight: 700 !important; }
+
+        /* Optional: Add some letter spacing to headings */
+        h1, h2, h3, h4, h5, h6 {
+            letter-spacing: -0.02em;
+        }
+
+        /* Optional: Add some letter spacing to body text */
+        p, .card-text {
+            letter-spacing: 0.01em;
+        }
+
+        .featured-post {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+        .featured-post img {
+            transition: transform 0.3s;
+        }
+        .featured-post:hover img {
+            transform: scale(1.05);
+        }
+        .featured-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+        }
+        .blog-card {
+            transition: transform 0.2s;
+            border: none;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        .category-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 2;
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .bi {
+            font-size: 0.9rem;
+        }
+        #loadingSpinner {
+            display: none;
+        }
+        .social-links a {
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #ffc107 !important;
+        }
+        footer .list-unstyled a {
+            transition: color 0.3s;
+        }
+        footer .list-unstyled a:hover {
+            color: #ffc107 !important;
+            text-decoration: none;
+        }
+        footer .list-inline a {
+            transition: color 0.3s;
+        }
+        footer .list-inline a:hover {
+            color: #ffc107 !important;
+        }
+        footer .input-group .form-control {
+            background-color: #212529 !important;
+            border: 1px solid #495057;
+        }
+        footer .input-group .form-control:focus {
+            border-color: #ffc107;
+            box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+        }
+        footer .input-group .form-control::placeholder {
+            color: #6c757d;
+        }
+
+        /* Enhanced animations and effects */
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #363636 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.05)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            padding: 2rem;
+        }
+
+        .hero-image {
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+        }
+
+        .hero-image:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            top: 10%;
+            right: 0;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element-2 {
+            bottom: 10%;
+            left: 0;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        .small-illustration {
+            width: 100px;
+            height: auto;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Stats Section */
+        .text-light-emphasis {
+            color: rgba(255,255,255,0.7) !important;
+        }
+
+        /* Button Enhancements */
+        .btn-lg {
+            padding: 0.8rem 1.5rem;
+            font-weight: 500;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-lg:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+            border: none;
+        }
+
+        .btn-outline-light {
+            border: 2px solid #fff;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 991.98px) {
+            .hero-section {
+                text-align: center;
+                padding: 3rem 0;
+            }
+
+            .hero-image-wrapper {
+                margin-top: 2rem;
+            }
+
+            .d-flex.gap-3 {
+                justify-content: center;
+            }
+
+            .floating-element,
+            .floating-element-2 {
+                display: none;
+            }
+        }
+
+        /* Animation Delays */
+        .lead {
+            animation-delay: 0.2s;
+        }
+
+        .btn-lg {
+            animation-delay: 0.4s;
+        }
+
+        .hero-image {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand" href="./index.html">
+                <i class="bi bi-pencil-square text-warning me-2"></i>
+                <span>Blog<span class="text-warning">Space</span></span>
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Nav Content -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto">
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./home.html">
+                            <i class="bi bi-house-door me-1"></i>Home
+                        </a>
+                    </li>
+
+                    <!-- Shayaris -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-heart me-1"></i>Shayaris
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./shayari-pages/love.html">
+                                <i class="bi bi-heart-fill me-2 text-danger"></i>Love Shayari
+                            </a></li>
+                            <li><a class="dropdown-item" href="./shayari-pages/friendship.html">
+                                <i class="bi bi-people-fill me-2 text-info"></i>Friendship Shayari
+                            </a></li>
+                            <li><a class="dropdown-item" href="./shayari-pages/sad.html">
+                                <i class="bi bi-cloud-rain-fill me-2 text-primary"></i>Sad Shayari
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="./shayari-pages/all-shayaris.html">
+                                <i class="bi bi-collection-fill me-2 text-warning"></i>View All
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Cartoons -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-emoji-smile me-1"></i>Cartoons
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./cartoon-pages/anime.html">
+                                <i class="bi bi-star-fill me-2 text-warning"></i>Anime
+                            </a></li>
+                            <li><a class="dropdown-item" href="./cartoon-pages/comics.html">
+                                <i class="bi bi-book-fill me-2 text-success"></i>Comics
+                            </a></li>
+                            <li><a class="dropdown-item" href="./cartoon-pages/kids.html">
+                                <i class="bi bi-balloon-fill me-2 text-danger"></i>Kids Cartoons
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="./cartoon-pages/all.html">
+                                <i class="bi bi-collection-fill me-2 text-warning"></i>View All
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Stories -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-book me-1"></i>Stories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./story-pages/short.html">
+                                <i class="bi bi-bookmark-fill me-2 text-primary"></i>Short Stories
+                            </a></li>
+                            <li><a class="dropdown-item" href="./story-pages/moral.html">
+                                <i class="bi bi-lightbulb-fill me-2 text-warning"></i>Moral Stories
+                            </a></li>
+                            <li><a class="dropdown-item" href="./story-pages/bedtime.html">
+                                <i class="bi bi-moon-stars-fill me-2 text-info"></i>Bedtime Stories
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="./story-pages/all-stories.html">
+                                <i class="bi bi-collection-fill me-2 text-warning"></i>View All
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Weather -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="./weather.html">
+                            <i class="bi bi-cloud-sun me-1"></i>Weather
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Search -->
+                <form class="d-flex mx-lg-2">
+                    <div class="input-group">
+                        <input type="search" class="form-control form-control-sm custom-search" 
+                               placeholder="Search..." aria-label="Search">
+                        <button class="btn btn-warning btn-sm" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Account -->
+                <div class="nav-item dropdown">
+                    <a class="nav-link user-dropdown" href="#" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-circle fs-5 text-warning"></i>
+                        <span class="d-none d-lg-inline">Account</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="./auth/login.html">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                        </a></li>
+                        <li><a class="dropdown-item" href="./auth/register.html">
+                            <i class="bi bi-person-plus me-2"></i>Register
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="./auth/profile.html">
+                            <i class="bi bi-person-circle me-2"></i>Profile
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Add Hero Section -->
+    <div class="hero-section text-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-4 fw-bold mb-4">Discover Amazing Stories</h1>
+                    <p class="lead mb-4">Join our community of writers and readers. Share your stories, explore creative content, and stay updated with the latest news.</p>
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-warning btn-lg d-flex align-items-center">
+                            <i class="bi bi-pencil-square me-2"></i>
+                            Start Writing
+                        </button>
+                        <button class="btn btn-outline-light btn-lg d-flex align-items-center">
+                            <i class="bi bi-bell me-2"></i>
+                            Subscribe
+                        </button>
+                    </div>
+                    <!-- Stats Section -->
+                    <div class="row mt-5">
+                        <div class="col-4">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-people-fill text-warning fs-3 me-2"></i>
+                                <div>
+                                    <h3 class="mb-0">10K+</h3>
+                                    <p class="mb-0 text-light-emphasis">Writers</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-book-fill text-warning fs-3 me-2"></i>
+                                <div>
+                                    <h3 class="mb-0">50K+</h3>
+                                    <p class="mb-0 text-light-emphasis">Stories</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-heart-fill text-warning fs-3 me-2"></i>
+                                <div>
+                                    <h3 class="mb-0">100K+</h3>
+                                    <p class="mb-0 text-light-emphasis">Readers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-image-wrapper position-relative">
+                        <!-- Modern SVG Illustration -->
+                        <img src="https://illustrations.popsy.co/white/work-from-home.svg" 
+                             alt="Blog Community" 
+                             class="img-fluid hero-image">
+                        <!-- Floating Elements -->
+                        <div class="floating-element position-absolute">
+                            <img src="https://illustrations.popsy.co/white/student.svg" 
+                                 alt="" 
+                                 class="small-illustration">
+                        </div>
+                        <div class="floating-element-2 position-absolute">
+                            <img src="https://illustrations.popsy.co/white/coffee-break.svg" 
+                                 alt="" 
+                                 class="small-illustration">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Main Content -->
+    <div class="container my-5">
+        <!-- Featured Posts -->
+        <div class="row mb-5">
+            <div class="col-md-8">
+                <div class="featured-post h-100">
+                    <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                         alt="AI Technology" 
+                         class="img-fluid w-100">
+                    <div class="featured-content">
+                        <span class="badge bg-warning mb-2">Featured</span>
+                        <h2>The Future of Artificial Intelligence in 2024</h2>
+                        <p>Exploring how AI is reshaping our world and what to expect in the coming years.</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=John" 
+                                 class="rounded-circle me-2" 
+                                 width="40" 
+                                 height="40">
+                            <div>
+                                <small class="d-block">John Doe</small>
+                                <small class="text-light">Mar 15, 2024 · 5 min read</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h4 class="mb-3">Trending Now</h4>
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3">
+                        <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                             class="rounded" alt="Programming" width="60" height="60" style="object-fit: cover;">
+                        <div class="flex-grow-1">
+                            <div class="d-flex align-items-center mb-1">
+                                <div class="rounded-circle bg-warning d-flex align-items-center justify-content-center me-2" style="width: 24px; height: 24px;">
+                                    <small class="fw-bold">1</small>
+                                </div>
+                                <h6 class="mb-0">Top Programming Languages to Learn</h6>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <small class="text-muted me-2">15K views</small>
+                                <span class="badge bg-success">Trending</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3">
+                        <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                             class="rounded" alt="AI" width="60" height="60" style="object-fit: cover;">
+                        <div class="flex-grow-1">
+                            <div class="d-flex align-items-center mb-1">
+                                <div class="rounded-circle bg-warning d-flex align-items-center justify-content-center me-2" style="width: 24px; height: 24px;">
+                                    <small class="fw-bold">2</small>
+                                </div>
+                                <h6 class="mb-0">The Rise of AI in Daily Life</h6>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <small class="text-muted me-2">12K views</small>
+                                <span class="badge bg-danger">Hot</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3">
+                        <img src="https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                             class="rounded" alt="Crypto" width="60" height="60" style="object-fit: cover;">
+                        <div class="flex-grow-1">
+                            <div class="d-flex align-items-center mb-1">
+                                <div class="rounded-circle bg-warning d-flex align-items-center justify-content-center me-2" style="width: 24px; height: 24px;">
+                                    <small class="fw-bold">3</small>
+                                </div>
+                                <h6 class="mb-0">Cryptocurrency Market Updates</h6>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <small class="text-muted me-2">10K views</small>
+                                <span class="badge bg-primary">New</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3">
+                        <img src="https://images.pexels.com/photos/7367/startup-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                             class="rounded" alt="Startup" width="60" height="60" style="object-fit: cover;">
+                        <div class="flex-grow-1">
+                            <div class="d-flex align-items-center mb-1">
+                                <div class="rounded-circle bg-warning d-flex align-items-center justify-content-center me-2" style="width: 24px; height: 24px;">
+                                    <small class="fw-bold">4</small>
+                                </div>
+                                <h6 class="mb-0">Success Stories: Tech Startups</h6>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <small class="text-muted me-2">8K views</small>
+                                <span class="badge bg-info">Featured</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3">
+                        <img src="https://images.pexels.com/photos/4064835/pexels-photo-4064835.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                             class="rounded" alt="Remote Work" width="60" height="60" style="object-fit: cover;">
+                        <div class="flex-grow-1">
+                            <div class="d-flex align-items-center mb-1">
+                                <div class="rounded-circle bg-warning d-flex align-items-center justify-content-center me-2" style="width: 24px; height: 24px;">
+                                    <small class="fw-bold">5</small>
+                                </div>
+                                <h6 class="mb-0">Future of Remote Work</h6>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <small class="text-muted me-2">7K views</small>
+                                <span class="badge bg-secondary">Popular</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Latest Posts Grid -->
+        <h3 class="mb-4">Latest Posts</h3>
+        <div class="row g-4" id="postsContainer">
+            <!-- Posts will be loaded here dynamically -->
+        </div>
+        
+        <!-- Add this after your postsContainer div -->
+        <div id="paginationInfo" class="mt-4"></div>
+
+        <!-- Loading Spinner -->
+        <div class="text-center my-4" id="loadingSpinner">
+            <div class="spinner-border text-warning" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        
+        <!-- Load More Button -->
+        <div class="text-center mt-4">
+            <button class="btn btn-outline-warning" id="loadMoreBtn">Load More Posts</button>
+        </div>
+
+        <!-- Optional: Add numbered pagination -->
+        <nav aria-label="Page navigation" class="mt-4">
+            <ul class="pagination justify-content-center" id="pagination">
+                <!-- Pagination will be generated here -->
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Enhanced Footer with Dark Theme -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="row g-4">
+                <!-- About Section -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="mb-4">
+                        <a class="navbar-brand" href="#">
+                            <i class="bi bi-pencil-square text-warning fs-4 me-2"></i>
+                            <span class="fw-bold">Blog<span class="text-warning">Space</span></span>
+                        </a>
+                    </div>
+                    <p class="text-light">Your daily source for stories, shayaris, cartoons, and news. Join our community of writers and readers.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-twitter-x fs-5"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-instagram fs-5"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-linkedin fs-5"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-youtube fs-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Contact</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Write for Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Advertise</a></li>
+                    </ul>
+                </div>
+
+                <!-- Categories -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-4">Categories</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Technology</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Lifestyle</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Travel</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Food</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Health</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-4">Newsletter</h5>
+                    <p class="text-light">Subscribe to our newsletter for the latest updates and exclusive content.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control bg-dark text-light border-secondary" placeholder="Enter your email" aria-label="Email" aria-describedby="subscribe-btn">
+                        <button class="btn btn-warning" type="button" id="subscribe-btn">Subscribe</button>
+                    </div>
+                    <small class="text-light">By subscribing, you agree to our Privacy Policy</small>
+                </div>
+            </div>
+
+            <!-- Horizontal Line -->
+            <hr class="my-4 border-secondary">
+
+            <!-- Bottom Footer -->
+            <div class="row align-items-center">
+                <!-- Copyright -->
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <small class="text-light">
+                        &copy; 2024 BlogSpace. All rights reserved.
+                    </small>
+                </div>
+
+                <!-- Legal Links -->
+                <div class="col-md-6">
+                    <ul class="list-inline text-center text-md-end mb-0">
+                        <li class="list-inline-item">
+                            <a href="#" class="text-light text-decoration-none small">Privacy Policy</a>
+                        </li>
+                        <li class="list-inline-item ms-3">
+                            <a href="#" class="text-light text-decoration-none small">Terms of Use</a>
+                        </li>
+                        <li class="list-inline-item ms-3">
+                            <a href="#" class="text-light text-decoration-none small">Cookie Policy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    let totalPosts = 100; // Set maximum number of posts
+    let currentPage = 1;
+    const postsPerPage = 9; // Show 9 posts per page
+
+    // Initialize AOS
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+
+    // Enhanced blog card creation
+    function createBlogCard(post) {
+        // Define category-specific images
+        const categoryImages = {
+            Technology: [
+                'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg',
+                'https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg',
+                'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg'
+            ],
+            Lifestyle: [
+                'https://images.pexels.com/photos/1051838/pexels-photo-1051838.jpeg',
+                'https://images.pexels.com/photos/787961/pexels-photo-787961.jpeg',
+                'https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg'
+            ],
+            Travel: [
+                'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg',
+                'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg',
+                'https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg'
+            ],
+            Food: [
+                'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg',
+                'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg',
+                'https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg'
+            ],
+            Health: [
+                'https://images.pexels.com/photos/4047073/pexels-photo-4047073.jpeg',
+                'https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg',
+                'https://images.pexels.com/photos/3823207/pexels-photo-3823207.jpeg'
+            ]
+        };
+
+        // Select random category and corresponding image
+        const categories = Object.keys(categoryImages);
+        const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+        const categoryImageArray = categoryImages[randomCategory];
+        const randomImage = categoryImageArray[Math.floor(Math.random() * categoryImageArray.length)];
+        
+        return `
+            <div class="col-md-4 mb-4" data-aos="fade-up">
+                <div class="card blog-card h-100">
+                    <div class="position-relative">
+                        <img src="${randomImage}" 
+                             class="card-img-top" 
+                             alt="${randomCategory} blog post" 
+                             loading="lazy">
+                        <span class="badge category-badge bg-${getCategoryColor(randomCategory)}">${randomCategory}</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">${post.title}</h5>
+                        <p class="card-text text-muted">${post.body.substring(0, 100)}...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=${post.userId}" 
+                                     class="rounded-circle me-2" 
+                                     width="30" 
+                                     height="30" 
+                                     alt="Author avatar">
+                                <small class="text-muted">Author ${post.userId}</small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <button class="btn btn-sm btn-outline-warning me-2">
+                                    <i class="bi bi-heart"></i>
+                                    <span>${Math.floor(Math.random() * 1000)}</span>
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary">
+                                    <i class="bi bi-chat"></i>
+                                    <span>${Math.floor(Math.random() * 100)}</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    // Helper function to get bootstrap color classes for categories
+    function getCategoryColor(category) {
+        const colorMap = {
+            Technology: 'primary',
+            Lifestyle: 'success',
+            Travel: 'info',
+            Food: 'danger',
+            Health: 'warning'
+        };
+        return colorMap[category] || 'secondary';
+    }
+
+    // Function to generate numbered pagination
+    function generatePagination() {
+        const totalPages = Math.ceil(totalPosts / postsPerPage);
+        const pagination = document.getElementById('pagination');
+        let paginationHTML = '';
+
+        // Previous button
+        paginationHTML += `
+            <li class="page-item ${currentPage <= 1 ? 'disabled' : ''}">
+                <a class="page-link" href="#" data-page="${currentPage - 1}">Previous</a>
+            </li>
+        `;
+
+        // Numbered pages with ellipsis
+        for (let i = 1; i <= totalPages; i++) {
+            if (i === 1 || i === totalPages || 
+                (i >= currentPage - 2 && i <= currentPage + 2)) {
+                paginationHTML += `
+                    <li class="page-item ${i === currentPage ? 'active' : ''}">
+                        <a class="page-link" href="#" data-page="${i}">${i}</a>
+                    </li>
+                `;
+            } else if (i === currentPage - 3 || i === currentPage + 3) {
+                paginationHTML += `
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#">...</a>
+                    </li>
+                `;
+            }
+        }
+
+        // Next button
+        paginationHTML += `
+            <li class="page-item ${currentPage >= totalPages ? 'disabled' : ''}">
+                <a class="page-link" href="#" data-page="${currentPage + 1}">Next</a>
+            </li>
+        `;
+
+        pagination.innerHTML = paginationHTML;
+
+        // Add click handlers
+        pagination.querySelectorAll('.page-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageNum = parseInt(e.target.dataset.page);
+                if (pageNum && pageNum !== currentPage && pageNum > 0 && pageNum <= totalPages) {
+                    currentPage = pageNum;
+                    document.getElementById('postsContainer').innerHTML = '';
+                    loadPosts();
+                    window.scrollTo(0, 0);
+                }
+            });
+        });
+    }
+
+    // Function to load posts
+    async function loadPosts() {
+        try {
+            const spinner = document.getElementById('loadingSpinner');
+            spinner.style.display = 'block';
+            
+            const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${currentPage}&_limit=${postsPerPage}`);
+            const posts = await response.json();
+            
+            const postsContainer = document.getElementById('postsContainer');
+            postsContainer.innerHTML = ''; // Clear existing posts
+            
+            posts.forEach(post => {
+                postsContainer.innerHTML += createBlogCard(post);
+            });
+            
+            spinner.style.display = 'none';
+            generatePagination();
+            updatePaginationInfo();
+            
+        } catch (error) {
+            console.error('Error loading posts:', error);
+            document.getElementById('loadingSpinner').style.display = 'none';
+        }
+    }
+
+    // Load initial posts
+    document.addEventListener('DOMContentLoaded', loadPosts);
+
+    // Add pagination info display
+    function updatePaginationInfo() {
+        const totalPages = Math.ceil(totalPosts / postsPerPage);
+        const startPost = ((currentPage - 1) * postsPerPage) + 1;
+        const endPost = Math.min(currentPage * postsPerPage, totalPosts);
+        
+        document.getElementById('paginationInfo').innerHTML = `
+            <div class="text-center mb-3">
+                <p class="text-muted">
+                    Showing ${startPost}-${endPost} of ${totalPosts} posts
+                    (Page ${currentPage} of ${totalPages})
+                </p>
+            </div>
+        `;
+    }
+
+    // Remove infinite scroll
+    // window.removeEventListener('scroll', scrollHandler);
+
+    document.getElementById('subscribe-btn').addEventListener('click', function() {
+        const emailInput = this.previousElementSibling;
+        const email = emailInput.value.trim();
+        
+        if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            // Add your newsletter subscription logic here
+            alert('Thank you for subscribing!');
+            emailInput.value = '';
+        } else {
+            alert('Please enter a valid email address.');
+        }
+    });
+    </script>
+</body>
+</html>

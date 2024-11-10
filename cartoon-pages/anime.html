@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Corner - BlogSpace</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Inherit your existing font styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Anime-specific styles */
+        .anime-hero {
+            position: relative;
+            padding: 6rem 0;
+            overflow: hidden;
+            background-color: #0a0a0a;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1554310603-d39d43033735?w=1600') center/cover no-repeat;
+            opacity: 0.15;
+            filter: blur(8px);
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(0,0,0,0.8), rgba(0,0,0,0.5));
+        }
+
+        .min-vh-75 {
+            min-height: 75vh;
+        }
+
+        .anime-stats {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .anime-stats:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            padding: 20px;
+        }
+
+        .hero-image {
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image:hover {
+            transform: translateY(-10px);
+        }
+
+        .floating-badge-1 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(30%, -30%);
+            animation: float1 4s ease-in-out infinite;
+        }
+
+        .floating-badge-2 {
+            position: absolute;
+            bottom: 0;
+            right: 30%;
+            animation: float2 5s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(30%, -30%); }
+            50% { transform: translate(30%, -40%); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(0, -20px); }
+        }
+
+        .counter {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffc107;
+        }
+
+        .btn-warning {
+            background: #ffc107;
+            border: none;
+            color: #000;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-warning:hover {
+            background: #ffca2c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,193,7,0.3);
+        }
+
+        .btn-outline-light {
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-light:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,255,255,0.2);
+        }
+
+        @media (max-width: 991.98px) {
+            .anime-hero {
+                padding: 4rem 0;
+            }
+            
+            .min-vh-75 {
+                min-height: auto;
+            }
+            
+            .hero-image-wrapper {
+                margin-top: 3rem;
+            }
+        }
+
+        .anime-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .anime-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .anime-card img {
+            height: 400px;
+            object-fit: cover;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .anime-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .category-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 2;
+        }
+
+        .rating {
+            color: #ffc107;
+        }
+
+        .anime-stats {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 1rem;
+        }
+
+        .floating-element {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .genre-pill {
+            background: rgba(255,193,7,0.1);
+            color: #ffc107;
+            border-radius: 20px;
+            padding: 0.25rem 1rem;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .genre-pill:hover {
+            background: #ffc107;
+            color: #000;
+        }
+
+        /* Optional: Add loading animation for images */
+        .anime-card img {
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .rating-input .btn {
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .rating-input .btn:hover,
+        .rating-input .btn.active {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            color: #000;
+        }
+
+        .rating-input .btn-check:checked + .btn {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            color: #000;
+        }
+
+        .modal-content {
+            border-radius: 15px;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #ffc107;
+            box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+        }
+
+        .scroll-track,
+        .scroll-track-reverse {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            height: 300px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .scroll-content {
+            position: absolute;
+            display: flex;
+            gap: 20px;
+            padding: 0 10px;
+            animation: scroll 40s linear infinite;
+        }
+
+        .scroll-track-reverse .scroll-content {
+            animation: scroll-reverse 40s linear infinite;
+        }
+
+        .scroll-item {
+            position: relative;
+            min-width: 450px;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .scroll-item:hover {
+            transform: scale(1.02);
+            z-index: 1;
+        }
+
+        .scroll-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .scroll-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+        }
+
+        .scroll-item-overlay h5 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-100% - 20px)); }
+        }
+
+        @keyframes scroll-reverse {
+            0% { transform: translateX(calc(-100% - 20px)); }
+            100% { transform: translateX(0); }
+        }
+
+        .scroll-track:hover .scroll-content,
+        .scroll-track-reverse:hover .scroll-content {
+            animation-play-state: paused;
+        }
+
+        .scroll-track::before,
+        .scroll-track::after,
+        .scroll-track-reverse::before,
+        .scroll-track-reverse::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .scroll-track::before,
+        .scroll-track-reverse::before {
+            left: 0;
+            background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
+        }
+
+        .scroll-track::after,
+        .scroll-track-reverse::after {
+            right: 0;
+            background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+        }
+
+        .anime-showcase {
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+        }
+
+        .section-title {
+            font-weight: 700;
+        }
+
+        .section-title .highlight {
+            color: #007bff;
+        }
+
+        .section-title .small {
+            font-size: 1rem;
+            font-weight: normal;
+            margin-top: 5px;
+        }
+
+        .showcase-row {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .scroll-track,
+        .scroll-track-reverse {
+            padding: 20px 0;
+        }
+
+        .showcase-item {
+            flex: 0 0 auto;
+            padding: 0 10px;
+            width: 400px;
+        }
+
+        .showcase-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .showcase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .showcase-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .showcase-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 20px;
+            color: white;
+        }
+
+        .showcase-info h5 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .rating {
+            background: rgba(0,0,0,0.3);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+        }
+
+        .scroll-content {
+            animation: scroll 40s linear infinite;
+        }
+
+        .scroll-track-reverse .scroll-content {
+            animation: scroll-reverse 40s linear infinite;
+        }
+
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(calc(-100% - 20px)); }
+        }
+
+        @keyframes scroll-reverse {
+            from { transform: translateX(calc(-100% - 20px)); }
+            to { transform: translateX(0); }
+        }
+
+        .scroll-track:hover .scroll-content,
+        .scroll-track-reverse:hover .scroll-content {
+            animation-play-state: paused;
+        }
+
+        /* Add smooth gradient edges */
+        .showcase-row::before,
+        .showcase-row::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .showcase-row::before {
+            left: 0;
+            background: linear-gradient(to right, rgba(248,249,250,1), rgba(248,249,250,0));
+        }
+
+        .showcase-row::after {
+            right: 0;
+            background: linear-gradient(to left, rgba(248,249,250,1), rgba(248,249,250,0));
+        }
+
+        .anime-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .anime-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+
+        .highlight {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        /* Particle Animation */
+        .particle-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float 8s infinite;
+        }
+
+        .particle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 60%; left: 50%; animation-delay: 2s; }
+        .particle:nth-child(3) { top: 40%; left: 80%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(30px, 30px) rotate(180deg); }
+        }
+
+        /* Text Styles */
+        .gradient-text {
+            background: linear-gradient(45deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 3.5rem;
+        }
+
+        .highlight-text {
+            font-size: 1.8rem;
+            color: #ffc107;
+            margin-top: 0.5rem;
+        }
+
+        /* Button Styles */
+        .pulse-button {
+            animation: pulse 2s infinite;
+            background: linear-gradient(45deg, #ffc107, #ff9800);
+            border: none;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,193,7,0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255,193,7,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,193,7,0); }
+        }
+
+        .glow-button:hover {
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
+
+        /* Stats Cards */
+        .anime-stats {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stats-icon {
+            font-size: 2rem;
+            color: #ffc107;
+        }
+
+        /* Floating Badges */
+        .badge-card {
+            background: rgba(255,255,255,0.9);
+            color: #000;
+            padding: 0.8rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .rating-card {
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 0.8rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .rating-stars {
+            color: #ffd700;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        /* Hero Image */
+        .hero-image-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image {
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: all 0.5s ease;
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(0,0,0,0.2), rgba(0,0,0,0));
+            border-radius: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 991.98px) {
+            .gradient-text {
+                font-size: 2.5rem;
+            }
+            
+            .highlight-text {
+                font-size: 1.5rem;
+            }
+            
+            .hero-image-wrapper {
+                margin-top: 3rem;
+            }
+        }
+
+        .floating-image-1,
+        .floating-image-2 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: floatImage 6s ease-in-out infinite;
+        }
+
+        .floating-image-1 {
+            top: -20px;
+            right: -20px;
+            animation-delay: 0s;
+        }
+
+        .floating-image-2 {
+            bottom: -20px;
+            left: -20px;
+            animation-delay: 2s;
+        }
+
+        .floating-image-1 img,
+        .floating-image-2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        /* Enhanced image overlay */
+        .image-overlay {
+            background: linear-gradient(
+                45deg,
+                rgba(0,0,0,0.2),
+                rgba(255,193,7,0.1)
+            );
+        }
+
+        /* Enhanced hero image */
+        .hero-image {
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .hero-image:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body>
+  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand" href="../index.html">
+                <i class="bi bi-pencil-square text-warning me-2"></i>
+                <span>Blog<span class="text-warning">Space</span></span>
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Nav Content -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto">
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html">
+                            <i class="bi bi-house-door me-1"></i>Home
+                        </a>
+                    </li>
+
+                    <!-- Shayaris -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-heart me-1"></i>Shayaris
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./love.html">
+                                <i class="bi bi-heart-fill me-2 text-danger"></i>Love Shayari
+                            </a></li>
+                            <li><a class="dropdown-item" href="./friendship.html">
+                                <i class="bi bi-people-fill me-2 text-info"></i>Friendship Shayari
+                            </a></li>
+                            <li><a class="dropdown-item" href="./sad.html">
+                                <i class="bi bi-cloud-rain-fill me-2 text-primary"></i>Sad Shayari
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="./all-shayaris.html">
+                                <i class="bi bi-collection-fill me-2 text-warning"></i>View All
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Cartoons -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-emoji-smile me-1"></i>Cartoons
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./cartoon-pages/anime.html">
+                                <i class="bi bi-star-fill me-2 text-warning"></i>Anime
+                            </a></li>
+                            <li><a class="dropdown-item" href="./cartoon-pages/comics.html">
+                                <i class="bi bi-book-fill me-2 text-success"></i>Comics
+                            </a></li>
+                            <li><a class="dropdown-item" href="./cartoon-pages/kids.html">
+                                <i class="bi bi-balloon-fill me-2 text-danger"></i>Kids Cartoons
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="./cartoon-pages/all-cartoons.html">
+                                <i class="bi bi-collection-fill me-2 text-warning"></i>View All
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Stories -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-book me-1"></i>Stories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./story-pages/short.html">
+                                <i class="bi bi-bookmark-fill me-2 text-primary"></i>Short Stories
+                            </a></li>
+                            <li><a class="dropdown-item" href="./story-pages/moral.html">
+                                <i class="bi bi-lightbulb-fill me-2 text-warning"></i>Moral Stories
+                            </a></li>
+                            <li><a class="dropdown-item" href="./story-pages/bedtime.html">
+                                <i class="bi bi-moon-stars-fill me-2 text-info"></i>Bedtime Stories
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="./story-pages/all-stories.html">
+                                <i class="bi bi-collection-fill me-2 text-warning"></i>View All
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Weather -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/weather.html">
+                            <i class="bi bi-cloud-sun me-1"></i>Weather
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Search -->
+                <form class="d-flex mx-lg-2">
+                    <div class="input-group">
+                        <input type="search" class="form-control form-control-sm custom-search" 
+                               placeholder="Search..." aria-label="Search">
+                        <button class="btn btn-warning btn-sm" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Account -->
+                <div class="nav-item dropdown">
+                    <a class="nav-link user-dropdown" href="#" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-circle fs-5 text-warning"></i>
+                        <span class="d-none d-lg-inline">Account</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="../pages/login.html">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                        </a></li>
+                        <li><a class="dropdown-item" href="../pages/register.html">
+                            <i class="bi bi-person-plus me-2"></i>Register
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="../pages/profile.html">
+                            <i class="bi bi-person-circle me-2"></i>Profile
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Enhanced Anime Hero Section -->
+    <section class="anime-hero text-white">
+        <!-- Background Image -->
+        <div class="hero-bg" style="background: url('https://images.unsplash.com/photo-1612686635542-2244ed9f8ddc?auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;"></div>
+        
+        <div class="particle-container">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <div class="container position-relative">
+            <div class="row align-items-center min-vh-75">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="hero-content">
+                        <div class="badge bg-danger mb-3 p-2 animate-badge">
+                            <i class="bi bi-lightning-charge-fill me-1"></i>
+                            Featured Content
+                        </div>
+                        <h1 class="display-4 fw-bold mb-4 gradient-text">
+                            Discover Amazing Anime
+                            <span class="highlight-text d-block">Your Gateway to Japanese Animation</span>
+                        </h1>
+                        <p class="lead mb-4 text-light-gray">
+                            Explore the fascinating world of anime with our curated collection. 
+                            From classic masterpieces to the latest releases, find your next favorite series here.
+                        </p>
+                        
+                        <div class="d-flex gap-3 mb-5">
+                            <button class="btn btn-warning btn-lg pulse-button">
+                                <i class="bi bi-play-circle me-2"></i>
+                                Watch Now
+                            </button>
+                            <button class="btn btn-outline-light btn-lg glow-button">
+                                <i class="bi bi-bookmark-heart me-2"></i>
+                                My Watchlist
+                            </button>
+                        </div>
+                        
+                        <!-- Enhanced Anime Stats -->
+                        <div class="row g-4">
+                            <div class="col-4">
+                                <div class="anime-stats" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="stats-icon mb-2">
+                                        <i class="bi bi-collection-play"></i>
+                                    </div>
+                                    <h3 class="mb-0 counter" data-target="500">0</h3>
+                                    <p class="mb-0 text-light">Anime Series</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="anime-stats" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="stats-icon mb-2">
+                                        <i class="bi bi-play-circle"></i>
+                                    </div>
+                                    <h3 class="mb-0 counter" data-target="1000">0</h3>
+                                    <p class="mb-0 text-light">Episodes</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="anime-stats" data-aos="fade-up" data-aos-delay="300">
+                                    <div class="stats-icon mb-2">
+                                        <i class="bi bi-people"></i>
+                                    </div>
+                                    <h3 class="mb-0 counter" data-target="50000">0</h3>
+                                    <p class="mb-0 text-light">Reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-image-container">
+                        <div class="hero-image-wrapper">
+                            <!-- Main Hero Image -->
+                            <img src="https://images.unsplash.com/photo-1580477667995-2b94f01c9516?w=800" 
+                                 alt="Anime Feature" 
+                                 class="img-fluid rounded-3 hero-image">
+                             
+                            <!-- Additional Floating Images -->
+                            <div class="floating-image-1">
+                                <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=400" 
+                                     alt="Floating Anime 1" 
+                                     class="rounded-circle">
+                            </div>
+                            <div class="floating-image-2">
+                                <img src="https://images.unsplash.com/photo-1618336753974-aae8e04506aa?w=400" 
+                                     alt="Floating Anime 2" 
+                                     class="rounded-circle">
+                            </div>
+                            
+                            <div class="image-overlay"></div>
+                            
+                            <!-- Floating Badges -->
+                            <div class="floating-badge-1" data-aos="fade-left" data-aos-delay="400">
+                                <div class="badge-card">
+                                    <i class="bi bi-fire text-danger"></i>
+                                    <div class="ms-2">
+                                        <small class="d-block">Trending Now</small>
+                                        <strong>Demon Slayer</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="floating-badge-2" data-aos="fade-left" data-aos-delay="600">
+                                <div class="badge-card">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <div class="ms-2">
+                                        <small class="d-block">New Release</small>
+                                        <strong>Jujutsu Kaisen</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Genres -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="mb-4">Popular Genres</h2>
+            <div class="d-flex flex-wrap gap-2">
+                <a href="#" class="genre-pill text-decoration-none">Action</a>
+                <a href="#" class="genre-pill text-decoration-none">Adventure</a>
+                <a href="#" class="genre-pill text-decoration-none">Romance</a>
+                <a href="#" class="genre-pill text-decoration-none">Fantasy</a>
+                <a href="#" class="genre-pill text-decoration-none">Sci-Fi</a>
+                <a href="#" class="genre-pill text-decoration-none">Horror</a>
+                <a href="#" class="genre-pill text-decoration-none">Comedy</a>
+                <a href="#" class="genre-pill text-decoration-none">Drama</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Anime Cards -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="mb-4">Trending Anime</h2>
+            <div class="row g-4">
+                <!-- Anime Card 1 - Demon Slayer -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="card anime-card h-100">
+                        <div class="position-relative">
+                            <img src="https://w.wallhaven.cc/full/x8/wallhaven-x8ye3z.jpg" 
+                                 class="card-img-top" 
+                                 alt="Demon Slayer">
+                            <span class="badge bg-danger category-badge">New Season</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Demon Slayer</h5>
+                            <div class="rating mb-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <span class="ms-2">4.5</span>
+                            </div>
+                            <p class="card-text">Follow Tanjiro's quest to turn his sister back into a human after she becomes a demon.</p>
+                        </div>
+                        <div class="card-footer bg-white border-top-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-muted">Episodes: 26</span>
+                                <button class="btn btn-outline-warning btn-sm">
+                                    <i class="bi bi-play-fill"></i> Watch Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anime Card 2 - One Piece -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card anime-card h-100">
+                        <div class="position-relative">
+                            <img src="https://4kwallpapers.com/images/wallpapers/one-piece-luffy-monkey-d-luffy-anime-series-2732x2732-8941.jpg" 
+                                 class="card-img-top" 
+                                 alt="One Piece">
+                            <span class="badge bg-warning category-badge">Popular</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">One Piece</h5>
+                            <div class="rating mb-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <span class="ms-2">5.0</span>
+                            </div>
+                            <p class="card-text">Join Luffy and his pirate crew on their epic adventure to find the legendary One Piece treasure.</p>
+                        </div>
+                        <div class="card-footer bg-white border-top-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-muted">Episodes: 1000+</span>
+                                <button class="btn btn-outline-warning btn-sm">
+                                    <i class="bi bi-play-fill"></i> Watch Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anime Card 3 - Attack on Titan -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card anime-card h-100">
+                        <div class="position-relative">
+                            <img src="https://w.wallhaven.cc/full/pk/wallhaven-pkw6y3.jpg" 
+                                 class="card-img-top" 
+                                 alt="Attack on Titan">
+                            <span class="badge bg-danger category-badge">Final Season</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Attack on Titan</h5>
+                            <div class="rating mb-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <span class="ms-2">4.8</span>
+                            </div>
+                            <p class="card-text">Humanity's last stand against giant humanoid Titans in this dark and thrilling series.</p>
+                        </div>
+                        <div class="card-footer bg-white border-top-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-muted">Episodes: 87</span>
+                                <button class="btn btn-outline-warning btn-sm">
+                                    <i class="bi bi-play-fill"></i> Watch Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anime Card 4 - My Hero Academia -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card anime-card h-100">
+                        <div class="position-relative">
+                            <img src="https://w.wallhaven.cc/full/rd/wallhaven-rdwjj7.jpg" 
+                                 class="card-img-top" 
+                                 alt="My Hero Academia">
+                            <span class="badge bg-primary category-badge">Ongoing</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">My Hero Academia</h5>
+                            <div class="rating mb-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                                <span class="ms-2">4.0</span>
+                            </div>
+                            <p class="card-text">In a world where superpowers are common, young Midoriya strives to become the greatest hero.</p>
+                        </div>
+                        <div class="card-footer bg-white border-top-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-muted">Episodes: 113</span>
+                                <button class="btn btn-outline-warning btn-sm">
+                                    <i class="bi bi-play-fill"></i> Watch Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anime Card 5 - Jujutsu Kaisen -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card anime-card h-100">
+                        <div class="position-relative">
+                            <img src="https://w.wallhaven.cc/full/7p/wallhaven-7p39gy.png" 
+                                 class="card-img-top" 
+                                 alt="Jujutsu Kaisen">
+                            <span class="badge bg-success category-badge">New Episodes</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Jujutsu Kaisen</h5>
+                            <div class="rating mb-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <span class="ms-2">5.0</span>
+                            </div>
+                            <p class="card-text">Enter a world where curses run rampant and sorcerers must battle supernatural forces.</p>
+                        </div>
+                        <div class="card-footer bg-white border-top-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-muted">Episodes: 24</span>
+                                <button class="btn btn-outline-warning btn-sm">
+                                    <i class="bi bi-play-fill"></i> Watch Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anime Card 6 - Chainsaw Man -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card anime-card h-100">
+                        <div class="position-relative">
+                            <img src="https://4kwallpapers.com/images/wallpapers/chainsaw-man-denji-power-anime-series-2732x2732-8940.jpg" 
+                                 class="card-img-top" 
+                                 alt="Chainsaw Man">
+                            <span class="badge bg-info category-badge">Trending</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Chainsaw Man</h5>
+                            <div class="rating mb-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <span class="ms-2">4.7</span>
+                            </div>
+                            <p class="card-text">A dark fantasy about a young man who makes a contract with a Chainsaw Devil.</p>
+                        </div>
+                        <div class="card-footer bg-white border-top-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-muted">Episodes: 12</span>
+                                <button class="btn btn-outline-warning btn-sm">
+                                    <i class="bi bi-play-fill"></i> Watch Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Reviews Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Latest Reviews</h2>
+            </div>
+
+            <div class="row g-4">
+                <!-- Review Card 1 -->
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="https://w.wallhaven.cc/full/x8/wallhaven-x8ye3z.jpg" 
+                                     class="img-fluid rounded-start h-100" 
+                                     alt="Demon Slayer"
+                                     style="object-fit: cover;">
+                                <div class="position-absolute top-0 end-0 p-2">
+                                    <span class="badge bg-danger">Latest Review</span>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" 
+                                             class="rounded-circle me-2" 
+                                             width="40" 
+                                             height="40" 
+                                             alt="Reviewer">
+                                        <div>
+                                            <h6 class="mb-0">AnimeExpert</h6>
+                                            <small class="text-muted">Posted 3 days ago</small>
+                                        </div>
+                                    </div>
+                                    <h5 class="card-title">Demon Slayer Season 3: Epic Conclusion</h5>
+                                    <div class="rating mb-2">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <span class="ms-2">5.0</span>
+                                    </div>
+                                    <p class="card-text">The animation quality reaches new heights in this season. The fight scenes are breathtaking, and the emotional depth of the story continues to impress...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex gap-2">
+                                            <button class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-hand-thumbs-up me-1"></i>
+                                                <span>128</span>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-secondary">
+                                                <i class="bi bi-chat-dots me-1"></i>
+                                                <span>24</span>
+                                            </button>
+                                        </div>
+                                        <a href="#" class="btn btn-link text-primary text-decoration-none">Read Full Review</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="https://w.wallhaven.cc/full/7p/wallhaven-7p39gy.png" 
+                                     class="img-fluid rounded-start h-100" 
+                                     alt="Jujutsu Kaisen"
+                                     style="object-fit: cover;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Lucy" 
+                                             class="rounded-circle me-2" 
+                                             width="40" 
+                                             height="40" 
+                                             alt="Reviewer">
+                                        <div>
+                                            <h6 class="mb-0">MangaMaster</h6>
+                                            <small class="text-muted">Posted 1 week ago</small>
+                                        </div>
+                                    </div>
+                                    <h5 class="card-title">Jujutsu Kaisen: Breaking Conventions</h5>
+                                    <div class="rating mb-2">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-half text-warning"></i>
+                                        <span class="ms-2">4.5</span>
+                                    </div>
+                                    <p class="card-text">The character development is exceptional, and the way the show handles its darker themes while maintaining moments of levity is masterful...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex gap-2">
+                                            <button class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-hand-thumbs-up me-1"></i>
+                                                <span>96</span>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-secondary">
+                                                <i class="bi bi-chat-dots me-1"></i>
+                                                <span>18</span>
+                                            </button>
+                                        </div>
+                                        <a href="#" class="btn btn-link text-primary text-decoration-none">Read Full Review</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="https://w.wallhaven.cc/full/pk/wallhaven-pkw6y3.jpg" 
+                                     class="img-fluid rounded-start h-100" 
+                                     alt="Attack on Titan"
+                                     style="object-fit: cover;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Max" 
+                                             class="rounded-circle me-2" 
+                                             width="40" 
+                                             height="40" 
+                                             alt="Reviewer">
+                                        <div>
+                                            <h6 class="mb-0">TitanFanatic</h6>
+                                            <small class="text-muted">Posted 2 weeks ago</small>
+                                        </div>
+                                    </div>
+                                    <h5 class="card-title">Attack on Titan: Final Season Analysis</h5>
+                                    <div class="rating mb-2">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <span class="ms-2">5.0</span>
+                                    </div>
+                                    <p class="card-text">A masterpiece of storytelling that challenges viewers' perspectives and delivers an unforgettable conclusion...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex gap-2">
+                                            <button class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-hand-thumbs-up me-1"></i>
+                                                <span>156</span>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-secondary">
+                                                <i class="bi bi-chat-dots me-1"></i>
+                                                <span>32</span>
+                                            </button>
+                                        </div>
+                                        <a href="#" class="btn btn-link text-primary text-decoration-none">Read Full Review</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Reviews Button -->
+            <div class="text-center mt-4">
+                <button class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-repeat me-2"></i>Load More Reviews
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Releases -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>
+                    <span class="highlight">Upcoming</span> Releases
+                    <div class="small text-muted">Stay updated with the latest anime releases</div>
+                </h2>
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-filter me-2"></i>Filter by Season
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item active" href="#">Winter 2024</a></li>
+                        <li><a class="dropdown-item" href="#">Spring 2024</a></li>
+                        <li><a class="dropdown-item" href="#">Summer 2024</a></li>
+                        <li><a class="dropdown-item" href="#">Fall 2024</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Solo Leveling -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                    <div class="card anime-card h-100 border-0 shadow-sm">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800" 
+                                 class="card-img-top" 
+                                 alt="Solo Leveling"
+                                 style="height: 300px; object-fit: cover;">
+                            <div class="position-absolute top-0 end-0 p-2">
+                                <span class="badge bg-danger">Most Anticipated</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Solo Leveling</h5>
+                            <div class="mb-3">
+                                <span class="badge bg-primary me-2">Winter 2024</span>
+                                <span class="badge bg-secondary">Action</span>
+                            </div>
+                            <p class="card-text">A weak hunter becomes the world's strongest through a mysterious system.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Premieres Jan 6, 2024</small>
+                                <button class="btn btn-sm btn-warning set-reminder">
+                                    <i class="bi bi-bell me-1"></i>Set Reminder
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Classroom of the Elite -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card anime-card h-100 border-0 shadow-sm">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1580477667995-2b94f01c9516?w=800" 
+                                 class="card-img-top" 
+                                 alt="Classroom of the Elite"
+                                 style="height: 300px; object-fit: cover;">
+                            <div class="position-absolute top-0 end-0 p-2">
+                                <span class="badge bg-info">New Season</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Classroom of the Elite III</h5>
+                            <div class="mb-3">
+                                <span class="badge bg-primary me-2">Winter 2024</span>
+                                <span class="badge bg-secondary">Psychological</span>
+                            </div>
+                            <p class="card-text">The intense psychological warfare continues in this elite school.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Premieres Jan 3, 2024</small>
+                                <button class="btn btn-sm btn-warning set-reminder">
+                                    <i class="bi bi-bell me-1"></i>Set Reminder
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mushoku Tensei -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card anime-card h-100 border-0 shadow-sm">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1541562232579-512a21360020?w=800" 
+                                 class="card-img-top" 
+                                 alt="Mushoku Tensei"
+                                 style="height: 300px; object-fit: cover;">
+                            <div class="position-absolute top-0 end-0 p-2">
+                                <span class="badge bg-info">Continuing</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Mushoku Tensei II</h5>
+                            <div class="mb-3">
+                                <span class="badge bg-primary me-2">Winter 2024</span>
+                                <span class="badge bg-secondary">Fantasy</span>
+                            </div>
+                            <p class="card-text">The epic isekai journey continues with new adventures.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Premieres Jan 7, 2024</small>
+                                <button class="btn btn-sm btn-warning set-reminder">
+                                    <i class="bi bi-bell me-1"></i>Set Reminder
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demon Slayer -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card anime-card h-100 border-0 shadow-sm">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800" 
+                                 class="card-img-top" 
+                                 alt="Demon Slayer"
+                                 style="height: 300px; object-fit: cover;">
+                            <div class="position-absolute top-0 end-0 p-2">
+                                <span class="badge bg-danger">Highly Anticipated</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Demon Slayer: Hashira Training</h5>
+                            <div class="mb-3">
+                                <span class="badge bg-primary me-2">Spring 2024</span>
+                                <span class="badge bg-secondary">Action</span>
+                            </div>
+                            <p class="card-text">The Hashira Training Arc begins with intense battles.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Premieres Apr 2024</small>
+                                <button class="btn btn-sm btn-warning set-reminder">
+                                    <i class="bi bi-bell me-1"></i>Set Reminder
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reminder Modal -->
+        <div class="modal fade" id="reminderModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Set Release Reminder</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="reminderForm">
+                            <div class="mb-3">
+                                <label class="form-label">Notification Method</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="emailNotif" checked>
+                                    <label class="form-check-label" for="emailNotif">Email</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="browserNotif">
+                                    <label class="form-check-label" for="browserNotif">Browser Notification</label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Remind Me</label>
+                                <select class="form-select">
+                                    <option>On release day</option>
+                                    <option>1 day before</option>
+                                    <option>1 week before</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-warning">Set Reminder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add this JavaScript -->
+    <script>
+    document.querySelectorAll('.set-reminder').forEach(button => {
+        button.addEventListener('click', function() {
+            const reminderModal = new bootstrap.Modal(document.getElementById('reminderModal'));
+            reminderModal.show();
+        });
+    });
+    </script>
+
+    <!-- Reuse your existing footer -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <!-- Copy your existing footer code here -->
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+
+    <!-- Review Modal -->
+    <div class="modal fade" id="writeReviewModal" tabindex="-1" aria-labelledby="writeReviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="writeReviewModalLabel">Write Your Review</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="reviewForm">
+                        <!-- Anime Selection -->
+                        <div class="mb-3">
+                            <label for="animeSelect" class="form-label">Select Anime</label>
+                            <select class="form-select" id="animeSelect" required>
+                                <option value="">Choose an anime...</option>
+                                <option value="demon-slayer">Demon Slayer</option>
+                                <option value="one-piece">One Piece</option>
+                                <option value="attack-on-titan">Attack on Titan</option>
+                                <option value="my-hero-academia">My Hero Academia</option>
+                                <option value="jujutsu-kaisen">Jujutsu Kaisen</option>
+                                <option value="chainsaw-man">Chainsaw Man</option>
+                            </select>
+                        </div>
+
+                        <!-- Rating -->
+                        <div class="mb-3">
+                            <label class="form-label">Your Rating</label>
+                            <div class="rating-input">
+                                <div class="btn-group" role="group">
+                                    <input type="radio" class="btn-check" name="rating" id="rating1" value="1" required>
+                                    <label class="btn btn-outline-warning" for="rating1">
+                                        <i class="bi bi-star-fill"></i>
+                                    </label>
+
+                                    <input type="radio" class="btn-check" name="rating" id="rating2" value="2">
+                                    <label class="btn btn-outline-warning" for="rating2">
+                                        <i class="bi bi-star-fill"></i>
+                                    </label>
+
+                                    <input type="radio" class="btn-check" name="rating" id="rating3" value="3">
+                                    <label class="btn btn-outline-warning" for="rating3">
+                                        <i class="bi bi-star-fill"></i>
+                                    </label>
+
+                                    <input type="radio" class="btn-check" name="rating" id="rating4" value="4">
+                                    <label class="btn btn-outline-warning" for="rating4">
+                                        <i class="bi bi-star-fill"></i>
+                                    </label>
+
+                                    <input type="radio" class="btn-check" name="rating" id="rating5" value="5">
+                                    <label class="btn btn-outline-warning" for="rating5">
+                                        <i class="bi bi-star-fill"></i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review Title -->
+                        <div class="mb-3">
+                            <label for="reviewTitle" class="form-label">Review Title</label>
+                            <input type="text" class="form-control" id="reviewTitle" 
+                                   placeholder="Give your review a catchy title" required>
+                        </div>
+
+                        <!-- Review Content -->
+                        <div class="mb-3">
+                            <label for="reviewContent" class="form-label">Your Review</label>
+                            <textarea class="form-control" id="reviewContent" rows="5" 
+                                      placeholder="Share your thoughts about the anime..." required></textarea>
+                            <div class="form-text">Minimum 50 characters required</div>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="mb-3">
+                            <label for="reviewTags" class="form-label">Tags</label>
+                            <input type="text" class="form-control" id="reviewTags" 
+                                   placeholder="Add tags (comma separated) e.g., action, fantasy, emotional">
+                        </div>
+
+                        <!-- Spoiler Warning -->
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="spoilerWarning">
+                            <label class="form-check-label" for="spoilerWarning">
+                                This review contains spoilers
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" form="reviewForm" class="btn btn-primary">
+                        <i class="bi bi-send me-2"></i>Submit Review
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Add this JavaScript for form handling -->
+    <script>
+    document.getElementById('reviewForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Collect form data
+        const formData = {
+            anime: document.getElementById('animeSelect').value,
+            rating: document.querySelector('input[name="rating"]:checked').value,
+            title: document.getElementById('reviewTitle').value,
+            content: document.getElementById('reviewContent').value,
+            tags: document.getElementById('reviewTags').value,
+            hasSpoilers: document.getElementById('spoilerWarning').checked
+        };
+
+        // Add some basic validation
+        if (formData.content.length < 50) {
+            alert('Please write a review of at least 50 characters');
+            return;
+        }
+
+        // Here you would typically send the data to your server
+        console.log('Review submitted:', formData);
+
+        // Show success message
+        const modal = bootstrap.Modal.getInstance(document.getElementById('writeReviewModal'));
+        modal.hide();
+
+        // Show success toast
+        const toast = new bootstrap.Toast(document.createElement('div'));
+        document.body.insertAdjacentHTML('beforeend', `
+            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        <strong class="me-auto">Success!</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                    </div>
+                    <div class="toast-body">
+                        Your review has been submitted successfully!
+                    </div>
+                </div>
+            </div>
+        `);
+    });
+
+    // Star rating interaction
+    document.querySelectorAll('.rating-input .btn').forEach(btn => {
+        btn.addEventListener('mouseover', function() {
+            const rating = this.querySelector('input').value;
+            highlightStars(rating);
+        });
+    });
+
+    function highlightStars(rating) {
+        document.querySelectorAll('.rating-input .btn').forEach((btn, index) => {
+            btn.classList.toggle('active', index < rating);
+        });
+    }
+    </script>
+
+    <!-- Add this JavaScript for dynamic content duplication -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Duplicate items for seamless scrolling
+        const tracks = document.querySelectorAll('.scroll-track, .scroll-track-reverse');
+        
+        tracks.forEach(track => {
+            const content = track.querySelector('.scroll-content');
+            const clone = content.cloneNode(true);
+            track.appendChild(clone);
+        });
+    });
+    </script>
+
+    <!-- Enhanced Auto Scrolling Anime Showcase -->
+    <section class="anime-showcase py-5">
+        <div class="container-fluid px-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="section-title">
+                    <span class="highlight">Trending</span> This Season
+                    <div class="small text-muted">Discover what's popular in the anime community</div>
+                </h2>
+                <div class="showcase-controls">
+                    <button class="btn btn-outline-primary btn-sm me-2" id="pauseScroll">
+                        <i class="bi bi-pause-fill"></i>
+                    </button>
+                    <button class="btn btn-outline-primary btn-sm" id="resumeScroll">
+                        <i class="bi bi-play-fill"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Single Scroll Track -->
+            <div class="showcase-row">
+                <div class="scroll-track">
+                    <div class="scroll-content d-flex">
+                        <!-- Demon Slayer -->
+                        <div class="showcase-item">
+                            <div class="showcase-card">
+                                <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800" alt="Demon Slayer">
+                                <div class="showcase-overlay">
+                                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">HOT</span>
+                                    <div class="showcase-info">
+                                        <h5>Demon Slayer</h5>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="rating me-2">
+                                                <i class="bi bi-star-fill text-warning"></i>
+                                                <span>9.2</span>
+                                            </div>
+                                            <span class="badge bg-primary">Episode 8</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Jujutsu Kaisen -->
+                        <div class="showcase-item">
+                            <div class="showcase-card">
+                                <img src="https://images.unsplash.com/photo-1580477667995-2b94f01c9516?w=800" alt="Jujutsu Kaisen">
+                                <div class="showcase-overlay">
+                                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">TRENDING</span>
+                                    <div class="showcase-info">
+                                        <h5>Jujutsu Kaisen</h5>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="rating me-2">
+                                                <i class="bi bi-star-fill text-warning"></i>
+                                                <span>9.4</span>
+                                            </div>
+                                            <span class="badge bg-primary">Episode 23</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Solo Leveling -->
+                        <div class="showcase-item">
+                            <div class="showcase-card">
+                                <img src="https://images.unsplash.com/photo-1541562232579-512a21360020?w=800" alt="Solo Leveling">
+                                <div class="showcase-overlay">
+                                    <span class="badge bg-info position-absolute top-0 end-0 m-2">UPCOMING</span>
+                                    <div class="showcase-info">
+                                        <h5>Solo Leveling</h5>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="rating me-2">
+                                                <i class="bi bi-calendar-event text-warning"></i>
+                                                <span>Jan 2024</span>
+                                            </div>
+                                            <span class="badge bg-success">New Season</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Attack on Titan -->
+                        <div class="showcase-item">
+                            <div class="showcase-card">
+                                <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800" alt="Attack on Titan">
+                                <div class="showcase-overlay">
+                                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">POPULAR</span>
+                                    <div class="showcase-info">
+                                        <h5>Attack on Titan</h5>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="rating me-2">
+                                                <i class="bi bi-star-fill text-warning"></i>
+                                                <span>9.8</span>
+                                            </div>
+                                            <span class="badge bg-primary">Final Season</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Chainsaw Man -->
+                        <div class="showcase-item">
+                            <div class="showcase-card">
+                                <img src="https://images.unsplash.com/photo-1612686635542-2244ed9f8ddc?w=800" alt="Chainsaw Man">
+                                <div class="showcase-overlay">
+                                    <span class="badge bg-info position-absolute top-0 end-0 m-2">TRENDING</span>
+                                    <div class="showcase-info">
+                                        <h5>Chainsaw Man</h5>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="rating me-2">
+                                                <i class="bi bi-star-fill text-warning"></i>
+                                                <span>9.1</span>
+                                            </div>
+                                            <span class="badge bg-primary">Season 2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Duplicate content for infinite scroll
+        const track = document.querySelector('.scroll-content');
+        const clone = track.cloneNode(true);
+        track.parentElement.appendChild(clone);
+
+        // Pause/Resume controls
+        const pauseBtn = document.getElementById('pauseScroll');
+        const resumeBtn = document.getElementById('resumeScroll');
+        const content = document.querySelector('.scroll-content');
+
+        pauseBtn.addEventListener('click', () => {
+            content.style.animationPlayState = 'paused';
+        });
+
+        resumeBtn.addEventListener('click', () => {
+            content.style.animationPlayState = 'running';
+        });
+    });
+    </script>
+
+    <!-- Counter Animation -->
+    <script>
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const increment = target / 200;
+        
+        const updateCounter = () => {
+            const count = +counter.innerText;
+            if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(updateCounter, 1);
+            } else {
+                counter.innerText = target.toLocaleString();
+            }
+        };
+        
+        updateCounter();
+    });
+    </script>
+
+     <!-- Enhanced Footer with Dark Theme -->
+     <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="row g-4">
+                <!-- About Section -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="mb-4">
+                        <a class="navbar-brand" href="#">
+                            <i class="bi bi-pencil-square text-warning fs-4 me-2"></i>
+                            <span class="fw-bold">Blog<span class="text-warning">Space</span></span>
+                        </a>
+                    </div>
+                    <p class="text-light">Your daily source for stories, shayaris, cartoons, and news. Join our community of writers and readers.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-twitter-x fs-5"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-instagram fs-5"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-linkedin fs-5"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-youtube fs-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Contact</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Write for Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Advertise</a></li>
+                    </ul>
+                </div>
+
+                <!-- Categories -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-4">Categories</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Technology</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Lifestyle</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Travel</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Food</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Health</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-4">Newsletter</h5>
+                    <p class="text-light">Subscribe to our newsletter for the latest updates and exclusive content.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control bg-dark text-light border-secondary" placeholder="Enter your email" aria-label="Email" aria-describedby="subscribe-btn">
+                        <button class="btn btn-warning" type="button" id="subscribe-btn">Subscribe</button>
+                    </div>
+                    <small class="text-light">By subscribing, you agree to our Privacy Policy</small>
+                </div>
+            </div>
+
+            <!-- Horizontal Line -->
+            <hr class="my-4 border-secondary">
+
+            <!-- Bottom Footer -->
+            <div class="row align-items-center">
+                <!-- Copyright -->
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <small class="text-light">
+                        &copy; 2024 BlogSpace. All rights reserved.
+                    </small>
+                </div>
+
+                <!-- Legal Links -->
+                <div class="col-md-6">
+                    <ul class="list-inline text-center text-md-end mb-0">
+                        <li class="list-inline-item">
+                            <a href="#" class="text-light text-decoration-none small">Privacy Policy</a>
+                        </li>
+                        <li class="list-inline-item ms-3">
+                            <a href="#" class="text-light text-decoration-none small">Terms of Use</a>
+                        </li>
+                        <li class="list-inline-item ms-3">
+                            <a href="#" class="text-light text-decoration-none small">Cookie Policy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

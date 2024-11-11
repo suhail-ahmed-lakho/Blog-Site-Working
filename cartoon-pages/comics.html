@@ -1,0 +1,2878 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comics Universe - Your Daily Dose of Comics & Manga</title>
+
+    <!-- Bootstrap & Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  
+  <style>
+    .trending-section {
+           background-color: #f8f9fa;
+         }
+   
+         .trending-card {
+           background: white;
+           border-radius: 15px;
+           overflow: hidden;
+           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+           transition: transform 0.3s ease;
+           height: 100%;
+         }
+   
+         .trending-card:hover {
+           transform: translateY(-5px);
+         }
+   
+         .card-image {
+           position: relative;
+           height: 200px;
+           overflow: hidden;
+         }
+   
+         .card-image img {
+           width: 100%;
+           height: 100%;
+           object-fit: cover;
+         }
+   
+         .card-overlay {
+           position: absolute;
+           top: 0;
+           left: 0;
+           right: 0;
+           bottom: 0;
+           background: rgba(0, 0, 0, 0.5);
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           justify-content: center;
+           opacity: 0;
+           transition: opacity 0.3s ease;
+         }
+   
+         .trending-card:hover .card-overlay {
+           opacity: 1;
+         }
+   
+         .swiper {
+           padding: 20px 5px;
+         }
+   
+         .swiper-button-next,
+         .swiper-button-prev {
+           color: #0d6efd;
+           background: white;
+           width: 40px;
+           height: 40px;
+           border-radius: 50%;
+           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+         }
+   
+         .swiper-button-next:after,
+         .swiper-button-prev:after {
+           font-size: 18px;
+         }
+   
+         .swiper-pagination-bullet-active {
+           background: #0d6efd;
+         }
+   
+         @media (max-width: 768px) {
+           .swiper-button-next,
+           .swiper-button-prev {
+             display: none;
+           }
+         }
+   
+           .social-links a {
+          transition: color 0.3s ease;
+        }
+   
+        .social-links a:hover {
+          color: #ffc107 !important;
+        }
+   
+        footer .list-unstyled a {
+          transition: color 0.3s ease;
+        }
+   
+        footer .list-unstyled a:hover {
+          color: #ffc107 !important;
+          text-decoration: none;
+        }
+   
+        footer .list-inline a {
+          transition: color 0.3s ease;
+        }
+   
+        footer .list-inline a:hover {
+          color: #ffc107 !important;
+        }
+   
+        .navbar-brand:hover .text-warning {
+          color: #fff !important;
+          transition: color 0.3s ease;
+        }
+          /* Hero Section */
+          .comic-hero {
+              background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                          url('https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?w=1600') center/cover no-repeat;
+              min-height: 100vh;
+              color: white;
+              position: relative;
+          }
+      
+          .comic-overlay {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: url('https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?w=1600') center/cover no-repeat;
+              opacity: 0.2;
+              filter: blur(8px);
+          }
+      
+          .comic-overlay::after {
+              content: '';
+              position: absolute;
+              inset: 0;
+              background: linear-gradient(45deg, rgba(0,0,0,0.8), rgba(0,0,0,0.5));
+          }
+      
+          .comic-bubble {
+              background: rgba(255,255,255,0.1);
+              backdrop-filter: blur(10px);
+              padding: 2rem;
+              border-radius: 20px;
+              border: 1px solid rgba(255,255,255,0.2);
+          }
+      
+          /* Comic Cards */
+          .comic-card {
+              background: white;
+              border-radius: 15px;
+              overflow: hidden;
+              box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+              display: flex;
+              flex-direction: column;
+              height: 100%;
+          }
+      
+          .comic-card:hover {
+              transform: translateY(-10px);
+              box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+          }
+      
+          .comic-card-image {
+              position: relative;
+              height: 250px;
+              overflow: hidden;
+          }
+      
+          .comic-cover {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              transition: transform 0.3s ease;
+          }
+      
+          .comic-card:hover .comic-cover {
+              transform: scale(1.1);
+          }
+      
+          .comic-card-overlay {
+              position: absolute;
+              inset: 0;
+              background: rgba(0,0,0,0.5);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              opacity: 0;
+              transition: opacity 0.3s ease;
+          }
+      
+          .comic-card:hover .comic-card-overlay {
+              opacity: 1;
+          }
+      
+          .comic-card-badge {
+              position: absolute;
+              top: 1rem;
+              right: 1rem;
+              z-index: 2;
+          }
+      
+          .comic-card-content {
+              padding: 1.5rem;
+              flex-grow: 1;
+              display: flex;
+              flex-direction: column;
+          }
+      
+          .comic-title {
+              font-size: 1.25rem;
+              font-weight: 600;
+              margin-bottom: 0.75rem;
+          }
+      
+          .comic-description {
+              color: #6c757d;
+              margin-bottom: 1rem;
+              flex-grow: 1;
+          }
+      
+          .comic-card-meta {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-top: auto;
+          }
+      
+          .meta-item {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              color: #6c757d;
+              font-size: 0.875rem;
+          }
+      
+          .like-btn {
+              background: none;
+              border: none;
+              padding: 5px;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              color: #6c757d;
+              transition: all 0.2s ease;
+          }
+      
+          .like-btn:hover {
+              transform: scale(1.1);
+              color: #dc3545;
+          }
+      
+          .like-btn.liked {
+              color: #dc3545;
+          }
+      
+          .like-btn.liked i {
+              fill: currentColor;
+          }
+      
+          /* Responsive adjustments */
+          @media (max-width: 768px) {
+              .comic-card-image {
+                  height: 200px;
+              }
+              
+              .comic-title {
+                  font-size: 1.1rem;
+              }
+          }
+      
+          /* Category Boxes */
+          .category-box {
+              background: white;
+              border-radius: 15px;
+              padding: 2rem;
+              text-align: center;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              height: 100%;
+          }
+      
+          .category-box:hover {
+              transform: translateY(-5px);
+              box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+          }
+      
+          .category-icon {
+              width: 60px;
+              height: 60px;
+              background: #f8f9fa;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: 0 auto 1rem;
+              font-size: 1.5rem;
+              color: #0d6efd;
+          }
+      
+          .comic-count {
+              display: inline-block;
+              padding: 0.25rem 0.75rem;
+              background: #f8f9fa;
+              border-radius: 20px;
+              font-size: 0.875rem;
+              color: #6c757d;
+              margin-top: 1rem;
+          }
+      
+          /* Like Button */
+          .like-btn {
+              background: none;
+              border: none;
+              padding: 5px;
+              cursor: pointer;
+              transition: transform 0.2s ease;
+          }
+      
+          .like-btn:hover {
+              transform: scale(1.2);
+          }
+      
+          .like-btn.liked i {
+              color: #dc3545;
+              fill: #dc3545;
+          }
+      
+          /* Responsive Design */
+          @media (max-width: 768px) {
+              .comic-bubble {
+                  margin: 1rem;
+              }
+              
+              .category-box {
+                  padding: 1.5rem;
+              }
+          }
+      
+          /* Blog Cards */
+          .blog-card {
+              border: none;
+              border-radius: 15px;
+              overflow: hidden;
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+          }
+      
+          .blog-card:hover {
+              transform: translateY(-5px);
+              box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+          }
+      
+          .card-img-wrapper {
+              position: relative;
+              overflow: hidden;
+          }
+      
+          .card-img-top {
+              height: 200px;
+              object-fit: cover;
+              transition: transform 0.3s ease;
+          }
+      
+          .blog-card:hover .card-img-top {
+              transform: scale(1.05);
+          }
+      
+          .card-badge {
+              position: absolute;
+              top: 15px;
+              right: 15px;
+          }
+      
+          /* Category Cards */
+          .category-card {
+              height: 250px;
+              border-radius: 15px;
+              overflow: hidden;
+              position: relative;
+              background-size: cover;
+              background-position: center;
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+              cursor: pointer;
+          }
+      
+          .category-card:hover {
+              transform: translateY(-5px);
+              box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+          }
+      
+          .category-content {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              padding: 20px;
+              background: linear-gradient(transparent, rgba(0,0,0,0.8));
+              color: white;
+              transform: translateY(0);
+              transition: transform 0.3s ease;
+          }
+      
+          .category-card:hover .category-content {
+              transform: translateY(-5px);
+          }
+      
+          .category-content h3 {
+              margin: 0;
+              font-size: 1.5rem;
+              font-weight: 600;
+          }
+      
+          .category-content p {
+              margin: 5px 0 0;
+              opacity: 0.8;
+          }
+      
+          /* Like Button Styles */
+          .like-btn {
+              transition: transform 0.2s ease;
+          }
+      
+          .like-btn:hover {
+              transform: scale(1.1);
+          }
+      
+          .like-btn.liked {
+              pointer-events: none;
+          }
+      
+          .like-animation {
+              animation: likeEffect 0.7s ease;
+          }
+      
+          @keyframes likeEffect {
+              0% { transform: scale(1); }
+              50% { transform: scale(1.3); }
+              100% { transform: scale(1); }
+          }
+      
+          /* Update article cards to use the like system */
+          .blog-card .like-btn {
+              background: none;
+              border: none;
+              padding: 5px;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              color: #6c757d;
+          }
+      
+          .blog-card .like-btn:hover {
+              color: #dc3545;
+          }
+      
+          .blog-card .like-btn.liked {
+              color: #dc3545;
+          }
+      
+          /* Newsletter Section */
+          .newsletter-section {
+              background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+          }
+      
+          .newsletter-form .form-control {
+              border-radius: 30px 0 0 30px;
+              padding: 12px 20px;
+          }
+      
+          .newsletter-form .btn {
+              border-radius: 0 30px 30px 0;
+              padding: 12px 30px;
+          }
+      
+          /* Animations */
+          @keyframes fadeUp {
+              from {
+                  opacity: 0;
+                  transform: translateY(20px);
+              }
+              to {
+                  opacity: 1;
+                  transform: translateY(0);
+              }
+          }
+      
+          .fade-up {
+              animation: fadeUp 0.5s ease forwards;
+          }
+      
+          .category-btn {
+              background: none;
+              border: 2px solid white;
+              color: white;
+              padding: 8px 16px;
+              border-radius: 20px;
+              margin-top: 10px;
+              opacity: 0;
+              transform: translateY(20px);
+              transition: all 0.3s ease;
+          }
+      
+          .category-card:hover .category-btn {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      
+          .category-btn:hover {
+              background: white;
+              color: black;
+          }
+      
+          #filtered-articles {
+              transition: all 0.3s ease;
+          }
+      
+          .back-to-all {
+              transition: all 0.3s ease;
+          }
+      
+          .back-to-all:hover {
+              transform: translateX(-5px);
+          }
+      
+          /* Enhanced Category Styles */
+          .category-box {
+              background: white;
+              border-radius: 20px;
+              padding: 2rem;
+              text-align: center;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              height: 100%;
+              position: relative;
+              overflow: hidden;
+              border: 1px solid rgba(0,0,0,0.1);
+          }
+      
+          .category-box::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              height: 4px;
+              background: linear-gradient(90deg, #ff4e50, #f9d423);
+              opacity: 0;
+              transition: opacity 0.3s ease;
+          }
+      
+          .category-box:hover::before {
+              opacity: 1;
+          }
+      
+          .category-box:hover {
+              transform: translateY(-10px);
+              box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+          }
+      
+          .category-icon {
+              width: 70px;
+              height: 70px;
+              background: #f8f9fa;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: 0 auto 1.5rem;
+              font-size: 2rem;
+              transition: all 0.3s ease;
+          }
+      
+          .category-box:hover .category-icon {
+              transform: scale(1.1) rotate(5deg);
+          }
+      
+          /* Category-specific colors */
+          .superhero .category-icon { color: #dc3545; }
+          .manga .category-icon { color: #198754; }
+          .fantasy .category-icon { color: #6f42c1; }
+          .horror .category-icon { color: #212529; }
+          .scifi .category-icon { color: #0dcaf0; }
+          .indie .category-icon { color: #fd7e14; }
+          .novels .category-icon { color: #0d6efd; }
+          .webcomics .category-icon { color: #20c997; }
+      
+          .category-box h4 {
+              font-size: 1.25rem;
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+          }
+      
+          .category-box p {
+              color: #6c757d;
+              margin-bottom: 1rem;
+          }
+      
+          .category-stats {
+              display: flex;
+              justify-content: center;
+              gap: 1rem;
+              margin-bottom: 1rem;
+          }
+      
+          .comic-count, .reader-count {
+              font-size: 0.875rem;
+              padding: 0.25rem 0.75rem;
+              background: #f8f9fa;
+              border-radius: 20px;
+              color: #6c757d;
+          }
+      
+          .popular-series {
+              margin-top: auto;
+              font-size: 0.875rem;
+              color: #6c757d;
+              padding-top: 1rem;
+              border-top: 1px solid #f8f9fa;
+          }
+      
+          /* Hover animations */
+          @keyframes pulseIcon {
+              0% { transform: scale(1); }
+              50% { transform: scale(1.1); }
+              100% { transform: scale(1); }
+          }
+      
+          .category-box:hover .category-icon {
+              animation: pulseIcon 1s ease infinite;
+          }
+      
+          /* Responsive adjustments */
+          @media (max-width: 768px) {
+              .category-box {
+                  padding: 1.5rem;
+              }
+              
+              .category-icon {
+                  width: 50px;
+                  height: 50px;
+                  font-size: 1.5rem;
+              }
+          }
+      
+          /* Add these styles for the filtered section */
+          #filtered-comics {
+              transition: all 0.3s ease;
+          }
+      
+          .empty-state {
+              padding: 3rem;
+              text-align: center;
+          }
+      
+          .empty-state i {
+              opacity: 0.5;
+          }
+      
+          /* Enhanced loading spinner */
+          .spinner-border {
+              width: 3rem;
+              height: 3rem;
+          }
+      
+          .trending-slider {
+              padding: 20px 0;
+          }
+      
+          .trending-card {
+              background: white;
+              border-radius: 15px;
+              overflow: hidden;
+              box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+              transition: transform 0.3s ease;
+          }
+      
+          .trending-card:hover {
+              transform: translateY(-5px);
+          }
+      
+          .trending-card-image {
+              position: relative;
+              height: 250px;
+              overflow: hidden;
+          }
+      
+          .trending-card-image img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              transition: transform 0.3s ease;
+          }
+      
+          .trending-card:hover .trending-card-image img {
+              transform: scale(1.1);
+          }
+      
+          .trending-badge {
+              position: absolute;
+              top: 1rem;
+              right: 1rem;
+              z-index: 2;
+          }
+      
+          .trending-overlay {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              padding: 1rem;
+              background: linear-gradient(transparent, rgba(0,0,0,0.8));
+              opacity: 0;
+              transition: opacity 0.3s ease;
+          }
+      
+          .trending-card:hover .trending-overlay {
+              opacity: 1;
+          }
+      
+          .trending-stats {
+              display: flex;
+              gap: 1rem;
+              color: white;
+          }
+      
+          .stat {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+          }
+      
+          .trending-content {
+              padding: 1.5rem;
+          }
+      
+          .trending-meta {
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 0.5rem;
+              font-size: 0.875rem;
+              color: #6c757d;
+          }
+      
+          .trending-title {
+              font-size: 1.25rem;
+              font-weight: 600;
+              margin-bottom: 1rem;
+          }
+      
+          .trending-footer {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+          }
+      
+          .rating {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+          }
+      
+          /* Swiper customization */
+          .swiper {
+              padding: 20px 10px;
+          }
+      
+          .swiper-button-next,
+          .swiper-button-prev {
+              color: #0d6efd;
+              background: white;
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+          }
+      
+          .swiper-button-next:after,
+          .swiper-button-prev:after {
+              font-size: 1.2rem;
+          }
+      
+          .swiper-pagination-bullet-active {
+              background: #0d6efd;
+          }
+      
+          /* Modal Styles */
+          .comic-detail-wrapper {
+              background: white;
+              border-radius: 15px;
+              overflow: hidden;
+          }
+      
+          .comic-detail-image {
+              position: relative;
+              height: 100%;
+              min-height: 400px;
+          }
+      
+          .comic-detail-image img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+          }
+      
+          .comic-badges {
+              position: absolute;
+              top: 1rem;
+              right: 1rem;
+          }
+      
+          .comic-detail-content {
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+          }
+      
+          .chapter-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+              gap: 10px;
+              max-height: 200px;
+              overflow-y: auto;
+              padding-right: 10px;
+          }
+      
+          .chapter-grid::-webkit-scrollbar {
+              width: 6px;
+          }
+      
+          .chapter-grid::-webkit-scrollbar-track {
+              background: #f1f1f1;
+              border-radius: 10px;
+          }
+      
+          .chapter-grid::-webkit-scrollbar-thumb {
+              background: #888;
+              border-radius: 10px;
+          }
+      
+          .chapter-item {
+              background: #f8f9fa;
+              padding: 10px;
+              border-radius: 8px;
+              text-align: center;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              font-size: 0.9rem;
+          }
+      
+          .chapter-item:hover {
+              background: #e9ecef;
+              transform: translateY(-2px);
+          }
+      
+          .chapter-item.locked {
+              opacity: 0.7;
+              cursor: not-allowed;
+              background: #e9ecef;
+          }
+      
+          .chapter-item.locked::after {
+              content: '🔒';
+              display: inline-block;
+              margin-left: 5px;
+              font-size: 0.8rem;
+          }
+      
+          .comic-actions {
+              margin-top: auto;
+          }
+      
+          .modal-header {
+              position: absolute;
+              right: 0;
+              z-index: 1;
+          }
+      
+          .btn-close {
+              background-color: white;
+              opacity: 0.8;
+              border-radius: 50%;
+              margin: 1rem;
+              box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+          }
+      
+          @media (max-width: 768px) {
+              .comic-detail-image {
+                  min-height: 300px;
+              }
+              
+              .comic-detail-content {
+                  padding: 1.5rem !important;
+              }
+          }
+          </style>
+  <body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <!-- Brand -->
+        <a class="navbar-brand" href="../index.html">
+          <i class="bi bi-pencil-square text-warning me-2"></i>
+          <span>Blog<span class="text-warning">Space</span></span>
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Nav Content -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav me-auto">
+            <!-- Home -->
+            <li class="nav-item">
+              <a class="nav-link active" href="../index.html">
+                <i class="bi bi-house-door me-1"></i>Home
+              </a>
+            </li>
+
+            <!-- Shayaris -->
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                <i class="bi bi-heart me-1"></i>Shayaris
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../shayari-pages/love.html">
+                    <i class="bi bi-heart-fill me-2 text-danger"></i>Love
+                    Shayari
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../shayari-pages/friendship.html">
+                    <i class="bi bi-people-fill me-2 text-info"></i>Friendship
+                    Shayari
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../shayari-pages/sad.html">
+                    <i class="bi bi-cloud-rain-fill me-2 text-primary"></i>Sad
+                    Shayari
+                  </a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="../shayari-pages/all-shayaris.html">
+                    <i class="bi bi-collection-fill me-2 text-warning"></i>View
+                    All
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Cartoons -->
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                <i class="bi bi-emoji-smile me-1"></i>Cartoons
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="./anime.html">
+                    <i class="bi bi-star-fill me-2 text-warning"></i>Anime
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./comics.html">
+                    <i class="bi bi-book-fill me-2 text-success"></i>Comics
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./kids.html">
+                    <i class="bi bi-balloon-fill me-2 text-danger"></i>Kids
+                    Cartoons
+                  </a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="./cartoon-pages/all-cartoons.html"
+                  >
+                    <i class="bi bi-collection-fill me-2 text-warning"></i>View
+                    All
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Stories -->
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                <i class="bi bi-book me-1"></i>Stories
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="./story-pages/short.html">
+                    <i class="bi bi-bookmark-fill me-2 text-primary"></i>Short
+                    Stories
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./story-pages/moral.html">
+                    <i class="bi bi-lightbulb-fill me-2 text-warning"></i>Moral
+                    Stories
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./story-pages/bedtime.html">
+                    <i class="bi bi-moon-stars-fill me-2 text-info"></i>Bedtime
+                    Stories
+                  </a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="./story-pages/all-stories.html"
+                  >
+                    <i class="bi bi-collection-fill me-2 text-warning"></i>View
+                    All
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Weather -->
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/weather.html">
+                <i class="bi bi-cloud-sun me-1"></i>Weather
+              </a>
+            </li>
+          </ul>
+
+          <!-- Search -->
+          <form class="d-flex mx-lg-2">
+            <div class="input-group">
+              <input
+                type="search"
+                class="form-control form-control-sm custom-search"
+                placeholder="Search..."
+                aria-label="Search"
+              />
+              <button class="btn btn-warning btn-sm" type="submit">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </form>
+
+          <!-- Account -->
+          <div class="nav-item dropdown">
+            <a
+              class="nav-link user-dropdown"
+              href="#"
+              data-bs-toggle="dropdown"
+            >
+              <i class="bi bi-person-circle fs-5 text-warning"></i>
+              <span class="d-none d-lg-inline">Account</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" href="../pages/login.html">
+                  <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="../pages/register.html">
+                  <i class="bi bi-person-plus me-2"></i>Register
+                </a>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="../pages/profile.html">
+                  <i class="bi bi-person-circle me-2"></i>Profile
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section with Comic Style -->
+    <section class="comic-hero">
+      <div class="comic-overlay"></div>
+      <div class="container position-relative">
+        <div class="row min-vh-100 align-items-center">
+          <div class="col-lg-6" data-aos="fade-right">
+            <div class="comic-bubble">
+              <span class="badge bg-danger mb-3">Hot Topic!</span>
+              <h1 class="display-4 fw-bold mb-4">
+                Discover the World of Comics
+              </h1>
+              <p class="lead mb-4">
+                From superheroes to manga, explore the latest stories, reviews,
+                and news from the comic universe
+              </p>
+              <div class="d-flex gap-3">
+                <a href="#featured" class="btn btn-primary btn-lg">
+                  <i class="bi bi-book me-2"></i>Start Reading
+                </a>
+                <a href="#categories" class="btn btn-outline-light btn-lg">
+                  <i class="bi bi-grid me-2"></i>Categories
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Comics Section -->
+    <section id="featured" class="py-5">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <h2 class="display-6 fw-bold">Featured Comics</h2>
+          <p class="text-muted">Hand-picked selections just for you</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <!-- Featured Card 1 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up">
+            <div class="comic-card h-100">
+              <div class="comic-card-image">
+                <img
+                  src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?w=800"
+                  alt="Spider-Man"
+                  class="comic-cover"
+                />
+                <div class="comic-card-overlay">
+                  <button
+                    class="btn btn-light btn-sm read-more"
+                    data-comic="${JSON.stringify(comic)}"
+                  >
+                    Read More
+                  </button>
+                </div>
+                <div class="comic-card-badge">
+                  <span class="badge bg-primary">New Release</span>
+                </div>
+              </div>
+              <div class="comic-card-content">
+                <h3 class="comic-title">Spider-Man: Beyond Amazing</h3>
+                <p class="comic-description">
+                  The latest chapter in Spider-Man's journey takes an unexpected
+                  turn...
+                </p>
+                <div class="comic-card-meta">
+                  <div class="meta-item">
+                    <i class="bi bi-clock"></i>
+                    <span>5 min read</span>
+                  </div>
+                  <button class="like-btn" data-article-id="spiderman-1">
+                    <i class="bi bi-heart"></i>
+                    <span class="like-count">156</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Card 2 -->
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="comic-card h-100">
+              <div class="comic-card-image">
+                <img
+                  src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?w=800"
+                  alt="Batman"
+                  class="comic-cover"
+                />
+                <div class="comic-card-overlay">
+                  <button
+                    class="btn btn-light btn-sm read-more"
+                    data-comic="${JSON.stringify(comic)}"
+                  >
+                    Read More
+                  </button>
+                </div>
+                <div class="comic-card-badge">
+                  <span class="badge bg-success">Featured</span>
+                </div>
+              </div>
+              <div class="comic-card-content">
+                <h3 class="comic-title">Batman: Dark Knights</h3>
+                <p class="comic-description">
+                  Gotham faces its darkest hour as Batman confronts a new
+                  nemesis...
+                </p>
+                <div class="comic-card-meta">
+                  <div class="meta-item">
+                    <i class="bi bi-clock"></i>
+                    <span>8 min read</span>
+                  </div>
+                  <button class="like-btn" data-article-id="batman-1">
+                    <i class="bi bi-heart"></i>
+                    <span class="like-count">234</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Card 3 -->
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="comic-card h-100">
+              <div class="comic-card-image">
+                <img
+                  src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800"
+                  alt="Manga"
+                  class="comic-cover"
+                />
+                <div class="comic-card-overlay">
+                  <button
+                    class="btn btn-light btn-sm read-more"
+                    data-comic="${JSON.stringify(comic)}"
+                  >
+                    Read More
+                  </button>
+                </div>
+                <div class="comic-card-badge">
+                  <span class="badge bg-danger">Trending</span>
+                </div>
+              </div>
+              <div class="comic-card-content">
+                <h3 class="comic-title">One Piece: Final Saga</h3>
+                <p class="comic-description">
+                  The epic journey nears its conclusion in this groundbreaking
+                  chapter...
+                </p>
+                <div class="comic-card-meta">
+                  <div class="meta-item">
+                    <i class="bi bi-clock"></i>
+                    <span>10 min read</span>
+                  </div>
+                  <button class="like-btn" data-article-id="onepiece-1">
+                    <i class="bi bi-heart"></i>
+                    <span class="like-count">312</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Articles -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-lg-6">
+            <h2 class="fw-bold">Latest Articles</h2>
+            <p class="text-muted">
+              Discover our fresh takes on comics and manga
+            </p>
+          </div>
+          <div class="col-lg-6 text-lg-end">
+            <div class="btn-group" role="group">
+              <button class="btn btn-outline-primary active">All</button>
+              <button class="btn btn-outline-primary">Comics</button>
+              <button class="btn btn-outline-primary">Manga</button>
+              <button class="btn btn-outline-primary">Reviews</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Article Card 1 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up">
+            <div class="card blog-card h-100">
+              <div class="card-img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?w=800"
+                  class="card-img-top"
+                  alt="Spider-Man"
+                />
+                <div class="card-badge">
+                  <span class="badge bg-primary">Comics</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">
+                  Spider-Man: Beyond the Spider-Verse Analysis
+                </h5>
+                <p class="card-text">
+                  Exploring the groundbreaking animation and storytelling
+                  techniques...
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted">
+                    <i class="bi bi-clock me-1"></i> 10 min read
+                  </small>
+                  <small class="text-muted">
+                    <i class="bi bi-heart me-1"></i> 234
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Article Card 2 -->
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="card blog-card h-100">
+              <div class="card-img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?w=800"
+                  class="card-img-top"
+                  alt="Batman"
+                />
+                <div class="card-badge">
+                  <span class="badge bg-success">Review</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">The Batman: Year One - Comic Review</h5>
+                <p class="card-text">
+                  A deep dive into Frank Miller's iconic Batman origin story...
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted">
+                    <i class="bi bi-clock me-1"></i> 8 min read
+                  </small>
+                  <small class="text-muted">
+                    <i class="bi bi-heart me-1"></i> 189
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Article Card 3 -->
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="card blog-card h-100">
+              <div class="card-img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800"
+                  class="card-img-top"
+                  alt="Manga"
+                />
+                <div class="card-badge">
+                  <span class="badge bg-danger">Manga</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">The Rise of Seinen Manga in the West</h5>
+                <p class="card-text">
+                  How mature manga storytelling is gaining popularity...
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted">
+                    <i class="bi bi-clock me-1"></i> 12 min read
+                  </small>
+                  <small class="text-muted">
+                    <i class="bi bi-heart me-1"></i> 156
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Categories Section -->
+    <section id="categories" class="py-5 bg-light">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <h2 class="display-6 fw-bold">Explore Comics Universe</h2>
+          <p class="text-muted">
+            Dive into your favorite comic genres and discover new adventures
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Superhero Comics -->
+          <div class="col-md-6 col-lg-3" data-aos="fade-up">
+            <div class="category-box superhero" data-category="superhero">
+              <div class="category-icon">
+                <i class="bi bi-lightning-charge-fill"></i>
+              </div>
+              <h4>Superhero Saga</h4>
+              <p>Marvel, DC & More</p>
+              <div class="category-stats">
+                <span class="comic-count">2,156 Comics</span>
+                <span class="reader-count">1.2M Readers</span>
+              </div>
+              <div class="popular-series">
+                <small>Popular: Spider-Man, Batman, X-Men</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Manga & Anime -->
+          <div
+            class="col-md-6 col-lg-3"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="category-box manga">
+              <div class="category-icon">
+                <i class="bi bi-emoji-smile-fill"></i>
+              </div>
+              <h4>Manga World</h4>
+              <p>Japanese Comics</p>
+              <div class="category-stats">
+                <span class="comic-count">3,420 Series</span>
+                <span class="reader-count">2.5M Readers</span>
+              </div>
+              <div class="popular-series">
+                <small>Popular: One Piece, Naruto, Attack on Titan</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fantasy & Adventure -->
+          <div
+            class="col-md-6 col-lg-3"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="category-box fantasy">
+              <div class="category-icon">
+                <i class="bi bi-stars"></i>
+              </div>
+              <h4>Fantasy Realms</h4>
+              <p>Epic Adventures</p>
+              <div class="category-stats">
+                <span class="comic-count">1,845 Comics</span>
+                <span class="reader-count">890K Readers</span>
+              </div>
+              <div class="popular-series">
+                <small>Popular: Sandman, Fables, Saga</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Horror & Mystery -->
+          <div
+            class="col-md-6 col-lg-3"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="category-box horror">
+              <div class="category-icon">
+                <i class="bi bi-moon-stars-fill"></i>
+              </div>
+              <h4>Dark Tales</h4>
+              <p>Horror & Mystery</p>
+              <div class="category-stats">
+                <span class="comic-count">956 Comics</span>
+                <span class="reader-count">650K Readers</span>
+              </div>
+              <div class="popular-series">
+                <small>Popular: Walking Dead, Hellblazer</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sci-Fi -->
+          <div class="col-md-6 col-lg-3" data-aos="fade-up">
+            <div class="category-box scifi">
+              <div class="category-icon">
+                <i class="bi bi-rocket-takeoff-fill"></i>
+              </div>
+              <h4>Sci-Fi Frontiers</h4>
+              <p>Future Worlds</p>
+              <div class="category-stats">
+                <span class="comic-count">1,234 Comics</span>
+                <span class="reader-count">780K Readers</span>
+              </div>
+              <div class="popular-series">
+                <small>Popular: Transmetropolitan, Y: The Last Man</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Indie & Alternative -->
+          <div
+            class="col-md-6 col-lg-3"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="category-box indie">
+              <div class="category-icon">
+                <i class="bi bi-pencil-fill"></i>
+              </div>
+              <h4>Indie Comics</h4>
+              <p>Alternative Stories</p>
+              <div class="category-stats">
+                <span class="comic-count">2,567 Comics</span>
+                <span class="reader-count">450K Readers</span>
+              </div>
+              <div class="popular-series">
+                <small>Popular: Maus, Persepolis, Fun Home</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Graphic Novels -->
+          <div
+            class="col-md-6 col-lg-3"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="category-box novels">
+              <div class="category-icon">
+                <i class="bi bi-book-half"></i>
+              </div>
+              <h4>Graphic Novels</h4>
+              <p>Literary Comics</p>
+              <div class="category-stats">
+                <span class="comic-count">1,678 Novels</span>
+                <span class="reader-count">920K Readers</span>
+              </div>
+              <div class="popular-series">
+                <small>Popular: Watchmen, V for Vendetta</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Web Comics -->
+          <div
+            class="col-md-6 col-lg-3"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="category-box webcomics">
+              <div class="category-icon">
+                <i class="bi bi-globe"></i>
+              </div>
+              <h4>Web Comics</h4>
+              <p>Digital Originals</p>
+              <div class="category-stats">
+                <span class="comic-count">3,890 Series</span>
+                <span class="reader-count">1.5M Readers</span>
+              </div>
+              <div class="popular-series">
+                <small>Popular: XKCD, Penny Arcade</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add this section after the categories section -->
+    <section id="filtered-comics" class="py-5 d-none">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h2 class="category-title mb-2">Category Comics</h2>
+            <p class="text-muted category-description">
+              Explore the best comics in this category
+            </p>
+          </div>
+          <button class="btn btn-outline-primary" onclick="showAllCategories()">
+            <i class="bi bi-grid me-2"></i>All Categories
+          </button>
+        </div>
+
+        <div class="row g-4" id="filtered-comics-container">
+          <!-- Comics will be loaded here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Trending Now Section -->
+    <section class="trending-section py-5">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <h2 class="display-6 fw-bold">Trending Now</h2>
+          <p class="text-muted">Hot picks from the comic world</p>
+        </div>
+
+        <div class="position-relative">
+          <!-- Swiper -->
+          <div class="swiper trendingSwiper">
+            <div class="swiper-wrapper">
+              <!-- Trending Comic 1 -->
+              <div class="swiper-slide">
+                <div class="trending-card">
+                  <div class="card-image">
+                    <img
+                      src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?w=800"
+                      alt="Comic"
+                    />
+                    <div class="card-overlay">
+                      <span class="badge bg-danger">Hot</span>
+                      <button class="btn btn-light btn-sm mt-2">
+                        Read Now
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-content p-3">
+                    <h5 class="mb-2">Spider-Man: Beyond</h5>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <span>4.8</span>
+                      </div>
+                      <small class="text-muted">10K reads</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Trending Comic 2 -->
+              <div class="swiper-slide">
+                <div class="trending-card">
+                  <div class="card-image">
+                    <img
+                      src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?w=800"
+                      alt="Comic"
+                    />
+                    <div class="card-overlay">
+                      <span class="badge bg-primary">New</span>
+                      <button class="btn btn-light btn-sm mt-2">
+                        Read Now
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-content p-3">
+                    <h5 class="mb-2">Batman: Dark Knights</h5>
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <span>4.9</span>
+                      </div>
+                      <small class="text-muted">8.5K reads</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Add more trending comics -->
+              <!-- Copy the swiper-slide structure and modify content -->
+            </div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <!-- Add Swiper JS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2 class="fw-bold mb-4">Stay Updated</h2>
+            <p class="mb-4">
+              Get the latest comics news and reviews delivered to your inbox
+            </p>
+            <form class="newsletter-form">
+              <div class="input-group mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter your email"
+                />
+                <button class="btn btn-warning" type="submit">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add this section for filtered articles -->
+    <section id="filtered-articles" class="py-5 d-none">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 class="category-title">Category Articles</h2>
+          <button class="btn btn-outline-secondary" id="back-to-all">
+            <i class="bi bi-arrow-left me-2"></i>Back to All
+          </button>
+        </div>
+        <div class="row g-4" id="filtered-articles-container">
+          <!-- Articles will be dynamically loaded here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Comic Detail Modal -->
+    <div
+      class="modal fade"
+      id="comicDetailModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body p-0">
+            <div class="comic-detail-wrapper">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <div class="comic-detail-image">
+                    <img src="" alt="Comic Cover" id="modalComicImage" />
+                    <div class="comic-badges">
+                      <span
+                        class="badge bg-primary"
+                        id="modalComicBadge"
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <div class="comic-detail-content p-4">
+                    <h3 class="comic-title mb-2" id="modalComicTitle"></h3>
+                    <div class="comic-meta mb-3">
+                      <div class="d-flex align-items-center gap-3">
+                        <div class="rating">
+                          <i class="bi bi-star-fill text-warning"></i>
+                          <span id="modalComicRating"></span>
+                        </div>
+                        <div class="read-time">
+                          <i class="bi bi-clock"></i>
+                          <span id="modalComicReadTime"></span>
+                        </div>
+                        <div class="likes">
+                          <i class="bi bi-heart-fill text-danger"></i>
+                          <span id="modalComicLikes"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <p
+                      class="comic-description mb-4"
+                      id="modalComicDescription"
+                    ></p>
+
+                    <div class="comic-chapters mb-4">
+                      <h5 class="mb-3">Available Chapters</h5>
+                      <div class="chapter-grid" id="modalComicChapters">
+                        <!-- Chapters will be inserted here -->
+                      </div>
+                    </div>
+
+                    <div class="comic-actions">
+                      <button class="btn btn-primary btn-lg w-100 mb-2">
+                        <i class="bi bi-book me-2"></i>Start Reading
+                      </button>
+                      <div class="d-flex gap-2">
+                        <button class="btn btn-outline-primary flex-grow-1">
+                          <i class="bi bi-bookmark me-2"></i>Add to Library
+                        </button>
+                        <button class="btn btn-outline-primary flex-grow-1">
+                          <i class="bi bi-share me-2"></i>Share
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Swiper JS and initialization -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+      const trendingSwiper = new Swiper(".trending-slider .swiper", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+          1400: {
+            slidesPerView: 4,
+          },
+        },
+      });
+    </script>
+    <!-- Initialize Swiper -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const swiper = new Swiper(".trendingSwiper", {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          loop: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            1024: {
+              slidesPerView: 4,
+            },
+          },
+        });
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+    </script>
+
+    <!-- Add this for the like functionality -->
+    <script>
+      // Store likes in localStorage
+      const likeSystem = {
+        init: function () {
+          // Add click handlers to all like buttons
+          document.querySelectorAll(".like-btn").forEach((btn) => {
+            const articleId = btn.dataset.articleId;
+            const likeCount = this.getLikes(articleId);
+            this.updateLikeUI(btn, likeCount);
+
+            btn.addEventListener("click", (e) => {
+              e.preventDefault();
+              this.toggleLike(articleId, btn);
+            });
+          });
+        },
+
+        getLikes: function (articleId) {
+          const likes = JSON.parse(
+            localStorage.getItem("articleLikes") || "{}"
+          );
+          return likes[articleId] || 0;
+        },
+
+        setLikes: function (articleId, count) {
+          const likes = JSON.parse(
+            localStorage.getItem("articleLikes") || "{}"
+          );
+          likes[articleId] = count;
+          localStorage.setItem("articleLikes", JSON.stringify(likes));
+        },
+
+        hasUserLiked: function (articleId) {
+          const userLikes = JSON.parse(
+            localStorage.getItem("userLikes") || "{}"
+          );
+          return userLikes[articleId] || false;
+        },
+
+        setUserLike: function (articleId, liked) {
+          const userLikes = JSON.parse(
+            localStorage.getItem("userLikes") || "{}"
+          );
+          userLikes[articleId] = liked;
+          localStorage.setItem("userLikes", JSON.stringify(userLikes));
+        },
+
+        toggleLike: function (articleId, btn) {
+          if (!this.hasUserLiked(articleId)) {
+            const currentLikes = this.getLikes(articleId);
+            this.setLikes(articleId, currentLikes + 1);
+            this.setUserLike(articleId, true);
+            this.updateLikeUI(btn, currentLikes + 1, true);
+            this.animateLike(btn);
+          }
+        },
+
+        updateLikeUI: function (btn, count, liked = false) {
+          const icon = btn.querySelector("i");
+          const counter = btn.querySelector(".like-count");
+
+          if (liked || this.hasUserLiked(btn.dataset.articleId)) {
+            icon.classList.remove("bi-heart");
+            icon.classList.add("bi-heart-fill", "text-danger");
+            btn.classList.add("liked");
+          }
+
+          counter.textContent = count;
+        },
+
+        animateLike: function (btn) {
+          btn.classList.add("like-animation");
+          setTimeout(() => btn.classList.remove("like-animation"), 700);
+        },
+      };
+
+      // Initialize like system when document is ready
+      document.addEventListener("DOMContentLoaded", () => {
+        likeSystem.init();
+      });
+    </script>
+
+    <!-- Add this section for filtered articles -->
+    <script>
+      // Sample article data (in real app, this would come from a database)
+      const articles = {
+        superheroes: [
+          {
+            id: "super1",
+            title: "The Evolution of Superman",
+            image:
+              "https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?w=800",
+            description:
+              "Exploring how the Man of Steel has changed over 80 years...",
+            readTime: "12 min",
+            likes: 345,
+            badge: "Comics",
+          },
+          {
+            id: "super2",
+            title: "Marvel s Impact on Cinema",
+            image:
+              "https://images.unsplash.com/photo-1608889476561-6242cfdbf622?w=800",
+            description: "How superhero movies changed Hollywood forever...",
+            readTime: "15 min",
+            likes: 422,
+            badge: "Analysis",
+          },
+          // Add more superhero articles
+        ],
+        manga: [
+          {
+            id: "manga1",
+            title: "The Art of Manga Storytelling",
+            image:
+              "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800",
+            description:
+              "Understanding the unique narrative techniques in manga...",
+            readTime: "10 min",
+            likes: 256,
+            badge: "Manga",
+          },
+          // Add more manga articles
+        ],
+        // Add other categories
+      };
+
+      // Category handling
+      document.querySelectorAll(".category-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const category = this.dataset.category;
+          showCategoryArticles(category);
+        });
+      });
+
+      function showCategoryArticles(category) {
+        const filteredSection = document.getElementById("filtered-articles");
+        const container = document.getElementById(
+          "filtered-articles-container"
+        );
+        const categoryTitle = document.querySelector(".category-title");
+
+        // Update title
+        categoryTitle.textContent = `${
+          category.charAt(0).toUpperCase() + category.slice(1)
+        } Articles`;
+
+        // Clear previous articles
+        container.innerHTML = "";
+
+        // Get articles for this category
+        const categoryArticles = articles[category] || [];
+
+        // Create article cards
+        categoryArticles.forEach((article) => {
+          container.innerHTML += `
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <div class="card blog-card h-100">
+                        <div class="card-img-wrapper">
+                            <img src="${article.image}" 
+                                 class="card-img-top" 
+                                 alt="${article.title}">
+                            <div class="card-badge">
+                                <span class="badge bg-primary">${article.badge}</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">${article.title}</h5>
+                            <p class="card-text">${article.description}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">
+                                    <i class="bi bi-clock me-1"></i> ${article.readTime}
+                                </small>
+                                <button class="like-btn" data-article-id="${article.id}">
+                                    <i class="bi bi-heart"></i>
+                                    <span class="like-count">${article.likes}</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Show filtered section
+        filteredSection.classList.remove("d-none");
+
+        // Scroll to filtered section
+        filteredSection.scrollIntoView({ behavior: "smooth" });
+
+        // Initialize like buttons for new articles
+        likeSystem.init();
+      }
+
+      // Back button handling
+      document
+        .getElementById("back-to-all")
+        .addEventListener("click", function () {
+          document.getElementById("filtered-articles").classList.add("d-none");
+        });
+    </script>
+
+    <script>
+      // Comic filtering system
+      function filterComics(category) {
+        const filteredSection = document.getElementById("filtered-comics");
+        const container = document.getElementById("filtered-comics-container");
+        const categoryTitle = document.querySelector(".category-title");
+
+        // Show loading state
+        container.innerHTML =
+          '<div class="text-center"><div class="spinner-border text-primary" role="status"></div></div>';
+
+        // Show filtered section
+        filteredSection.classList.remove("d-none");
+
+        // Update title
+        categoryTitle.textContent = `${
+          category.charAt(0).toUpperCase() + category.slice(1)
+        } Comics`;
+
+        // Simulate loading (replace with actual API call)
+        setTimeout(() => {
+          // Add filtered comics (example)
+          container.innerHTML = `
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <div class="comic-card">
+                        <!-- Add comic card content -->
+                    </div>
+                </div>
+            `;
+        }, 1000);
+
+        // Scroll to filtered section
+        filteredSection.scrollIntoView({ behavior: "smooth" });
+      }
+
+      function showAllComics() {
+        document.getElementById("filtered-comics").classList.add("d-none");
+        document
+          .getElementById("categories")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+
+      // Like system
+      document.querySelectorAll(".like-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const icon = this.querySelector("i");
+          const counter = this.querySelector(".like-count");
+
+          if (!this.classList.contains("liked")) {
+            this.classList.add("liked");
+            icon.classList.remove("bi-heart");
+            icon.classList.add("bi-heart-fill");
+            counter.textContent = parseInt(counter.textContent) + 1;
+          }
+        });
+      });
+    </script>
+
+    <script>
+      // Sample comic data for each category
+      const categoryComics = {
+        superhero: [
+          {
+            id: "spider1",
+            title: "Spider-Man: Beyond Amazing",
+            image:
+              "https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?w=800",
+            description:
+              "Peter Parker faces his greatest challenge yet as multiple universes collide.",
+            rating: 4.8,
+            readTime: "5 min",
+            likes: 156,
+            badge: "New Release",
+          },
+          {
+            id: "batman1",
+            title: "Batman: Dark Knights",
+            image:
+              "https://images.unsplash.com/photo-1608889476561-6242cfdbf622?w=800",
+            description:
+              "Gotham faces its darkest hour as Batman confronts a new nemesis.",
+            rating: 4.9,
+            readTime: "8 min",
+            likes: 234,
+            badge: "Featured",
+          },
+          {
+            id: "xmen1",
+            title: "X-Men: Evolution",
+            image:
+              "https://images.unsplash.com/photo-1559535332-db9971090158?w=800",
+            description:
+              "The mutants face a new threat that could change the world forever.",
+            rating: 4.7,
+            readTime: "6 min",
+            likes: 189,
+            badge: "Trending",
+          },
+        ],
+        manga: [
+          {
+            id: "onepiece1",
+            title: "One Piece: Final Saga",
+            image:
+              "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800",
+            description:
+              "Luffy and the Straw Hat crew approach their ultimate destination.",
+            rating: 4.9,
+            readTime: "10 min",
+            likes: 312,
+            badge: "Trending",
+          },
+          {
+            id: "demonslayer1",
+            title: "Demon Slayer: New Arc",
+            image:
+              "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800",
+            description:
+              "Tanjiro continues his quest against powerful new demons.",
+            rating: 4.8,
+            readTime: "7 min",
+            likes: 278,
+            badge: "Popular",
+          },
+          {
+            id: "jujutsu1",
+            title: "Jujutsu Kaisen: Shibuya",
+            image:
+              "https://images.unsplash.com/photo-1613376023733-0a73315d9b06?w=800",
+            description: "The sorcerers face their greatest battle in Shibuya.",
+            rating: 4.9,
+            readTime: "8 min",
+            likes: 345,
+            badge: "Hot",
+          },
+        ],
+        fantasy: [
+          {
+            id: "sandman1",
+            title: "Sandman: Dreamlands",
+            image:
+              "https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=800",
+            description: "Journey through the realm of dreams with Morpheus.",
+            rating: 4.9,
+            readTime: "12 min",
+            likes: 423,
+            badge: "Classic",
+          },
+          {
+            id: "fables1",
+            title: "Fables: Legends",
+            image:
+              "https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?w=800",
+            description:
+              "Fairy tale characters live among us in this epic series.",
+            rating: 4.7,
+            readTime: "9 min",
+            likes: 267,
+            badge: "Featured",
+          },
+          {
+            id: "saga1",
+            title: "Saga: New Worlds",
+            image:
+              "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800",
+            description: "A space opera about family, war, and survival.",
+            rating: 4.8,
+            readTime: "10 min",
+            likes: 389,
+            badge: "Epic",
+          },
+        ],
+        horror: [
+          {
+            id: "walking1",
+            title: "Walking Dead: Survivors",
+            image:
+              "https://images.unsplash.com/photo-1626163015484-87a188d27393?w=800",
+            description: "The survivors face new threats in a world of undead.",
+            rating: 4.6,
+            readTime: "8 min",
+            likes: 289,
+            badge: "Latest",
+          },
+          {
+            id: "hellblazer1",
+            title: "Hellblazer: Dark Magic",
+            image:
+              "https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?w=800",
+            description: "John Constantine battles supernatural forces.",
+            rating: 4.7,
+            readTime: "11 min",
+            likes: 312,
+            badge: "Supernatural",
+          },
+          {
+            id: "junji1",
+            title: "Junji Ito Collection",
+            image:
+              "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?w=800",
+            description: "Horror manga master presents new terrifying tales.",
+            rating: 4.8,
+            readTime: "15 min",
+            likes: 445,
+            badge: "Horror",
+          },
+        ],
+        scifi: [
+          {
+            id: "trans1",
+            title: "Transmetropolitan",
+            image:
+              "https://images.unsplash.com/photo-1563089145-599997674d42?w=800",
+            description: "Spider Jerusalem reports on a dystopian future.",
+            rating: 4.8,
+            readTime: "11 min",
+            likes: 312,
+            badge: "Cyberpunk",
+          },
+          {
+            id: "descender1",
+            title: "Descender: AI Wars",
+            image:
+              "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800",
+            description:
+              "A robot boy searches for meaning in a post-AI universe.",
+            rating: 4.7,
+            readTime: "9 min",
+            likes: 267,
+            badge: "Sci-Fi",
+          },
+          {
+            id: "paper1",
+            title: "Paper Girls: Time War",
+            image:
+              "https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=800",
+            description: "Four paper delivery girls caught in a time war.",
+            rating: 4.6,
+            readTime: "8 min",
+            likes: 234,
+            badge: "Adventure",
+          },
+        ],
+        indie: [
+          {
+            id: "maus1",
+            title: "Maus: Complete Edition",
+            image:
+              "https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?w=800",
+            description: "The Pulitzer Prize-winning Holocaust narrative.",
+            rating: 5.0,
+            readTime: "20 min",
+            likes: 567,
+            badge: "Classic",
+          },
+          {
+            id: "persepolis1",
+            title: "Persepolis",
+            image:
+              "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800",
+            description: "A coming-of-age story in revolutionary Iran.",
+            rating: 4.9,
+            readTime: "15 min",
+            likes: 445,
+            badge: "Memoir",
+          },
+          {
+            id: "blankets1",
+            title: "Blankets",
+            image:
+              "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?w=800",
+            description: "A touching story of first love and faith.",
+            rating: 4.8,
+            readTime: "18 min",
+            likes: 389,
+            badge: "Drama",
+          },
+        ],
+        novels: [
+          {
+            id: "watchmen1",
+            title: "Watchmen: Ultimate Cut",
+            image:
+              "https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?w=800",
+            description:
+              "The complete edition of the groundbreaking graphic novel.",
+            rating: 5.0,
+            readTime: "25 min",
+            likes: 678,
+            badge: "Masterpiece",
+          },
+          {
+            id: "vendetta1",
+            title: "V for Vendetta",
+            image:
+              "https://images.unsplash.com/photo-1608889476561-6242cfdbf622?w=800",
+            description: "A dystopian tale of revolution and identity.",
+            rating: 4.9,
+            readTime: "20 min",
+            likes: 534,
+            badge: "Political",
+          },
+          {
+            id: "contract1",
+            title: "The Contract with God",
+            image:
+              "https://images.unsplash.com/photo-1559535332-db9971090158?w=800",
+            description: "Will Eisners pioneering graphic novel trilogy.",
+            rating: 4.8,
+            readTime: "22 min",
+            likes: 445,
+            badge: "Historical",
+          },
+        ],
+        webcomics: [
+          {
+            id: "xkcd1",
+            title: "XKCD: Science & Life",
+            image:
+              "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=800",
+            description: "Witty comics about science, technology, and life.",
+            rating: 4.7,
+            readTime: "5 min",
+            likes: 567,
+            badge: "Geek Culture",
+          },
+          {
+            id: "penny1",
+            title: "Penny Arcade: Gaming Life",
+            image:
+              "https://images.unsplash.com/photo-1580477667995-2b94f01c9516?w=800",
+            description: "Video game culture and commentary.",
+            rating: 4.6,
+            readTime: "4 min",
+            likes: 423,
+            badge: "Gaming",
+          },
+          {
+            id: "homestuck1",
+            title: "Homestuck: Beta",
+            image:
+              "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800",
+            description: "The internets most ambitious webcomic.",
+            rating: 4.8,
+            readTime: "15 min",
+            likes: 489,
+            badge: "Interactive",
+          },
+        ],
+      };
+
+      // Update category boxes to trigger filtering
+      document.querySelectorAll(".category-box").forEach((box) => {
+        box.addEventListener("click", function () {
+          const category = this.getAttribute("data-category");
+          showCategoryComics(category);
+        });
+      });
+
+      function showCategoryComics(category) {
+        const filteredSection = document.getElementById("filtered-comics");
+        const container = document.getElementById("filtered-comics-container");
+        const categoryTitle = document.querySelector(".category-title");
+        const categoryDescription = document.querySelector(
+          ".category-description"
+        );
+
+        // Update title and description
+        categoryTitle.textContent = getCategoryTitle(category);
+        categoryDescription.textContent = getCategoryDescription(category);
+
+        // Show loading animation
+        container.innerHTML = `
+            <div class="col-12 text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        `;
+
+        // Show filtered section
+        filteredSection.classList.remove("d-none");
+
+        // Simulate API call delay
+        setTimeout(() => {
+          const comics = categoryComics[category] || [];
+
+          if (comics.length === 0) {
+            container.innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <div class="empty-state">
+                            <i class="bi bi-journal-x display-1 text-muted"></i>
+                            <h3 class="mt-4">No Comics Found</h3>
+                            <p class="text-muted">We're working on adding more comics to this category.</p>
+                        </div>
+                    </div>
+                `;
+            return;
+          }
+
+          container.innerHTML = comics
+            .map(
+              (comic) => `
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <div class="comic-card h-100">
+                        <div class="comic-card-image">
+                            <img src="${comic.image}" alt="${
+                comic.title
+              }" class="comic-cover">
+                            <div class="comic-card-overlay">
+                                <button class="btn btn-light btn-sm read-more" 
+                                        onclick='showComicDetails(${JSON.stringify(
+                                          comic
+                                        )})'>
+                                    Read More
+                                </button>
+                            </div>
+                            <div class="comic-card-badge">
+                                <span class="badge bg-primary">${
+                                  comic.badge
+                                }</span>
+                            </div>
+                        </div>
+                        <div class="comic-card-content">
+                            <h3 class="comic-title">${comic.title}</h3>
+                            <p class="comic-description">${
+                              comic.description
+                            }</p>
+                            <div class="comic-card-meta">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="meta-item">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <span>${comic.rating}</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="bi bi-clock"></i>
+                                        <span>${comic.readTime}</span>
+                                    </div>
+                                </div>
+                                <button class="like-btn" data-article-id="${
+                                  comic.id
+                                }">
+                                    <i class="bi bi-heart"></i>
+                                    <span class="like-count">${
+                                      comic.likes
+                                    }</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+            )
+            .join("");
+
+          // Reinitialize like buttons and AOS
+          initializeLikeButtons();
+          AOS.refresh();
+        }, 1000);
+
+        // Scroll to filtered section
+        filteredSection.scrollIntoView({ behavior: "smooth" });
+      }
+
+      function showAllCategories() {
+        const filteredSection = document.getElementById("filtered-comics");
+        filteredSection.classList.add("d-none");
+        document
+          .getElementById("categories")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      function getCategoryTitle(category) {
+        const titles = {
+          superhero: "Superhero Comics",
+          manga: "Manga Collection",
+          fantasy: "Fantasy Comics",
+          horror: "Horror & Mystery Comics",
+          scifi: "Sci-Fi Comics",
+          indie: "Independent Comics",
+          novels: "Graphic Novels",
+          webcomics: "Web Comics",
+        };
+        return titles[category] || "Comics";
+      }
+
+      function getCategoryDescription(category) {
+        const descriptions = {
+          superhero: "Explore epic adventures of your favorite superheroes",
+          manga: "Discover the best of Japanese comic artistry",
+          fantasy: "Immerse yourself in magical worlds and epic quests",
+          horror: "Experience thrilling tales of horror and mystery",
+          scifi: "Journey through futuristic worlds and technologies",
+          indie: "Discover unique stories from independent creators",
+          novels: "Dive into compelling graphic novel narratives",
+          webcomics: "Explore the best digital comic series",
+        };
+        return (
+          descriptions[category] || "Explore amazing comics in this category"
+        );
+      }
+
+      function initializeLikeButtons() {
+        document.querySelectorAll(".like-btn").forEach((btn) => {
+          if (!btn.hasListener) {
+            btn.addEventListener("click", function () {
+              const icon = this.querySelector("i");
+              const counter = this.querySelector(".like-count");
+
+              if (!this.classList.contains("liked")) {
+                this.classList.add("liked");
+                icon.classList.remove("bi-heart");
+                icon.classList.add("bi-heart-fill");
+                counter.textContent = parseInt(counter.textContent) + 1;
+              }
+            });
+            btn.hasListener = true;
+          }
+        });
+      }
+    </script>
+
+    <script>
+      // Initialize modal
+      const comicModal = new bootstrap.Modal(
+        document.getElementById("comicDetailModal")
+      );
+
+      // Function to show comic details in modal
+      function showComicDetails(comic) {
+        // Make sure the modal element exists
+        const modalElement = document.getElementById("comicDetailModal");
+        if (!modalElement) {
+          console.error("Modal element not found");
+          return;
+        }
+
+        // Update modal content
+        document.getElementById("modalComicImage").src = comic.image;
+        document.getElementById("modalComicTitle").textContent = comic.title;
+        document.getElementById("modalComicBadge").textContent = comic.badge;
+        document.getElementById("modalComicRating").textContent = comic.rating;
+        document.getElementById("modalComicReadTime").textContent =
+          comic.readTime;
+        document.getElementById("modalComicLikes").textContent = comic.likes;
+        document.getElementById("modalComicDescription").textContent =
+          comic.description;
+
+        // Generate chapters
+        const chaptersContainer = document.getElementById("modalComicChapters");
+        chaptersContainer.innerHTML = generateChapters(10, comic.title);
+
+        // Show modal using Bootstrap
+        const comicModal = new bootstrap.Modal(modalElement);
+        comicModal.show();
+      }
+
+      // Function to generate chapter list
+      function generateChapters(count, comicTitle) {
+        let chapters = "";
+        for (let i = 1; i <= count; i++) {
+          const isLocked = i > 3; // First 3 chapters are free
+          chapters += `
+            <div class="chapter-item ${isLocked ? "locked" : ""}" 
+                 onclick="${
+                   isLocked
+                     ? "showSubscribePrompt()"
+                     : `readChapter('${comicTitle}', ${i})`
+                 }">
+                Chapter ${i}
+            </div>
+        `;
+        }
+        return chapters;
+      }
+
+      // Function to handle chapter reading
+      function readChapter(comicTitle, chapterNum) {
+        // Hide the modal
+        const modalElement = document.getElementById("comicDetailModal");
+        const modal = bootstrap.Modal.getInstance(modalElement);
+        if (modal) {
+          modal.hide();
+        }
+
+        // Handle reading logic (you can customize this)
+        console.log(`Reading ${comicTitle} - Chapter ${chapterNum}`);
+        alert(`Opening Chapter ${chapterNum} of ${comicTitle}`);
+        // Add your reading page navigation logic here
+      }
+
+      // Function to show subscription prompt
+      function showSubscribePrompt() {
+        alert("Subscribe to unlock all chapters!");
+        // You can replace this with a better-looking subscription prompt
+      }
+
+      // Make sure Bootstrap is properly initialized
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize Bootstrap modals
+        const modals = document.querySelectorAll(".modal");
+        modals.forEach((modalElement) => {
+          new bootstrap.Modal(modalElement);
+        });
+      });
+    </script>
+
+    <!-- Enhanced Footer with Dark Theme -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+      <div class="container">
+        <!-- Main Footer Content -->
+        <div class="row g-4">
+          <!-- About Section -->
+          <div class="col-lg-4 col-md-6">
+            <div class="mb-4">
+              <a class="navbar-brand" href="#">
+                <i class="bi bi-pencil-square text-warning fs-4 me-2"></i>
+                <span class="fw-bold"
+                  >Blog<span class="text-warning">Space</span></span
+                >
+              </a>
+            </div>
+            <p class="text-light">
+              Your daily source for stories, shayaris, cartoons, and news. Join
+              our community of writers and readers.
+            </p>
+            <div class="social-links">
+              <a href="#" class="text-light me-3"
+                ><i class="bi bi-facebook fs-5"></i
+              ></a>
+              <a href="#" class="text-light me-3"
+                ><i class="bi bi-twitter-x fs-5"></i
+              ></a>
+              <a href="#" class="text-light me-3"
+                ><i class="bi bi-instagram fs-5"></i
+              ></a>
+              <a href="#" class="text-light me-3"
+                ><i class="bi bi-linkedin fs-5"></i
+              ></a>
+              <a href="#" class="text-light"
+                ><i class="bi bi-youtube fs-5"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-lg-2 col-md-6">
+            <h5 class="text-white mb-4">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none">Home</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none">About Us</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none">Contact</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none"
+                  >Write for Us</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none"
+                  >Advertise</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Categories -->
+          <div class="col-lg-2 col-md-6">
+            <h5 class="text-white mb-4">Categories</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none"
+                  >Technology</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none"
+                  >Lifestyle</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none">Travel</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none">Food</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none">Health</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="col-lg-4 col-md-6">
+            <h5 class="text-white mb-4">Newsletter</h5>
+            <p class="text-light">
+              Subscribe to our newsletter for the latest updates and exclusive
+              content.
+            </p>
+            <div class="input-group mb-3">
+              <input
+                type="email"
+                class="form-control bg-dark text-light border-secondary"
+                placeholder="Enter your email"
+                aria-label="Email"
+                aria-describedby="subscribe-btn"
+              />
+              <button class="btn btn-warning" type="button" id="subscribe-btn">
+                Subscribe
+              </button>
+            </div>
+            <small class="text-light"
+              >By subscribing, you agree to our Privacy Policy</small
+            >
+          </div>
+        </div>
+
+        <!-- Horizontal Line -->
+        <hr class="my-4 border-secondary" />
+
+        <!-- Bottom Footer -->
+        <div class="row align-items-center">
+          <!-- Copyright -->
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <small class="text-light">
+              &copy; 2024 BlogSpace. All rights reserved.
+            </small>
+          </div>
+
+          <!-- Legal Links -->
+          <div class="col-md-6">
+            <ul class="list-inline text-center text-md-end mb-0">
+              <li class="list-inline-item">
+                <a href="#" class="text-light text-decoration-none small"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li class="list-inline-item ms-3">
+                <a href="#" class="text-light text-decoration-none small"
+                  >Terms of Use</a
+                >
+              </li>
+              <li class="list-inline-item ms-3">
+                <a href="#" class="text-light text-decoration-none small"
+                  >Cookie Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+  </body>
+</html>

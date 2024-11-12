@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Essential Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fun and safe space for kids to explore cartoons, educational content, and interactive games">
+    <meta name="keywords" content="kids cartoons, children content, educational games, fun learning, kid-friendly videos">
+    <meta name="author" content="BlogSpace Kids">
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Kids Corner - BlogSpace">
+    <meta property="og:description" content="Discover a world of fun and learning with BlogSpace Kids Corner!">
+    <meta property="og:image" content="path/to/kids-corner-preview.jpg">
+    <meta property="og:url" content="https://yourdomain.com/kids">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="path/to/apple-touch-icon.png">
+    
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <title>Kids Corner - BlogSpace</title>
+
+    <style>
+        /* Enhanced Kid-friendly color scheme and styles */
+        :root {
+            --primary-color: #FF6B6B;
+            --secondary-color: #4ECDC4;
+            --accent-color: #FFE66D;
+            --tertiary-color: #7ED957;
+            --background-light: #F7F9FC;
+            --text-dark: #2D3436;
+        }
+
+        body {
+            font-family: 'Comic Neue', cursive;
+            background: linear-gradient(135deg, var(--background-light) 0%, #ffffff 100%);
+        }
+
+        /* Enhanced typography */
+        .kid-title {
+            font-family: 'Bubblegum Sans', cursive;
+            color: var(--primary-color);
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+        }
+
+        /* Enhanced card styles */
+        .cartoon-card {
+            border-radius: 20px;
+            border: 3px solid var(--accent-color);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: white;
+            overflow: hidden;
+        }
+
+        .cartoon-card:hover {
+            transform: translateY(-15px) rotate(2deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: var(--tertiary-color);
+        }
+
+        .cartoon-card img {
+            transition: transform 0.5s ease;
+        }
+
+        .cartoon-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Enhanced button styles */
+        .btn-fun {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 25px;
+            padding: 12px 25px;
+            border: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-fun:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Enhanced animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        .float-element {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Fun background elements */
+        .bg-dots {
+            background-image: radial-gradient(var(--accent-color) 2px, transparent 2px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+        }
+
+        /* Category badges */
+        .category-badge {
+            background: var(--accent-color);
+            color: var(--text-dark);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* Interactive elements */
+        .interactive-box {
+            background: white;
+            border-radius: 25px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .interactive-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--background-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 6px;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            padding: 120px 0;
+            background: linear-gradient(135deg, #fff6e5 0%, #ffe1e9 100%);
+            position: relative;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: 1;
+        }
+
+        .floating-elements {
+            position: relative;
+            z-index: 2;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .bg-dots {
+            background-image: radial-gradient(var(--accent-color) 2px, transparent 2px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            padding: 20px;
+            z-index: 2;
+        }
+
+        .hero-image-wrapper img {
+            border: 8px solid white;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            z-index: 3;
+        }
+
+        .floating-card img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .card-1 {
+            top: 20px;
+            right: -20px;
+        }
+
+        .card-2 {
+            bottom: 40px;
+            left: -20px;
+        }
+
+        .feature-pill {
+            background: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 2;
+        }
+
+        .feature-pill i {
+            font-size: 1.1rem;
+        }
+
+        .floating-elements img {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0;
+                min-height: auto;
+            }
+            
+            .floating-card {
+                display: none;
+            }
+            
+            .hero-image-wrapper {
+                margin-top: 40px;
+            }
+
+            .hero-overlay {
+                background: rgba(255, 255, 255, 0.92);
+            }
+        }
+
+        .show-tags .badge {
+            margin-right: 5px;
+            font-weight: 500;
+            padding: 6px 12px;
+        }
+
+        .rating {
+            background: rgba(255, 193, 7, 0.1);
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .rating i {
+            font-size: 0.8rem;
+            margin-right: 3px;
+        }
+
+        .watch-time .badge {
+            backdrop-filter: blur(4px);
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .card-img-top {
+                height: 180px;
+            }
+        }
+
+        .game-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .game-img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .game-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .game-card:hover .game-overlay {
+            opacity: 1;
+        }
+
+        .play-icon {
+            color: white;
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Modal Styles */
+        .modal-content {
+            border-radius: 20px;
+            border: none;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-body i {
+            color: var(--primary-color);
+        }
+
+        .games-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .game-card {
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: none;
+            background: white;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .game-img {
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .game-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(3px);
+        }
+
+        .game-card:hover .game-overlay {
+            opacity: 1;
+        }
+
+        .play-icon-wrapper {
+            color: white;
+            text-align: center;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .game-card:hover .play-icon-wrapper {
+            transform: translateY(0);
+        }
+
+        .difficulty-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255,255,255,0.9);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #ffc107;
+        }
+
+        .game-stats {
+            display: flex;
+            gap: 10px;
+        }
+
+        .game-stats .badge {
+            padding: 8px 12px;
+        }
+
+        /* Modal Enhancements */
+        .modal-content {
+            border-radius: 20px;
+            border: none;
+        }
+
+        .coming-soon-icon {
+            position: relative;
+        }
+
+        .loading-dots {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .loading-dots span {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            animation: bounce 1.5s infinite;
+        }
+
+        .loading-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loading-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .notification-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .parents-corner {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .parent-card {
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            cursor: pointer;
+        }
+
+        .parent-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(var(--bs-primary-rgb), 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .feature-list li i {
+            color: var(--bs-success);
+            margin-right: 0.5rem;
+        }
+
+        .notification-signup .input-group {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* Modal animations */
+        .modal.fade .modal-dialog {
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.show .modal-dialog {
+            transform: scale(1);
+        }
+
+        @media (max-width: 768px) {
+            .parent-card {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+          <!-- Brand -->
+          <a class="navbar-brand" href="../index.html">
+            <i class="bi bi-pencil-square text-warning me-2"></i>
+            <span>Blog<span class="text-warning">Space</span></span>
+          </a>
+  
+          <!-- Mobile Toggle -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarContent"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <!-- Nav Content -->
+          <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav me-auto">
+              <!-- Home -->
+              <li class="nav-item">
+                <a class="nav-link active" href="../index.html">
+                  <i class="bi bi-house-door me-1"></i>Home
+                </a>
+              </li>
+  
+              <!-- Shayaris -->
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                  <i class="bi bi-heart me-1"></i>Shayaris
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="../shayari-pages/love.html">
+                      <i class="bi bi-heart-fill me-2 text-danger"></i>Love
+                      Shayari
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="../shayari-pages/friendship.html">
+                      <i class="bi bi-people-fill me-2 text-info"></i>Friendship
+                      Shayari
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="../shayari-pages/sad.html">
+                      <i class="bi bi-cloud-rain-fill me-2 text-primary"></i>Sad
+                      Shayari
+                    </a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="../shayari-pages/all-shayaris.html">
+                      <i class="bi bi-collection-fill me-2 text-warning"></i>View
+                      All
+                    </a>
+                  </li>
+                </ul>
+              </li>
+  
+              <!-- Cartoons -->
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                  <i class="bi bi-emoji-smile me-1"></i>Cartoons
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="./anime.html">
+                      <i class="bi bi-star-fill me-2 text-warning"></i>Anime
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./comics.html">
+                      <i class="bi bi-book-fill me-2 text-success"></i>Comics
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./kids.html">
+                      <i class="bi bi-balloon-fill me-2 text-danger"></i>Kids
+                      Cartoons
+                    </a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="./cartoon-pages/all-cartoons.html"
+                    >
+                      <i class="bi bi-collection-fill me-2 text-warning"></i>View
+                      All
+                    </a>
+                  </li>
+                </ul>
+              </li>
+  
+              <!-- Stories -->
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                  <i class="bi bi-book me-1"></i>Stories
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="./story-pages/short.html">
+                      <i class="bi bi-bookmark-fill me-2 text-primary"></i>Short
+                      Stories
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./story-pages/moral.html">
+                      <i class="bi bi-lightbulb-fill me-2 text-warning"></i>Moral
+                      Stories
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./story-pages/bedtime.html">
+                      <i class="bi bi-moon-stars-fill me-2 text-info"></i>Bedtime
+                      Stories
+                    </a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="./story-pages/all-stories.html"
+                    >
+                      <i class="bi bi-collection-fill me-2 text-warning"></i>View
+                      All
+                    </a>
+                  </li>
+                </ul>
+              </li>
+  
+              <!-- Weather -->
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/weather.html">
+                  <i class="bi bi-cloud-sun me-1"></i>Weather
+                </a>
+              </li>
+            </ul>
+  
+            <!-- Search -->
+            <form class="d-flex mx-lg-2">
+              <div class="input-group">
+                <input
+                  type="search"
+                  class="form-control form-control-sm custom-search"
+                  placeholder="Search..."
+                  aria-label="Search"
+                />
+                <button class="btn btn-warning btn-sm" type="submit">
+                  <i class="bi bi-search"></i>
+                </button>
+              </div>
+            </form>
+  
+            <!-- Account -->
+            <div class="nav-item dropdown">
+              <a
+                class="nav-link user-dropdown"
+                href="#"
+                data-bs-toggle="dropdown"
+              >
+                <i class="bi bi-person-circle fs-5 text-warning"></i>
+                <span class="d-none d-lg-inline">Account</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="../pages/login.html">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../pages/register.html">
+                    <i class="bi bi-person-plus me-2"></i>Register
+                  </a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="../pages/profile.html">
+                    <i class="bi bi-person-circle me-2"></i>Profile
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+  
+
+
+    <!-- Enhanced Hero Section -->
+    <section class="hero-section py-5 position-relative overflow-hidden">
+        <!-- White Overlay -->
+        <div class="hero-overlay"></div>
+        
+        <!-- Floating Background Elements -->
+        <div class="floating-elements">
+            <img src="https://images.unsplash.com/photo-1526406915894-7bcd65f60845?w=120&h=120" class="float-element position-absolute" style="top: 10%; left: 5%; width: 60px; border-radius: 50%;" alt="Toy">
+            <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=120&h=120" class="float-element position-absolute" style="top: 70%; right: 10%; width: 80px; border-radius: 50%;" alt="Robot">
+            <img src="https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?w=120&h=120" class="float-element position-absolute" style="top: 40%; left: 15%; width: 40px; border-radius: 50%;" alt="Star">
+        </div>
+
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-6 pe-lg-5">
+                    <div class="hero-content">
+                        <span class="badge bg-warning text-dark mb-3 animate__animated animate__fadeInDown">
+                            <i class="bi bi-stars me-1"></i>Kids Special
+                        </span>
+                        <h1 class="kid-title display-4 mb-4 animate__animated animate__bounceIn">
+                            Welcome to the Magical World of Kids! 
+                            <span class="d-block text-primary">🎈 Fun & Learning</span>
+                        </h1>
+                        <p class="lead mb-4 animate__animated animate__fadeIn">
+                            Join us on an incredible adventure where imagination meets education! 
+                            🚀 Discover amazing stories, play exciting games, and make new friends!
+                        </p>
+                        <div class="d-flex gap-3 flex-wrap animate__animated animate__fadeInUp">
+                            <button class="btn btn-fun btn-lg">
+                                <i class="bi bi-play-circle me-2"></i>Start Adventure
+                            </button>
+                            <button class="btn btn-outline-primary btn-lg rounded-pill">
+                                <i class="bi bi-star-fill me-2"></i>Popular Shows
+                            </button>
+                        </div>
+                        
+                        <!-- Features Pills -->
+                        <div class="mt-5 d-flex gap-3 flex-wrap">
+                            <div class="feature-pill animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                                <i class="bi bi-shield-check text-success"></i>
+                                Safe Content
+                            </div>
+                            <div class="feature-pill animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+                                <i class="bi bi-mortarboard text-primary"></i>
+                                Educational
+                            </div>
+                            <div class="feature-pill animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
+                                <i class="bi bi-emoji-laughing text-warning"></i>
+                                Fun Learning
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image-wrapper position-relative">
+                        <!-- Main Hero Image -->
+                        <img src="https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?w=800" 
+                             class="img-fluid rounded-4 shadow-lg float-element" 
+                             alt="Happy Kids Learning">
+                        
+                        <!-- Floating Cards -->
+                        <div class="floating-card card-1 animate__animated animate__fadeInRight">
+                            <img src="https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=150" 
+                                 alt="Educational Games">
+                            <span>Educational Games</span>
+                        </div>
+                        <div class="floating-card card-2 animate__animated animate__fadeInRight" style="animation-delay: 0.3s">
+                            <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?w=150" 
+                                 alt="Fun Stories">
+                            <span>Fun Stories</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="kid-title text-center mb-5">Explore Fun Categories! ✨</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="interactive-box text-center">
+                        <i class="bi bi-controller fs-1 text-primary mb-3"></i>
+                        <h4>Games</h4>
+                        <p>Play & Learn</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="interactive-box text-center">
+                        <i class="bi bi-book fs-1 text-success mb-3"></i>
+                        <h4>Stories</h4>
+                        <p>Read & Imagine</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="interactive-box text-center">
+                        <i class="bi bi-palette fs-1 text-warning mb-3"></i>
+                        <h4>Art</h4>
+                        <p>Create & Color</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="interactive-box text-center">
+                        <i class="bi bi-music-note-beamed fs-1 text-danger mb-3"></i>
+                        <h4>Music</h4>
+                        <p>Listen & Dance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Shows Grid -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="kid-title text-center mb-4">Popular Shows 🌟</h2>
+            <div class="row g-4">
+                <!-- Show Card 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="cartoon-card card h-100">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=800" 
+                                 class="card-img-top" alt="Adventure Time">
+                            <span class="category-badge position-absolute top-0 end-0 m-3">Age 7+</span>
+                            <div class="watch-time position-absolute bottom-0 start-0 m-3">
+                                <span class="badge bg-dark">25 mins</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title mb-0">Adventure Time</h5>
+                                <span class="rating">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <span>4.8</span>
+                                </span>
+                            </div>
+                            <p class="card-text">Join Finn and Jake on their magical adventures in the Land of Ooo!</p>
+                            <div class="show-tags mb-3">
+                                <span class="badge bg-primary">Adventure</span>
+                                <span class="badge bg-success">Fantasy</span>
+                                <span class="badge bg-info">Comedy</span>
+                            </div>
+                            <button class="btn btn-fun btn-sm w-100">
+                                <i class="bi bi-play-circle me-2"></i>Watch Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Show Card 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="cartoon-card card h-100">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1560830889-96266c6dbe96?w=800" 
+                                 class="card-img-top" alt="Science Kids">
+                            <span class="category-badge position-absolute top-0 end-0 m-3">Age 8+</span>
+                            <div class="watch-time position-absolute bottom-0 start-0 m-3">
+                                <span class="badge bg-dark">20 mins</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title mb-0">Science Kids</h5>
+                                <span class="rating">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <span>4.9</span>
+                                </span>
+                            </div>
+                            <p class="card-text">Explore the amazing world of science through fun experiments!</p>
+                            <div class="show-tags mb-3">
+                                <span class="badge bg-primary">Educational</span>
+                                <span class="badge bg-success">Science</span>
+                                <span class="badge bg-info">Interactive</span>
+                            </div>
+                            <button class="btn btn-fun btn-sm w-100">
+                                <i class="bi bi-play-circle me-2"></i>Watch Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Show Card 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="cartoon-card card h-100">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1499334650700-42e4f7ffc63d?w=800" 
+                                 class="card-img-top" alt="Art Attack">
+                            <span class="category-badge position-absolute top-0 end-0 m-3">Age 6+</span>
+                            <div class="watch-time position-absolute bottom-0 start-0 m-3">
+                                <span class="badge bg-dark">15 mins</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title mb-0">Art Attack</h5>
+                                <span class="rating">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <span>4.7</span>
+                                </span>
+                            </div>
+                            <p class="card-text">Get creative with amazing art projects and crafts!</p>
+                            <div class="show-tags mb-3">
+                                <span class="badge bg-primary">Creative</span>
+                                <span class="badge bg-success">Art</span>
+                                <span class="badge bg-info">DIY</span>
+                            </div>
+                            <button class="btn btn-fun btn-sm w-100">
+                                <i class="bi bi-play-circle me-2"></i>Watch Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Show Card 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="cartoon-card card h-100">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1605540436563-5bca919ae766?w=800" 
+                                 class="card-img-top" alt="Music Mania">
+                            <span class="category-badge position-absolute top-0 end-0 m-3">Age 5+</span>
+                            <div class="watch-time position-absolute bottom-0 start-0 m-3">
+                                <span class="badge bg-dark">18 mins</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title mb-0">Music Mania</h5>
+                                <span class="rating">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <span>4.6</span>
+                                </span>
+                            </div>
+                            <p class="card-text">Dance, sing, and learn with musical adventures!</p>
+                            <div class="show-tags mb-3">
+                                <span class="badge bg-primary">Music</span>
+                                <span class="badge bg-success">Dance</span>
+                                <span class="badge bg-info">Fun</span>
+                            </div>
+                            <button class="btn btn-fun btn-sm w-100">
+                                <i class="bi bi-play-circle me-2"></i>Watch Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Show Card 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="cartoon-card card h-100">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800" 
+                                 class="card-img-top" alt="Nature Explorers">
+                            <span class="category-badge position-absolute top-0 end-0 m-3">Age 7+</span>
+                            <div class="watch-time position-absolute bottom-0 start-0 m-3">
+                                <span class="badge bg-dark">22 mins</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title mb-0">Nature Explorers</h5>
+                                <span class="rating">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <span>4.8</span>
+                                </span>
+                            </div>
+                            <p class="card-text">Discover the wonders of nature and wildlife!</p>
+                            <div class="show-tags mb-3">
+                                <span class="badge bg-primary">Nature</span>
+                                <span class="badge bg-success">Wildlife</span>
+                                <span class="badge bg-info">Educational</span>
+                            </div>
+                            <button class="btn btn-fun btn-sm w-100">
+                                <i class="bi bi-play-circle me-2"></i>Watch Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Show Card 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="cartoon-card card h-100">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?w=800" 
+                                 class="card-img-top" alt="Math Heroes">
+                            <span class="category-badge position-absolute top-0 end-0 m-3">Age 8+</span>
+                            <div class="watch-time position-absolute bottom-0 start-0 m-3">
+                                <span class="badge bg-dark">20 mins</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title mb-0">Math Heroes</h5>
+                                <span class="rating">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <span>4.7</span>
+                                </span>
+                            </div>
+                            <p class="card-text">Make mathematics fun with exciting adventures!</p>
+                            <div class="show-tags mb-3">
+                                <span class="badge bg-primary">Math</span>
+                                <span class="badge bg-success">Problem Solving</span>
+                                <span class="badge bg-info">Fun</span>
+                            </div>
+                            <button class="btn btn-fun btn-sm w-100">
+                                <i class="bi bi-play-circle me-2"></i>Watch Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View More Button -->
+            <div class="text-center mt-5">
+                <button class="btn btn-fun btn-lg">
+                    <i class="bi bi-grid me-2"></i>View More Shows
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parent's Corner Section -->
+    <section class="parents-corner py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="kid-title display-4 mb-3">Parent's Corner 👨‍👩‍👧‍👦</h2>
+                <p class="lead text-muted">Tools and resources to help manage your child's experience</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Parental Controls Card -->
+                <div class="col-lg-4">
+                    <div class="parent-card card h-100" onclick="showParentModal('controls')">
+                        <div class="card-body">
+                            <div class="feature-icon mb-3">
+                                <i class="bi bi-shield-lock text-primary"></i>
+                            </div>
+                            <h4 class="card-title">Parental Controls</h4>
+                            <p class="card-text">Set content filters, screen time limits, and manage access permissions.</p>
+                            <ul class="feature-list">
+                                <li><i class="bi bi-check-circle"></i> Content Filtering</li>
+                                <li><i class="bi bi-check-circle"></i> Screen Time Management</li>
+                                <li><i class="bi bi-check-circle"></i> Activity Reports</li>
+                            </ul>
+                            <button class="btn btn-outline-primary mt-3">
+                                <i class="bi bi-gear me-2"></i>Setup Controls
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Learning Progress Card -->
+                <div class="col-lg-4">
+                    <div class="parent-card card h-100" onclick="showParentModal('progress')">
+                        <div class="card-body">
+                            <div class="feature-icon mb-3">
+                                <i class="bi bi-graph-up text-success"></i>
+                            </div>
+                            <h4 class="card-title">Learning Progress</h4>
+                            <p class="card-text">Track your child's learning journey and educational achievements.</p>
+                            <ul class="feature-list">
+                                <li><i class="bi bi-check-circle"></i> Progress Reports</li>
+                                <li><i class="bi bi-check-circle"></i> Skill Development</li>
+                                <li><i class="bi bi-check-circle"></i> Achievement Tracking</li>
+                            </ul>
+                            <button class="btn btn-outline-success mt-3">
+                                <i class="bi bi-bar-chart me-2"></i>View Progress
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Safety Guide Card -->
+                <div class="col-lg-4">
+                    <div class="parent-card card h-100" onclick="showParentModal('safety')">
+                        <div class="card-body">
+                            <div class="feature-icon mb-3">
+                                <i class="bi bi-heart text-danger"></i>
+                            </div>
+                            <h4 class="card-title">Safety Guide</h4>
+                            <p class="card-text">Learn about our safety measures and get tips for online safety.</p>
+                            <ul class="feature-list">
+                                <li><i class="bi bi-check-circle"></i> Safety Guidelines</li>
+                                <li><i class="bi bi-check-circle"></i> Privacy Settings</li>
+                                <li><i class="bi bi-check-circle"></i> Support Resources</li>
+                            </ul>
+                            <button class="btn btn-outline-danger mt-3">
+                                <i class="bi bi-shield-check me-2"></i>Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Parent's Corner Modal -->
+        <div class="modal fade" id="parentModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title" id="parentModalTitle">Feature Coming Soon</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body text-center py-4">
+                        <div class="feature-coming-soon mb-4">
+                            <i class="bi bi-tools display-1 text-primary"></i>
+                        </div>
+                        <p class="mb-4" id="parentModalMessage">
+                            We're working hard to bring you this feature. Stay tuned!
+                        </p>
+                        <div class="notification-signup mb-4">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Enter your email">
+                                <button class="btn btn-primary">Notify Me</button>
+                            </div>
+                            <small class="text-muted mt-2 d-block">
+                                We'll notify you when this feature becomes available.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Games Section - Replace the existing games section -->
+    <section class="games-section py-5 bg-light">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="kid-title display-4 mb-3">Fun Games Corner 🎮</h2>
+                <p class="lead text-muted">Get ready for exciting adventures and challenges!</p>
+                <div class="coming-soon-badge mt-2">
+                    <span class="badge bg-warning text-dark px-3 py-2">
+                        <i class="bi bi-stars me-2"></i>New Games Coming Soon
+                    </span>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Game Card 1 - Math Adventure -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="game-card card h-100" onclick="showComingSoon('Math Adventure', 'Practice math with fun challenges!')">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1632501641765-e568d28b0015?w=800" 
+                                 class="card-img-top game-img" alt="Math Adventure">
+                            <div class="game-overlay">
+                                <div class="play-icon-wrapper">
+                                    <i class="bi bi-controller fs-1"></i>
+                                    <span class="mt-2 d-block">Coming Soon</span>
+                                </div>
+                            </div>
+                            <span class="difficulty-badge">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <div class="game-info">
+                                <h5 class="card-title mb-2">Math Adventure</h5>
+                                <p class="card-text text-muted">Solve puzzles and learn math in a fun way!</p>
+                            </div>
+                            <div class="game-stats mt-3">
+                                <span class="badge bg-light text-dark">
+                                    <i class="bi bi-people-fill me-1"></i>Ages 7-12
+                                </span>
+                                <span class="badge bg-light text-dark">
+                                    <i class="bi bi-clock-fill me-1"></i>15 mins
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 2 - Memory Quest -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="game-card card h-100" onclick="showComingSoon('Memory Quest', 'Test your memory with fun matching games!')">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1553481187-be93c21490a9?w=800" 
+                                 class="card-img-top game-img" alt="Memory Quest">
+                            <div class="game-overlay">
+                                <div class="play-icon-wrapper">
+                                    <i class="bi bi-controller fs-1"></i>
+                                    <span class="mt-2 d-block">Coming Soon</span>
+                                </div>
+                            </div>
+                            <span class="difficulty-badge">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <div class="game-info">
+                                <h5 class="card-title mb-2">Memory Quest</h5>
+                                <p class="card-text text-muted">Match cards and train your memory!</p>
+                            </div>
+                            <div class="game-stats mt-3">
+                                <span class="badge bg-light text-dark">
+                                    <i class="bi bi-people-fill me-1"></i>Ages 5-10
+                                </span>
+                                <span class="badge bg-light text-dark">
+                                    <i class="bi bi-clock-fill me-1"></i>10 mins
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 3 - Science Explorer -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="game-card card h-100" onclick="showComingSoon('Science Explorer', 'Discover amazing science facts!')">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1530973428-5bf2db2e4d71?w=800" 
+                                 class="card-img-top game-img" alt="Science Explorer">
+                            <div class="game-overlay">
+                                <div class="play-icon-wrapper">
+                                    <i class="bi bi-controller fs-1"></i>
+                                    <span class="mt-2 d-block">Coming Soon</span>
+                                </div>
+                            </div>
+                            <span class="difficulty-badge">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <div class="game-info">
+                                <h5 class="card-title mb-2">Science Explorer</h5>
+                                <p class="card-text text-muted">Learn science through experiments!</p>
+                            </div>
+                            <div class="game-stats mt-3">
+                                <span class="badge bg-light text-dark">
+                                    <i class="bi bi-people-fill me-1"></i>Ages 8-12
+                                </span>
+                                <span class="badge bg-light text-dark">
+                                    <i class="bi bi-clock-fill me-1"></i>20 mins
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Coming Soon Modal -->
+        <div class="modal fade" id="comingSoonModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center py-4">
+                        <div class="coming-soon-icon mb-4">
+                            <i class="bi bi-controller display-1 text-primary"></i>
+                            <div class="loading-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <h3 class="kid-title mb-3" id="modalGameTitle">Coming Soon!</h3>
+                        <p class="mb-4" id="modalGameDescription">Our awesome games are under construction.</p>
+                        <div class="notification-box mb-4">
+                            <i class="bi bi-bell me-2"></i>
+                            Want to be notified when games are ready?
+                        </div>
+                        <button type="button" class="btn btn-fun" data-bs-dismiss="modal">
+                            <i class="bi bi-emoji-smile me-2"></i>Can't Wait!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Enhanced Footer with Dark Theme -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+          <!-- Main Footer Content -->
+          <div class="row g-4">
+            <!-- About Section -->
+            <div class="col-lg-4 col-md-6">
+              <div class="mb-4">
+                <a class="navbar-brand" href="#">
+                  <i class="bi bi-pencil-square text-warning fs-4 me-2"></i>
+                  <span class="fw-bold"
+                    >Blog<span class="text-warning">Space</span></span
+                  >
+                </a>
+              </div>
+              <p class="text-light">
+                Your daily source for stories, shayaris, cartoons, and news. Join
+                our community of writers and readers.
+              </p>
+              <div class="social-links">
+                <a href="#" class="text-light me-3"
+                  ><i class="bi bi-facebook fs-5"></i
+                ></a>
+                <a href="#" class="text-light me-3"
+                  ><i class="bi bi-twitter-x fs-5"></i
+                ></a>
+                <a href="#" class="text-light me-3"
+                  ><i class="bi bi-instagram fs-5"></i
+                ></a>
+                <a href="#" class="text-light me-3"
+                  ><i class="bi bi-linkedin fs-5"></i
+                ></a>
+                <a href="#" class="text-light"
+                  ><i class="bi bi-youtube fs-5"></i
+                ></a>
+              </div>
+            </div>
+  
+            <!-- Quick Links -->
+            <div class="col-lg-2 col-md-6">
+              <h5 class="text-white mb-4">Quick Links</h5>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none">Home</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none">About Us</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none">Contact</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none"
+                    >Write for Us</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none"
+                    >Advertise</a
+                  >
+                </li>
+              </ul>
+            </div>
+  
+            <!-- Categories -->
+            <div class="col-lg-2 col-md-6">
+              <h5 class="text-white mb-4">Categories</h5>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none"
+                    >Technology</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none"
+                    >Lifestyle</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none">Travel</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none">Food</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none">Health</a>
+                </li>
+              </ul>
+            </div>
+  
+            <!-- Newsletter -->
+            <div class="col-lg-4 col-md-6">
+              <h5 class="text-white mb-4">Newsletter</h5>
+              <p class="text-light">
+                Subscribe to our newsletter for the latest updates and exclusive
+                content.
+              </p>
+              <div class="input-group mb-3">
+                <input
+                  type="email"
+                  class="form-control bg-dark text-light border-secondary"
+                  placeholder="Enter your email"
+                  aria-label="Email"
+                  aria-describedby="subscribe-btn"
+                />
+                <button class="btn btn-warning" type="button" id="subscribe-btn">
+                  Subscribe
+                </button>
+              </div>
+              <small class="text-light"
+                >By subscribing, you agree to our Privacy Policy</small
+              >
+            </div>
+          </div>
+  
+          <!-- Horizontal Line -->
+          <hr class="my-4 border-secondary" />
+  
+          <!-- Bottom Footer -->
+          <div class="row align-items-center">
+            <!-- Copyright -->
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+              <small class="text-light">
+                &copy; 2024 BlogSpace. All rights reserved.
+              </small>
+            </div>
+  
+            <!-- Legal Links -->
+            <div class="col-md-6">
+              <ul class="list-inline text-center text-md-end mb-0">
+                <li class="list-inline-item">
+                  <a href="#" class="text-light text-decoration-none small"
+                    >Privacy Policy</a
+                  >
+                </li>
+                <li class="list-inline-item ms-3">
+                  <a href="#" class="text-light text-decoration-none small"
+                    >Terms of Use</a
+                  >
+                </li>
+                <li class="list-inline-item ms-3">
+                  <a href="#" class="text-light text-decoration-none small"
+                    >Cookie Policy</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+  
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow.js/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script>
+        function showComingSoon(gameTitle, description) {
+            const modal = new bootstrap.Modal(document.getElementById('comingSoonModal'));
+            document.getElementById('modalGameTitle').textContent = gameTitle;
+            document.getElementById('modalGameDescription').textContent = description;
+            modal.show();
+        }
+    </script>
+    <script>
+        function showParentModal(feature) {
+            const modal = new bootstrap.Modal(document.getElementById('parentModal'));
+            const title = document.getElementById('parentModalTitle');
+            const message = document.getElementById('parentModalMessage');
+
+            switch(feature) {
+                case 'controls':
+                    title.textContent = 'Parental Controls Coming Soon';
+                    message.textContent = 'We re developing comprehensive parental controls to help you manage your childs experience.';
+                    break;
+                case 'progress':
+                    title.textContent = 'Learning Progress Tracking Coming Soon';
+                    message.textContent = 'Soon you ll be able to track your child s learning journey and achievements.';
+                    break;
+                case 'safety':
+                    title.textContent = 'Safety Guide Coming Soon';
+                    message.textContent = 'Our detailed safety guide and resources are being prepared to help ensure a safe online experience.';
+                    break;
+            }
+
+            modal.show();
+        }
+    </script>
+</body>
+</html> 

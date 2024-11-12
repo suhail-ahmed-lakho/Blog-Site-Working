@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Essential Meta Tags -->
+    <meta name="description" content="Discover a collection of engaging short stories on BlogSpace. Read captivating tales across various genres.">
+    <meta name="keywords" content="short stories, quick reads, fiction stories, story collection, BlogSpace stories">
+    <meta name="author" content="BlogSpace">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Short Stories - BlogSpace">
+    <meta property="og:description" content="Explore our collection of engaging short stories">
+    <meta property="og:image" content="../assets/images/stories-preview.jpg">
+    <meta property="og:url" content="https://blogspace.com/stories/short">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Short Stories - BlogSpace">
+    <meta name="twitter:description" content="Discover captivating short stories on BlogSpace">
+    
+    <title>Short Stories - BlogSpace</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+
+    <!-- CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../assets/css/stories.css">
+
+    <!-- Add these font links in your head section -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gulzar&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+          <!-- Brand -->
+          <a class="navbar-brand" href="../index.html">
+            <i class="bi bi-pencil-square text-warning me-2"></i>
+            <span>Blog<span class="text-warning">Space</span></span>
+          </a>
+  
+          <!-- Mobile Toggle -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarContent"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <!-- Nav Content -->
+          <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav me-auto">
+              <!-- Home -->
+              <li class="nav-item">
+                <a class="nav-link active" href="../index.html">
+                  <i class="bi bi-house-door me-1"></i>Home
+                </a>
+              </li>
+  
+              <!-- Shayaris -->
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                  <i class="bi bi-heart me-1"></i>Shayaris
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="../shayari-pages/love.html">
+                      <i class="bi bi-heart-fill me-2 text-danger"></i>Love
+                      Shayari
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="../shayari-pages/friendship.html">
+                      <i class="bi bi-people-fill me-2 text-info"></i>Friendship
+                      Shayari
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="../shayari-pages/sad.html">
+                      <i class="bi bi-cloud-rain-fill me-2 text-primary"></i>Sad
+                      Shayari
+                    </a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="../shayari-pages/all-shayaris.html">
+                      <i class="bi bi-collection-fill me-2 text-warning"></i>View
+                      All
+                    </a>
+                  </li>
+                </ul>
+              </li>
+  
+              <!-- Cartoons -->
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                  <i class="bi bi-emoji-smile me-1"></i>Cartoons
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="./anime.html">
+                      <i class="bi bi-star-fill me-2 text-warning"></i>Anime
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./comics.html">
+                      <i class="bi bi-book-fill me-2 text-success"></i>Comics
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./kids.html">
+                      <i class="bi bi-balloon-fill me-2 text-danger"></i>Kids
+                      Cartoons
+                    </a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="./cartoon-pages/all-cartoons.html"
+                    >
+                      <i class="bi bi-collection-fill me-2 text-warning"></i>View
+                      All
+                    </a>
+                  </li>
+                </ul>
+              </li>
+  
+              <!-- Stories -->
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                  <i class="bi bi-book me-1"></i>Stories
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="./story-pages/short.html">
+                      <i class="bi bi-bookmark-fill me-2 text-primary"></i>Short
+                      Stories
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./story-pages/moral.html">
+                      <i class="bi bi-lightbulb-fill me-2 text-warning"></i>Moral
+                      Stories
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./story-pages/bedtime.html">
+                      <i class="bi bi-moon-stars-fill me-2 text-info"></i>Bedtime
+                      Stories
+                    </a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="./story-pages/all-stories.html"
+                    >
+                      <i class="bi bi-collection-fill me-2 text-warning"></i>View
+                      All
+                    </a>
+                  </li>
+                </ul>
+              </li>
+  
+              <!-- Weather -->
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/weather.html">
+                  <i class="bi bi-cloud-sun me-1"></i>Weather
+                </a>
+              </li>
+            </ul>
+  
+            <!-- Search -->
+            <form class="d-flex mx-lg-2">
+              <div class="input-group">
+                <input
+                  type="search"
+                  class="form-control form-control-sm custom-search"
+                  placeholder="Search..."
+                  aria-label="Search"
+                />
+                <button class="btn btn-warning btn-sm" type="submit">
+                  <i class="bi bi-search"></i>
+                </button>
+              </div>
+            </form>
+  
+            <!-- Account -->
+            <div class="nav-item dropdown">
+              <a
+                class="nav-link user-dropdown"
+                href="#"
+                data-bs-toggle="dropdown"
+              >
+                <i class="bi bi-person-circle fs-5 text-warning"></i>
+                <span class="d-none d-lg-inline">Account</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="../pages/login.html">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../pages/register.html">
+                    <i class="bi bi-person-plus me-2"></i>Register
+                  </a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="../pages/profile.html">
+                    <i class="bi bi-person-circle me-2"></i>Profile
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    
+    <!-- Enhanced Hero Section -->
+    <section class="hero-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content" data-aos="fade-right">
+                    <span class="badge bg-primary-subtle text-primary mb-3 animate-badge">
+                        <i class="bi bi-book-half me-1"></i>Featured Collection
+                    </span>
+                    <h1 class="display-4 fw-bold mb-3 text-gradient">
+                        Discover Amazing Short Stories
+                    </h1>
+                    <p class="lead text-muted mb-4 animate-text">
+                        Immerse yourself in captivating tales that will transport you to new worlds in just a few minutes. From mystery to romance, find your perfect story.
+                    </p>
+                    <div class="d-flex gap-3 hero-buttons">
+                        <button class="btn btn-primary btn-lg pulse-button">
+                            <i class="bi bi-book-reader me-2"></i>Start Reading
+                        </button>
+                        <button class="btn btn-outline-dark btn-lg hover-float">
+                            <i class="bi bi-collection me-2"></i>Browse Collection
+                        </button>
+                    </div>
+                    <div class="story-stats mt-4 animate-stats">
+                        <div class="row g-3">
+                            <div class="col-auto">
+                                <div class="stat-item">
+                                    <span class="h4 mb-0">500+</span>
+                                    <small class="text-muted d-block">Stories</small>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="stat-item">
+                                    <span class="h4 mb-0">50k+</span>
+                                    <small class="text-muted d-block">Readers</small>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="stat-item">
+                                    <span class="h4 mb-0">100+</span>
+                                    <small class="text-muted d-block">Authors</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 position-relative" data-aos="fade-left">
+                    <div class="hero-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1474932430478-367dbb6832c1?w=800" 
+                             alt="Reading Stories" class="main-image img-fluid rounded-4 shadow-lg">
+                        <div class="floating-card card-1" data-aos="fade-up" data-aos-delay="200">
+                            <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=200" 
+                                 alt="Story 1" class="rounded">
+                            <div class="card-content">
+                                <h6 class="mb-1">Mystery Tales</h6>
+                                <small class="text-muted">20+ New Stories</small>
+                            </div>
+                        </div>
+                        <div class="floating-card card-2" data-aos="fade-up" data-aos-delay="400">
+                            <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=200" 
+                                 alt="Story 2" class="rounded">
+                            <div class="card-content">
+                                <h6 class="mb-1">Romance</h6>
+                                <small class="text-muted">15+ New Stories</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Grid Section -->
+    <section class="stories-section py-5">
+        <div class="container">
+            <!-- Filter Controls -->
+            <div class="filter-controls mb-5" data-aos="fade-up">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="d-flex gap-2 flex-wrap">
+                            <button class="btn btn-filter active" data-filter="all">All Stories</button>
+                            <button class="btn btn-filter" data-filter="mystery">Mystery</button>
+                            <button class="btn btn-filter" data-filter="romance">Romance</button>
+                            <button class="btn btn-filter" data-filter="adventure">Adventure</button>
+                            <button class="btn btn-filter" data-filter="scifi">Sci-Fi</button>
+                            <button class="btn btn-filter" data-filter="urdu">Urdu Stories</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="storySearch" placeholder="Search stories...">
+                            <button class="btn btn-primary">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stories Grid -->
+            <div class="row g-4" id="storiesGrid">
+                <!-- Mystery Story -->
+                <div class="col-lg-4 col-md-6" data-category="mystery">
+                    <div class="story-card card h-100" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800" 
+                             class="card-img-top" alt="The Missing Locket">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-danger">Mystery</span>
+                                <span class="reading-time">
+                                    <i class="bi bi-clock"></i> 10 mins
+                                </span>
+                            </div>
+                            <h5 class="card-title">The Missing Locket</h5>
+                            <p class="card-text">Detective Sarah Parker investigates the mysterious disappearance of an ancient family heirloom...</p>
+                            <div class="story-meta">
+                                <small class="text-muted">
+                                    <i class="bi bi-eye"></i> 2.5k reads
+                                    <span class="mx-2">•</span>
+                                    <i class="bi bi-star-fill text-warning"></i> 4.8
+                                </small>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <button class="btn btn-primary w-100" onclick="showStory('mystery-1')">Read Now</button>
+                        </div>
+                        
+                        <!-- Hidden full story content -->
+                        <div class="full-story d-none" id="mystery-1">
+                            <div class="story-header">
+                                <img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800" 
+                                     class="img-fluid rounded mb-4" alt="The Missing Locket">
+                                <div class="story-meta mb-4">
+                                    <span class="badge bg-danger mb-2">Mystery</span>
+                                    <h2 class="story-title">The Missing Locket</h2>
+                                    <div class="author-info">
+                                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" 
+                                             class="author-avatar" alt="Author">
+                                        <div>
+                                            <p class="author-name mb-0">By Sarah Johnson</p>
+                                            <small class="text-muted">Published on Oct 15, 2023</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="story-body">
+                                <p>Detective Sarah Parker stood at the entrance of the Victorian mansion, her keen eyes taking in every detail. The morning fog wrapped around the building like a mysterious shroud, setting the perfect atmosphere for the case that lay before her.</p>
+
+                                <p>Mrs. Eleanor Blackwood, the mansion's elderly owner, had reported the disappearance of a family heirloom - a golden locket that had been passed down through five generations. But this wasn't just any piece of jewelry; according to family legend, it held a secret that could change everything.</p>
+
+                                <p>"It was right here," Mrs. Blackwood said, pointing to an empty velvet box on her dresser. "I checked it last night before bed, as I always do. When I woke this morning, it was gone."</p>
+
+                                <p>Sarah noted that there were no signs of forced entry, no broken windows, no picked locks. This was an inside job, she was certain of it. But with a house full of staff and family members, each with their own possible motives, where should she begin?</p>
+
+                                <p>The detective spent the next few hours interviewing the household. The gardener with gambling debts. The cook who'd recently been caught stealing silverware. The jealous nephew who'd been passed over in the will. Each had an alibi, each had a secret, but none seemed to fit perfectly with the crime.</p>
+
+                                <p>It wasn't until she noticed something peculiar about Mrs. Blackwood's behavior that the pieces started falling into place. The way she touched the empty box, the slight smile when speaking of the locket's disappearance, the careful way she watched her family's reactions.</p>
+
+                                <p>As Sarah pieced together the final clues, she couldn't help but smile. The locket hadn't been stolen at all. It had been carefully hidden by Mrs. Blackwood herself - a test for her potential heirs. And now, watching their reactions to its disappearance, she knew exactly who deserved to inherit not just the locket, but the entire estate.</p>
+
+                                <p>Sometimes the greatest mysteries aren't about finding what's lost, but discovering what's been right in front of us all along.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Romance Story -->
+                <div class="col-lg-4 col-md-6" data-category="romance">
+                    <div class="story-card card h-100" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=800" 
+                             class="card-img-top" alt="Coffee Shop Love">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-pink">Romance</span>
+                                <span class="reading-time">
+                                    <i class="bi bi-clock"></i> 8 mins
+                                </span>
+                            </div>
+                            <h5 class="card-title">Coffee Shop Love</h5>
+                            <p class="card-text">A chance encounter at a local coffee shop leads to an unexpected connection...</p>
+                            <div class="story-meta">
+                                <small class="text-muted">
+                                    <i class="bi bi-eye"></i> 3.1k reads
+                                    <span class="mx-2">•</span>
+                                    <i class="bi bi-star-fill text-warning"></i> 4.9
+                                </small>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <button class="btn btn-primary w-100" onclick="showStory('romance-1')">Read Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adventure Story -->
+                <div class="col-lg-4 col-md-6" data-category="adventure">
+                    <div class="story-card card h-100" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800" 
+                             class="card-img-top" alt="Mountain Quest">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-success">Adventure</span>
+                                <span class="reading-time">
+                                    <i class="bi bi-clock"></i> 15 mins
+                                </span>
+                            </div>
+                            <h5 class="card-title">Mountain Quest</h5>
+                            <p class="card-text">A young explorer embarks on a dangerous journey to find a legendary artifact...</p>
+                            <div class="story-meta">
+                                <small class="text-muted">
+                                    <i class="bi bi-eye"></i> 1.8k reads
+                                    <span class="mx-2">•</span>
+                                    <i class="bi bi-star-fill text-warning"></i> 4.7
+                                </small>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <button class="btn btn-primary w-100" onclick="showStory('adventure-1')">Read Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Urdu Story 1 -->
+                <div class="col-lg-4 col-md-6" data-category="urdu">
+                    <div class="story-card card h-100" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=800" 
+                             class="card-img-top" alt="انتظار">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-info">Urdu</span>
+                                <span class="reading-time">
+                                    <i class="bi bi-clock"></i> 12 mins
+                                </span>
+                            </div>
+                            <h5 class="card-title">انتظار</h5>
+                            <p class="card-text">ایک خوبصورت کہانی جو محبت اور وفا کی داستان بیان کرتی ہے...</p>
+                            <div class="story-meta">
+                                <small class="text-muted">
+                                    <i class="bi bi-eye"></i> 3.2k reads
+                                    <span class="mx-2">•</span>
+                                    <i class="bi bi-star-fill text-warning"></i> 4.9
+                                </small>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <button class="btn btn-primary w-100" onclick="showStory('urdu-1')">Read Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Urdu Story 2 -->
+                <div class="col-lg-4 col-md-6" data-category="urdu">
+                    <div class="story-card card h-100" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?w=800" 
+                             class="card-img-top" alt="خواب کی تعبیر">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-info">Urdu</span>
+                                <span class="reading-time">
+                                    <i class="bi bi-clock"></i> 15 mins
+                                </span>
+                            </div>
+                            <h5 class="card-title">خواب کی تعبیر</h5>
+                            <p class="card-text">ایک نوجوان کی کہانی جو اپنے خوابوں کی تعبیر کی تلاش میں نکل پڑا...</p>
+                            <div class="story-meta">
+                                <small class="text-muted">
+                                    <i class="bi bi-eye"></i> 2.8k reads
+                                    <span class="mx-2">•</span>
+                                    <i class="bi bi-star-fill text-warning"></i> 4.7
+                                </small>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <button class="btn btn-primary w-100" onclick="showStory('urdu-2')">Read Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Urdu Story 3 -->
+                <div class="col-lg-4 col-md-6" data-category="urdu">
+                    <div class="story-card card h-100" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800" 
+                             class="card-img-top" alt="پرانی یادیں">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-info">Urdu</span>
+                                <span class="reading-time">
+                                    <i class="bi bi-clock"></i> 8 mins
+                                </span>
+                            </div>
+                            <h5 class="card-title">پرانی یادیں</h5>
+                            <p class="card-text">ماضی کی یادوں کا ایک خوبصورت سفر، جہاں ہر موڑ پر ایک نئی کہانی چھپی ہے...</p>
+                            <div class="story-meta">
+                                <small class="text-muted">
+                                    <i class="bi bi-eye"></i> 1.9k reads
+                                    <span class="mx-2">•</span>
+                                    <i class="bi bi-star-fill text-warning"></i> 4.8
+                                </small>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <button class="btn btn-primary w-100" onclick="showStory('urdu-3')">Read Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more story cards as needed -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-5">
+                <button class="btn btn-outline-primary btn-lg" data-aos="fade-up">
+                    <i class="bi bi-plus-circle me-2"></i>Load More Stories
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+     <!-- Enhanced Footer with Dark Theme -->
+     <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+          <!-- Main Footer Content -->
+          <div class="row g-4">
+            <!-- About Section -->
+            <div class="col-lg-4 col-md-6">
+              <div class="mb-4">
+                <a class="navbar-brand" href="#">
+                  <i class="bi bi-pencil-square text-warning fs-4 me-2"></i>
+                  <span class="fw-bold"
+                    >Blog<span class="text-warning">Space</span></span
+                  >
+                </a>
+              </div>
+              <p class="text-light">
+                Your daily source for stories, shayaris, cartoons, and news. Join
+                our community of writers and readers.
+              </p>
+              <div class="social-links">
+                <a href="#" class="text-light me-3"
+                  ><i class="bi bi-facebook fs-5"></i
+                ></a>
+                <a href="#" class="text-light me-3"
+                  ><i class="bi bi-twitter-x fs-5"></i
+                ></a>
+                <a href="#" class="text-light me-3"
+                  ><i class="bi bi-instagram fs-5"></i
+                ></a>
+                <a href="#" class="text-light me-3"
+                  ><i class="bi bi-linkedin fs-5"></i
+                ></a>
+                <a href="#" class="text-light"
+                  ><i class="bi bi-youtube fs-5"></i
+                ></a>
+              </div>
+            </div>
+  
+            <!-- Quick Links -->
+            <div class="col-lg-2 col-md-6">
+              <h5 class="text-white mb-4">Quick Links</h5>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none">Home</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none">About Us</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none">Contact</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none"
+                    >Write for Us</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none"
+                    >Advertise</a
+                  >
+                </li>
+              </ul>
+            </div>
+  
+            <!-- Categories -->
+            <div class="col-lg-2 col-md-6">
+              <h5 class="text-white mb-4">Categories</h5>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none"
+                    >Technology</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none"
+                    >Lifestyle</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none">Travel</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none">Food</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-light text-decoration-none">Health</a>
+                </li>
+              </ul>
+            </div>
+  
+            <!-- Newsletter -->
+            <div class="col-lg-4 col-md-6">
+              <h5 class="text-white mb-4">Newsletter</h5>
+              <p class="text-light">
+                Subscribe to our newsletter for the latest updates and exclusive
+                content.
+              </p>
+              <div class="input-group mb-3">
+                <input
+                  type="email"
+                  class="form-control bg-dark text-light border-secondary"
+                  placeholder="Enter your email"
+                  aria-label="Email"
+                  aria-describedby="subscribe-btn"
+                />
+                <button class="btn btn-warning" type="button" id="subscribe-btn">
+                  Subscribe
+                </button>
+              </div>
+              <small class="text-light"
+                >By subscribing, you agree to our Privacy Policy</small
+              >
+            </div>
+          </div>
+  
+          <!-- Horizontal Line -->
+          <hr class="my-4 border-secondary" />
+  
+          <!-- Bottom Footer -->
+          <div class="row align-items-center">
+            <!-- Copyright -->
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+              <small class="text-light">
+                &copy; 2024 BlogSpace. All rights reserved.
+              </small>
+            </div>
+  
+            <!-- Legal Links -->
+            <div class="col-md-6">
+              <ul class="list-inline text-center text-md-end mb-0">
+                <li class="list-inline-item">
+                  <a href="#" class="text-light text-decoration-none small"
+                    >Privacy Policy</a
+                  >
+                </li>
+                <li class="list-inline-item ms-3">
+                  <a href="#" class="text-light text-decoration-none small"
+                    >Terms of Use</a
+                  >
+                </li>
+                <li class="list-inline-item ms-3">
+                  <a href="#" class="text-light text-decoration-none small"
+                    >Cookie Policy</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+  
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/stories.js"></script>
+
+    <!-- Add these styles -->
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .text-gradient {
+            background: linear-gradient(45deg, #2937f0, #9f1ae2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .animate-badge {
+            animation: slideDown 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .animate-text {
+            animation: slideUp 0.5s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons {
+            animation: slideUp 0.5s ease 0.6s forwards;
+            opacity: 0;
+        }
+
+        .animate-stats {
+            animation: slideUp 0.5s ease 0.9s forwards;
+            opacity: 0;
+        }
+
+        .pulse-button {
+            animation: pulse 2s infinite;
+        }
+
+        .hover-float:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            padding: 20px;
+        }
+
+        .main-image {
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+        }
+
+        .floating-card img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+        .card-1 {
+            top: 20%;
+            left: -30px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .card-2 {
+            bottom: 20%;
+            right: -30px;
+            animation: float 3s ease-in-out infinite 1.5s;
+        }
+
+        .stat-item {
+            padding: 10px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(var(--bs-primary-rgb), 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(var(--bs-primary-rgb), 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(var(--bs-primary-rgb), 0);
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 991px) {
+            .floating-card {
+                display: none;
+            }
+            
+            .hero-image-wrapper {
+                margin-top: 40px;
+            }
+        }
+
+        .story-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        .story-card .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .btn-filter {
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: #f8f9fa;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-filter.active {
+            background: var(--bs-primary);
+            color: white;
+        }
+
+        .btn-filter:hover:not(.active) {
+            background: #e9ecef;
+        }
+
+        .reading-time {
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+
+        .bg-pink {
+            background-color: #ff4f81;
+            color: white;
+        }
+
+        /* Animation for filtering */
+        .story-card {
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-content {
+            border: none;
+            border-radius: 15px;
+        }
+
+        .story-content {
+            padding: 2rem;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .story-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        .story-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-like, .btn-share {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-like:hover {
+            color: #dc3545;
+        }
+
+        .btn-like.active {
+            color: #dc3545;
+        }
+
+        .story-navigation {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Reading progress bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--bs-primary);
+            z-index: 1060;
+            transition: width 0.2s ease;
+        }
+
+        /* Modal animations */
+        .modal.fade .modal-dialog {
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.show .modal-dialog {
+            transform: scale(1);
+        }
+
+        .urdu-text {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            direction: rtl;
+            text-align: right;
+            line-height: 2;
+            font-size: 1.2rem;
+        }
+
+        .urdu-title {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            direction: rtl;
+            text-align: right;
+        }
+
+        .story-card[data-category="urdu"] .card-title,
+        .story-card[data-category="urdu"] .card-text {
+            direction: rtl;
+            text-align: right;
+            font-family: 'Noto Nastaliq Urdu', serif;
+        }
+
+        /* Add Urdu font */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+
+        /* Enhanced styles for Urdu text */
+        .urdu-text {
+            font-family: 'Noto Nastaliq Urdu', 'Aref Ruqaa Ink', 'Gulzar', serif;
+            direction: rtl;
+            text-align: right;
+            line-height: 2.5;
+            font-size: 1.3rem;
+            color: #2c3e50;
+        }
+
+        .urdu-title {
+            font-family: 'Aref Ruqaa Ink', 'Noto Nastaliq Urdu', serif;
+            font-weight: 700;
+            direction: rtl;
+            text-align: right;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .story-card[data-category="urdu"] .card-title {
+            font-family: 'Gulzar', 'Noto Nastaliq Urdu', serif;
+            font-size: 1.5rem;
+            direction: rtl;
+            text-align: right;
+        }
+
+        .story-card[data-category="urdu"] .card-text {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            direction: rtl;
+            text-align: right;
+            line-height: 1.8;
+        }
+
+        /* Enhanced modal styles */
+        .modal-content {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .story-content {
+            padding: 2.5rem;
+            max-height: 75vh;
+            overflow-y: auto;
+        }
+
+        .story-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .story-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .story-content::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        .story-content::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Story header enhancements */
+        .story-header {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .story-header img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Reading progress bar */
+        .progress-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #2937f0, #9f1ae2);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .story-content p {
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .story-content p:nth-child(1) { animation-delay: 0.1s; }
+        .story-content p:nth-child(2) { animation-delay: 0.2s; }
+        .story-content p:nth-child(3) { animation-delay: 0.3s; }
+        /* ... and so on */
+    </style>
+
+    <!-- Add AOS library for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+        });
+    </script>
+
+    <!-- Add this script for filtering functionality -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.btn-filter');
+        const storyCards = document.querySelectorAll('.story-card');
+        const searchInput = document.getElementById('storySearch');
+
+        // Filter functionality
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+                
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Filter stories
+                document.querySelectorAll('#storiesGrid > div').forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            document.querySelectorAll('#storiesGrid > div').forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const text = card.querySelector('.card-text').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || text.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+    </script>
+
+    <!-- Add this modal for full story view -->
+    <div class="modal fade" id="storyModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body story-content">
+                    <!-- Story content will be loaded here -->
+                </div>
+                <div class="modal-footer border-0">
+                    <div class="d-flex justify-content-between w-100">
+                        <div class="story-actions">
+                            <button class="btn btn-like">
+                                <i class="bi bi-heart"></i>
+                                <span class="likes-count">245</span>
+                            </button>
+                            <button class="btn btn-share">
+                                <i class="bi bi-share"></i>
+                            </button>
+                        </div>
+                        <div class="story-navigation">
+                            <button class="btn btn-outline-primary me-2">
+                                <i class="bi bi-arrow-left"></i> Previous
+                            </button>
+                            <button class="btn btn-outline-primary">
+                                Next <i class="bi bi-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this script -->
+    <script>
+    function showStory(storyId) {
+        const stories = {
+            'mystery-1': {
+                title: "The Missing Locket",
+                author: "Sarah Johnson",
+                date: "October 15, 2023",
+                category: "Mystery",
+                image: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800",
+                content: `
+                    <p>Detective Sarah Parker stood at the entrance of the Victorian mansion, her keen eyes taking in every detail. The morning fog wrapped around the building like a mysterious shroud, setting the perfect atmosphere for the case that lay before her.</p>
+                    
+                    <p>Mrs. Eleanor Blackwood, the mansion's elderly owner, had reported the disappearance of a family heirloom - a golden locket that had been passed down through five generations. But this wasn't just any piece of jewelry; according to family legend, it held a secret that could change everything.</p>
+                    
+                    <p>"It was right here," Mrs. Blackwood said, pointing to an empty velvet box on her dresser. "I checked it last night before bed, as I always do. When I woke this morning, it was gone."</p>
+                    
+                    <p>Sarah noted that there were no signs of forced entry, no broken windows, no picked locks. This was an inside job, she was certain of it. But with a house full of staff and family members, each with their own possible motives, where should she begin?</p>
+                    
+                    <p>The detective spent the next few hours interviewing the household. The gardener with gambling debts. The cook who'd recently been caught stealing silverware. The jealous nephew who'd been passed over in the will. Each had an alibi, each had a secret, but none seemed to fit perfectly with the crime.</p>
+                    
+                    <p>It wasn't until she noticed something peculiar about Mrs. Blackwood's behavior that the pieces started falling into place. The way she touched the empty box, the slight smile when speaking of the locket's disappearance, the careful way she watched her family's reactions.</p>
+                    
+                    <p>As Sarah pieced together the final clues, she couldn't help but smile. The locket hadn't been stolen at all. It had been carefully hidden by Mrs. Blackwood herself - a test for her potential heirs. And now, watching their reactions to its disappearance, she knew exactly who deserved to inherit not just the locket, but the entire estate.</p>
+                    
+                    <p>Sometimes the greatest mysteries aren't about finding what's lost, but discovering what's been right in front of us all along.</p>`
+            },
+            'urdu-1': {
+                title: "انتظار",
+                author: "فرحان احمد",
+                date: "١٥ اکتوبر ٢٠٢٣",
+                category: "Urdu",
+                image: "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800",
+                content: `<div class="urdu-text">
+                            <p>شام کے دھندلکے میں وہ پھر اسی بینچ پر بیٹھی تھی۔ یہ سلسلہ پچھلے پانچ سال سے جاری تھا۔ ہر شام، اسی وقت، اسی جگہ۔ لوگ اسے دیکھتے، مسکراتے اور آگے نکل جاتے۔</p>
+
+                            <p>زینب کے چہرے پر وقت کی دھول نے اپنے نشان چھوڑے تھے، لیکن آنکھوں میں وہی چمک، وہی امید آج بھی زندہ تھی۔ پانچ سال پہلے اسی بینچ پر احمد نے وعدہ کیا تھا کہ وہ واپس آئے گا۔ جنگ اسے اپنے ساتھ لے گئی تھی، لیکن اس کا دل یہیں رہ گیا تھا۔</p>
+
+                            <p>لوگ کہتے تھے کہ وہ پاگل ہے، لیکن انہیں کیا معلوم کہ محبت کیا ہوتی ہے۔ ہر شام وہ اپنی سفید چادر میں لپٹی، اپنی کہانی کو سینے سے لگائے بیٹھی رہتی۔ موسم بدلتے، لوگ بدلتے، لیکن اس کا انتظار نہ بدلا۔</p>
+
+                            <p>آج کچھ مختلف تھا۔ ہوا میں ایک اجنبی سی خوشبو تھی۔ دور سے آتی قدموں کی آہٹ میں ایک جانی پہچانی سی آواز تھی۔ زینب نے سر اٹھایا، اور اس کی آنکھیں خوشی سے چمک اٹھیں۔</p>
+
+                            <p>وہ آ گیا تھا۔ وہی مسکراہٹ، وہی آنکھیں، بس چہرے پر جنگ کے نشان تھے۔ "میں نے کہا تھا نا، میں واپس آؤں گا،" احمد نے کہا۔ زینب کی آنکھوں سے آنسو بہنے لگے، پانچ سال کے آنسو، پانچ سال کی یادیں، پانچ سال کا انتظار۔</p>
+
+                            <p>اس دن کے بعد لوگوں نے اس بینچ پر دو لوگوں کو بیٹھے دیکھا۔ ایک بوڑھی عورت، سفید چادر میں لپٹی، اور ایک بوڑھا فوجی، جنگ کے نشان لیے۔ دونوں کی آنکھوں میں وہی چمک، وہی محبت، اور اب انتظار کی کہانی مکمل ہو گئی تھی۔</p>
+
+                            <p>کہتے ہیں کہ محبت انتظار کا دوسرا نام ہے۔ زینب اور احمد کی کہانی اس بات کا ثبوت تھی کہ سچی محبت وقت کی دھار پر بھی اپنی چمک نہیں کھوتی۔</p>
+                         </div>`
+            },
+            'urdu-2': {
+                title: "خواب کی تعبیر",
+                author: "عائشہ کمال",
+                date: "١٦ اکتوبر ٢٠٢٣",
+                category: "Urdu",
+                image: "https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?w=800",
+                content: `<div class="urdu-text">
+                            <p>ہر رات وہی خواب۔ ایک پرانی حویلی، ایک کھلی کتاب، اور ایک پیغام جو اس کے لیے انتظار کر رہا تھا۔ علی نے اپنے دادا سے سنا تھا کہ خواب کبھی کبھی حقیقت کا دروازہ ہوتے ہیں۔</p>
+
+                            <p>حویلی کی دیواریں زمانے کی دھول سے سیاہ ہو چکی تھیں۔ کھڑکیوں کے شیشے ٹوٹے ہوئے تھے، جن میں سے ہوا سرسراتی ہوئی گزرتی۔ لیکن اس کے باوجود، اس جگہ میں ایک عجیب سی کشش تھی۔</p>
+
+                            <p>علی نے کتاب کو ہاتھ میں لیا۔ اس کے صفحات زرد ہو چکے تھے، لیکن حروف ابھی بھی واضح تھے۔ یہ اس کے دادا کی ڈائری تھی، جس میں ان کے خواب اور ان کی تعبیریں درج تھیں۔</p>
+
+                            <p>صفحات پلٹتے ہوئے، اس کی نظر ایک خاص صفحے پر پڑی۔ "جو شخص خواب میں کھوئی ہوئی چیز تلاش کرتا ہے، وہ حقیقت میں اپنے آپ کو تلاش کر رہا ہوتا ہے۔" دادا کے یہ الفاظ اس کے دل میں گھر کر گئے۔</p>
+
+                            <p>اچانک، حویلی کی ایک کھڑکی سے چاند کی روشنی اندر آئی، اور کتاب کے صفحے خود ب خود پلٹنے لگے۔ علی کے سامنے ایک نقشہ نمودار ہوا - اسی حویلی کا نقشہ، جس میں ایک خزانے کا راز چھپا تھا۔</p>
+
+                            <p>اس نے سمجھ لیا کہ یہ خواب محض ایک خواب نہیں تھا۔ یہ اس کے دادا کا پیغام تھا، ایک راز جو صرف اسی کے لیے تھا۔ اب اسے معلوم تھا کہ اس کا سفر کہاں سے شروع ہونا ہے۔</p>
+                         </div>`
+            }
+            // ... Add other stories similarly
+        };
+
+        const story = stories[storyId];
+        const modalContent = `
+            <div class="story-header">
+                <span class="badge bg-${story.category.toLowerCase()} mb-2">${story.category}</span>
+                <h2 class="story-title ${story.category === 'Urdu' ? 'urdu-title' : ''}">${story.title}</h2>
+                <div class="author-info">
+                    <div>
+                        <p class="author-name mb-0">By ${story.author}</p>
+                        <small class="text-muted">Published on ${story.date}</small>
+                    </div>
+                </div>
+            </div>
+            <div class="story-body">
+                ${story.content}
+            </div>
+        `;
+
+        const modalBody = document.querySelector('.story-content');
+        modalBody.innerHTML = modalContent;
+        
+        const modal = new bootstrap.Modal(document.getElementById('storyModal'));
+        modal.show();
+
+        // Initialize reading progress bar
+        initializeReadingProgress();
+    }
+
+    // Add this function for reading progress
+    function initializeReadingProgress() {
+        const progressBar = document.createElement('div');
+        progressBar.className = 'progress-bar';
+        document.body.appendChild(progressBar);
+
+        const modalContent = document.querySelector('.story-content');
+        modalContent.addEventListener('scroll', () => {
+            const scrolled = modalContent.scrollTop;
+            const height = modalContent.scrollHeight - modalContent.clientHeight;
+            const progress = (scrolled / height) * 100;
+            progressBar.style.width = progress + '%';
+        });
+
+        // Clean up when modal is closed
+        document.getElementById('storyModal').addEventListener('hidden.bs.modal', () => {
+            progressBar.remove();
+        });
+    }
+    </script>
+</body>
+</html>
+
+
+
